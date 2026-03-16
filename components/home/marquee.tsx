@@ -21,21 +21,28 @@ export function Marquee() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, delay: 0.3 }}
-      className="border-t border-b border-border bg-surface overflow-hidden py-5"
+      className="overflow-hidden border-t border-b border-border bg-surface py-5"
     >
       <motion.div
+        className="flex w-max"
         animate={{ x: ["0%", "-50%"] }}
         transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-        className="flex gap-16 whitespace-nowrap w-max"
       >
-        {TAGLINE_ITEMS.map((t, i) => (
-          <span
-            key={i}
-            className="font-mono text-xxs tracking-[0.25em] uppercase text-white/30 shrink-0"
+        {[0, 1].map((group) => (
+          <div
+            key={group}
+            className="flex shrink-0 gap-16 whitespace-nowrap pr-16"
           >
-            <span className="text-orange mr-4">✦</span>
-            {t}
-          </span>
+            {TAGLINE_ITEMS.map((t, i) => (
+              <span
+                key={`${group}-${i}`}
+                className="shrink-0 font-mono text-xxs uppercase tracking-[0.25em] text-white/30"
+              >
+                <span className="mr-4 text-orange">✦</span>
+                {t}
+              </span>
+            ))}
+          </div>
         ))}
       </motion.div>
     </motion.div>
