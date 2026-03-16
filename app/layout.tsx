@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   title: { default: "Tek Glove", template: "%s | Tek Glove" },
   description:
     "Tek Glove — Your Apple Watch, reinvented. The world's first smart glove with integrated Apple Watch mount. Based in the UK.",
-  metadataBase: new URL("https://Tek Glove.co.uk"),
+  metadataBase: new URL("https://tekglove.co.uk"),
   openGraph: {
     title: "Tek Glove",
     description: "Your Apple Watch, reinvented.",

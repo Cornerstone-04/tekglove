@@ -3,8 +3,8 @@ export const site = {
   tagline: "Your Apple Watch, Reinvented.",
   description:
     "The world's first performance glove with an integrated Apple Watch mount. Built for athletes, adventurers, and professionals who refuse to compromise.",
-  url: "https://Tek Glove.co.uk",
-  email: "hello@Tek Glove.co.uk",
+  url: "https://tekglove.co.uk",
+  email: "hello@tekglove.co.uk",
 };
 
 export const navLinks = [
@@ -58,8 +58,8 @@ export const products = [
     version: "V1",
     desc: "The original. A precision-engineered performance glove with an integrated Apple Watch mount. Built for athletes, adventurers, and professionals who refuse to compromise.",
     price: "TBC",
-    image: "/images/Tek Glove-front.jpg",
-    cutout: "/images/Tek Glove_front_cutout.png",
+    image: "/images/tekglove-front.jpg",
+    cutout: "/images/tekglove_front_cutout.png",
     tag: "Original",
     available: true,
   },
@@ -81,7 +81,7 @@ export const products = [
     desc: "All the therapy and Apple Watch functionality of the V2, engineered for cold weather. Insulated for harsh conditions without sacrificing treatment efficacy or wearability.",
     price: "TBC",
     image: "/images/Tek Glove-angle.jpg",
-    cutout: "/images/Tek Glove_angle_cutout.png",
+    cutout: "/images/tekglove_angle_cutout.png",
     tag: "Winter Edition",
     available: true,
   },
