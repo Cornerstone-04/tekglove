@@ -329,10 +329,10 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.37 }}
               className="mb-8 font-sans text-[0.9rem] leading-[1.85] text-white/50"
             >
-              With future versions, that ecosystem will expand further — gesture-based
-              robotics control, neuroadaptive XR training, and silent
-              communication in covert environments. Wearable technology with a
-              purpose beyond tracking your steps.
+              With future versions, that ecosystem will expand further —
+              gesture-based robotics control, neuroadaptive XR training, and
+              silent communication in covert environments. Wearable technology
+              with a purpose beyond tracking your steps.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 8 }}
