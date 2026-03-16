@@ -1,28 +1,28 @@
 import Link from "next/link";
 
-const mono: React.CSSProperties = { fontFamily: "'DM Mono', monospace" };
-const inter: React.CSSProperties = { fontFamily: "'Inter', sans-serif" };
-const heading: React.CSSProperties = { fontFamily: "'Barlow Condensed', sans-serif", textTransform: "uppercase" };
-
 export default function NotFound() {
   return (
-    <div style={{ background: "var(--bg)", minHeight: "100svh", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "2rem" }}>
+    <div className="flex min-h-[100svh] items-center justify-center bg-bg p-8 text-center">
       <div>
-        <div style={{ ...mono, fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--orange)", marginBottom: "1.5rem" }}>
+        <div className="mb-6 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-orange">
           404
         </div>
-        <h1 style={{ ...heading, fontWeight: 900, fontSize: "clamp(5rem, 20vw, 14rem)", color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,0.1)", lineHeight: 0.9, marginBottom: "2rem" }}>
+
+        <h1
+          className="mb-8 font-heading text-[clamp(5rem,20vw,14rem)] leading-[0.9] font-black uppercase text-transparent"
+          style={{ WebkitTextStroke: "1px rgba(255,255,255,0.1)" }}
+        >
           Lost.
         </h1>
-        <p style={{ ...inter, fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", marginBottom: "2.5rem" }}>
+
+        <p className="mb-10 font-sans text-[0.85rem] text-white/35">
           This page doesn't exist.
         </p>
-        <Link href="/" style={{
-          ...inter, fontWeight: 600, fontSize: "0.78rem",
-          letterSpacing: "0.08em", textTransform: "uppercase",
-          textDecoration: "none", background: "var(--orange)", color: "black",
-          padding: "0.8rem 1.75rem",
-        }}>
+
+        <Link
+          href="/"
+          className="bg-orange px-7 py-[0.8rem] font-sans text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-black no-underline"
+        >
           Back to Home
         </Link>
       </div>

@@ -24,42 +24,32 @@ export default function Navbar() {
       initial={{ y: 0, opacity: 0 }}
       animate={{ y: hidden ? "-100%" : 0, opacity: 1 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 h-16"
-      style={{
-        background: scrolled ? "rgba(0,0,0,0.9)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none",
-        transition: "background 0.3s ease, border-color 0.3s ease",
-      }}
+      className={`fixed top-0 right-0 left-0 z-50 flex h-16 items-center justify-between px-6 md:px-12 ${
+        scrolled
+          ? "border-b border-white/6 bg-black/90 backdrop-blur-md"
+          : "border-b-0 bg-transparent"
+      }`}
+      style={{ WebkitBackdropFilter: scrolled ? "blur(12px)" : "none" }}
     >
       {/* Logo */}
-      <Link href="/" style={{ textDecoration: "none" }}>
-        <span style={{
-          fontFamily: "'Barlow Condensed', sans-serif",
-          fontSize: "1.1rem", fontWeight: 800,
-          letterSpacing: "0.15em", textTransform: "uppercase",
-          color: "white",
-        }}>
-          Tek<span style={{ color: "var(--orange)" }}>Glove</span>
+      <Link href="/" className="no-underline">
+        <span className="font-heading text-[1.1rem] font-extrabold uppercase tracking-[0.15em] text-white">
+          Tek<span className="text-orange">Glove</span>
         </span>
       </Link>
 
       {/* Desktop links */}
-      <ul className="hidden md:flex items-center gap-8" style={{ listStyle: "none" }}>
+      <ul className="hidden list-none items-center gap-8 md:flex">
         {navLinks.slice(0, -1).map(({ href, label }) => {
           const active = pathname === href;
+
           return (
             <li key={href}>
-              <Link href={href} style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: "0.78rem", letterSpacing: "0.05em",
-                textDecoration: "none",
-                color: active ? "white" : "rgba(255,255,255,0.5)",
-                transition: "color 0.2s ease",
-              }}
-                onMouseEnter={e => (e.currentTarget.style.color = "white")}
-                onMouseLeave={e => (e.currentTarget.style.color = active ? "white" : "rgba(255,255,255,0.5)")}
+              <Link
+                href={href}
+                className={`font-sans text-[0.78rem] tracking-[0.05em] no-underline transition-colors duration-200 ${
+                  active ? "text-white" : "text-white/50 hover:text-white"
+                }`}
               >
                 {label}
               </Link>
@@ -69,32 +59,18 @@ export default function Navbar() {
       </ul>
 
       {/* CTA */}
-      <Link href="/signup"
-        className="hidden md:inline-flex items-center gap-2"
-        style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: "0.72rem", fontWeight: 600,
-          letterSpacing: "0.08em", textTransform: "uppercase",
-          textDecoration: "none",
-          background: "var(--orange)", color: "black",
-          padding: "0.55rem 1.25rem",
-          transition: "opacity 0.2s ease",
-        }}
-        onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
-        onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+      <Link
+        href="/signup"
+        className="hidden items-center gap-2 bg-orange px-5 py-[0.55rem] font-sans text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-85 md:inline-flex"
       >
         Get Early Access
       </Link>
 
       {/* Mobile CTA */}
-      <Link href="/signup" className="md:hidden" style={{
-        fontFamily: "'Inter', sans-serif",
-        fontSize: "0.65rem", fontWeight: 600,
-        letterSpacing: "0.08em", textTransform: "uppercase",
-        textDecoration: "none",
-        background: "var(--orange)", color: "black",
-        padding: "0.45rem 0.9rem",
-      }}>
+      <Link
+        href="/signup"
+        className="bg-orange px-[0.9rem] py-[0.45rem] font-sans text-[0.65rem] font-semibold uppercase tracking-[0.08em] text-black no-underline md:hidden"
+      >
         Join
       </Link>
     </motion.nav>

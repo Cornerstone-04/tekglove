@@ -1,33 +1,69 @@
 @import "tailwindcss";
 
+@theme inline {
+  /*fonts*/
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "DM Mono", monospace;
+  --font-heading: "Barlow Condensed", sans-serif;
+
+  /*font size*/
+  --text-xxs: 0.625rem; /* 10px */
+  --text-xxs--line-height: 0.875rem; /* 14px */
+  --text-xs-plus: 0.82rem;
+  --text-xs-plus--line-height: 1.1rem;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-border: var(--border-col);
+  --color-primary: var(--primary);
+  --color-orange: var(--orange);
+  --color-muted: var(--muted);
+}
+
 :root {
-  --bg:         #000000;
-  --surface:    #0a0a0a;
+  --bg: #000000;
+  --surface: #0a0a0a;
   --border-col: #1a1a1a;
-  --primary:    #ffffff;
-  --orange:     #f97316;
-  --muted:      #6b7280;
+  --primary: #ffffff;
+  --orange: #f97316;
+  --muted: #6b7280;
 }
 
 @layer base {
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    @apply scroll-smooth;
+  }
   body {
-    background: var(--bg);
-    color: var(--primary);
-    font-family: 'Inter', sans-serif;
+    @apply bg-bg text-primary font-sans;
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Barlow Condensed', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading uppercase tracking-[0.04em];
   }
-  .font-mono { font-family: 'DM Mono', monospace !important; }
-  .font-heading { font-family: 'Barlow Condensed', sans-serif !important; }
-  ::selection { background: rgba(249,115,22,0.3); color: #fff; }
-  ::-webkit-scrollbar { width: 2px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--orange); }
-  a { color: inherit; }
+
+  ::selection {
+    @apply text-white bg-[rgba(249,115,22,0.3)];
+  }
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-orange;
+  }
+  a {
+    @apply text-inherit no-underline cursor-pointer;
+  }
 }
