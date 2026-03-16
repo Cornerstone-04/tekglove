@@ -1,7 +1,6 @@
 "use client";
 
 import { StickyFeatures } from "@/components/home/sticky-function";
-import { ProductShowcase } from "@/components/home/product-showcase";
 import { Hero } from "@/components/home/hero";
 import { Marquee } from "@/components/home/marquee";
 import { CounterStrip } from "@/components/home/counter-strip";
@@ -17,10 +16,7 @@ export default function HomePage() {
       <CounterStrip />
       <Features />
       <StickyFeatures />
-      <ProductShowcase />
       <SecurityArchitecture />
-      {/*<Specs />*/}
-      {/*<WorksWith />*/}
       <HeroCTA />
     </div>
   );

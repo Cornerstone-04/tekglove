@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "motion/react";
 import SecurityArchitectureSVG from "../ui/security-architecture-svg";
 
@@ -46,19 +45,6 @@ export function SecurityArchitecture() {
             glasses, drone feeds, and a phone hub to give you complete
             situational awareness in real time.
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <Link
-              href="/about"
-              className="font-sans font-semibold text-[0.75rem] tracking-[0.08em] uppercase text-orange border-b border-orange/40 pb-0.5 hover:border-orange transition-colors duration-200"
-            >
-              Learn More →
-            </Link>
-          </motion.div>
         </motion.div>
 
         <motion.div
