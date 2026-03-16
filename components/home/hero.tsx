@@ -119,7 +119,7 @@ export function Hero() {
             >
               <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[60%] h-[30%] bg-orange/20 blur-3xl rounded-full pointer-events-none" />
               <Image
-                src="/images/Tek Glove_front_cutout.png"
+                src="/images/tekglove_front_cutout.png"
                 alt="Tek Glove with Apple Watch Ultra"
                 width={520}
                 height={520}

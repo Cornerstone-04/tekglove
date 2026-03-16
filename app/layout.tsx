@@ -27,15 +27,58 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: { default: "Tek Glove", template: "%s | Tek Glove" },
+  title: {
+    default: "Tek Glove — Recovery, Reinvented.",
+    template: "%s | Tek Glove",
+  },
   description:
-    "Tek Glove — Your Apple Watch, reinvented. The world's first smart glove with integrated Apple Watch mount. Based in the UK.",
-  metadataBase: new URL("https://tekglove.co.uk"),
+    "Tek Glove is the world's first therapy glove combining EMS, TENS, vibration, and heat in one wearable device. Relieves pain, restores muscle function, and boosts circulation. Designed for arthritis, Parkinson's, carpal tunnel, injury recovery, and daily hand fatigue. Pairs with Apple Watch via Bluetooth. Coming 2026.",
+  metadataBase: new URL("https://tekglove.vercel.app"),
+  keywords: [
+    "Tek Glove",
+    "TekGlove",
+    "therapy glove",
+    "EMS glove",
+    "TENS glove",
+    "Apple Watch glove",
+    "wearable therapy",
+    "arthritis glove",
+    "recovery glove",
+    "Parkinson's wearable",
+    "carpal tunnel treatment",
+    "smart glove",
+    "Tek Athletic",
+    "Keniye Koroye",
+    "wearable technology UK",
+  ],
+  authors: [{ name: "Keniye Koroye", url: "https://tekglove.vercel.app" }],
+  creator: "Keniye Koroye",
   openGraph: {
-    title: "Tek Glove",
-    description: "Your Apple Watch, reinvented.",
+    type: "website",
+    url: "https://tekglove.vercel.app",
+    title: "Tek Glove — Recovery, Reinvented.",
+    description:
+      "The world's first therapy glove. EMS + TENS + Vibration + Heat in one wearable. Pairs with Apple Watch. Coming 2026.",
     siteName: "Tek Glove",
-    images: [{ url: "/Tek Glove_icon.png" }],
+    images: [
+      {
+        url: "https://tekglove.vercel.app/images/tekv2_front.jpg",
+        width: 1200,
+        height: 630,
+        alt: "TekGlove V2 — The world's first therapy glove combining EMS, TENS, vibration and heat.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tek Glove — Recovery, Reinvented.",
+    description:
+      "The world's first therapy glove. EMS + TENS + Vibration + Heat in one wearable. Pairs with Apple Watch. Coming 2026.",
+    images: ["https://tekglove.vercel.app/images/tekv2_front.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

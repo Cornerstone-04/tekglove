@@ -80,7 +80,7 @@ export const products = [
     version: "Winter",
     desc: "All the therapy and Apple Watch functionality of the V2, engineered for cold weather. Insulated for harsh conditions without sacrificing treatment efficacy or wearability.",
     price: "TBC",
-    image: "/images/Tek Glove-angle.jpg",
+    image: "/images/tekglove-angle.jpg",
     cutout: "/images/tekglove_angle_cutout.png",
     tag: "Winter Edition",
     available: true,

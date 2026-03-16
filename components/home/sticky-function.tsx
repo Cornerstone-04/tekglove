@@ -46,7 +46,7 @@ export function StickyFeatures() {
                 }}
               >
                 <Image
-                  src="/images/Tek Glove_angle_cutout.png"
+                  src="/images/tekglove_angle_cutout.png"
                   alt="Tek Glove"
                   width={440}
                   height={440}

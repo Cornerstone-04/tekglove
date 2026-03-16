@@ -37,7 +37,7 @@ export default function ProductPage() {
           {/* Image */}
           <div className="flex items-center justify-center border-r border-white/10 bg-surface px-8 py-16">
             <Image
-              src="/images/Tek Glove_front_cutout.png"
+              src="/images/tekglove_front_cutout.png"
               alt="Tek Glove Standard"
               width={480}
               height={480}
@@ -46,7 +46,7 @@ export default function ProductPage() {
           </div>
 
           {/* Details */}
-          <div className="px-12 py-16">
+          <div className="px-4 md:px-12 py-16">
             <div className="mb-4 font-mono text-[0.58rem] uppercase tracking-[0.2em] text-orange">
               Flagship
             </div>
@@ -98,7 +98,7 @@ export default function ProductPage() {
       <section className="border-b border-white/10">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-0 px-6 md:grid-cols-2 md:px-12">
           {/* Details — reversed */}
-          <div className="border-r border-white/10 px-12 py-16">
+          <div className="border-r border-white/10 px-4 md:px-12 py-16">
             <div className="mb-4 font-mono text-[0.58rem] uppercase tracking-[0.2em] text-orange">
               Winter Edition
             </div>
@@ -124,7 +124,7 @@ export default function ProductPage() {
           {/* Image */}
           <div className="flex items-center justify-center bg-surface px-8 py-16">
             <Image
-              src="/images/Tek Glove_angle_cutout.png"
+              src="/images/tekglove_angle_cutout.png"
               alt="Tek Glove Winter"
               width={480}
               height={480}
