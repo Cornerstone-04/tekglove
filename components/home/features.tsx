@@ -1,3 +1,5 @@
+"use client";
+
 import { features } from "@/lib/data";
 import { motion } from "motion/react";
 
@@ -5,16 +7,40 @@ export function Features() {
   return (
     <section className="py-32 border-b border-border">
       <div className="px-6 md:px-10 max-w-7xl mx-auto">
-        <div className="mb-16">
-          <p className="font-mono text-xxs tracking-[0.3em] uppercase text-orange mb-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-16"
+        >
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="font-mono text-xxs tracking-[0.3em] uppercase text-orange mb-4"
+          >
             Why Tek Glove?
-          </p>
-          <h2 className="font-heading font-black text-[clamp(2.5rem,6vw,5rem)] text-white">
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-heading font-black text-[clamp(2.5rem,6vw,5rem)] text-white"
+          >
             Built Different.
-          </h2>
-        </div>
+          </motion.h2>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border"
+        >
           {features.map((f, i) => (
             <motion.div
               key={f.id}
@@ -36,7 +62,7 @@ export function Features() {
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

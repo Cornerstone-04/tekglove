@@ -127,24 +127,20 @@ export const conditions = [
 
 export const principles = [
   {
-    id: "01",
     title: "Human-First Design",
     desc: "Every Tek Glove product starts with the human wearing it. We design for real conditions, real environments, and real recovery — not lab benchmarks.",
   },
   {
-    id: "02",
     title: "Multi-Modal Therapy",
     desc: "Where existing products offer one modality, we deliver three or more. EMS, TENS, vibration, and heat working together produce outcomes no single technology can achieve alone.",
   },
   {
-    id: "03",
     title: "Seamless Integration",
     desc: "Technology should disappear into the experience. Our gloves connect to Apple Watch, XR systems, and robotics without friction — data flows where you need it, when you need it.",
   },
   {
-    id: "04",
     title: "Adaptive Intelligence",
-    desc: "From gesture recognition to neuroadaptive feedback, Tek Glove learns from the wearer. The V4 pushes this further — bridging machine learning, human touch, and digital interaction.",
+    desc: "From gesture recognition to neuroadaptive feedback, Tek Glove learns from the wearer. The V4 bridges machine learning, human touch, and digital interaction.",
   },
 ];
 

@@ -31,117 +31,221 @@ export default function ProductPage() {
         </div>
       </div>
 
-      {/* Main product — hero layout */}
+      {/* Main product */}
       <section className="border-b border-white/10">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-0 px-6 md:grid-cols-2 md:px-12">
           {/* Image */}
-          <div className="flex items-center justify-center border-r border-white/10 bg-surface px-8 py-16">
-            <Image
-              src="/images/tekglove_front_cutout.png"
-              alt="Tek Glove Standard"
-              width={480}
-              height={480}
-              className="max-w-full object-contain"
-            />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex items-center justify-center border-r border-white/10 bg-surface px-8 py-16"
+          >
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Image
+                src="/images/tekglove_front_cutout.png"
+                alt="Tek Glove Standard"
+                width={480}
+                height={480}
+                className="max-w-full object-contain"
+              />
+            </motion.div>
+          </motion.div>
 
           {/* Details */}
-          <div className="px-4 md:px-12 py-16">
-            <div className="mb-4 font-mono text-[0.58rem] uppercase tracking-[0.2em] text-orange">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="px-4 md:px-12 py-16"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mb-4 font-mono text-[0.58rem] uppercase tracking-[0.2em] text-orange"
+            >
               Flagship
-            </div>
+            </motion.div>
 
-            <h2 className="mb-4 font-heading text-[clamp(2rem,5vw,3.5rem)] font-black uppercase text-white">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="mb-4 font-heading text-[clamp(2rem,5vw,3.5rem)] font-black uppercase text-white"
+            >
               Tek Glove Standard
-            </h2>
+            </motion.h2>
 
-            <p className="mb-10 font-sans text-[0.9rem] leading-[1.8] text-white/50">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-10 font-sans text-[0.9rem] leading-[1.8] text-white/50"
+            >
               The original Tek Glove. A lightweight, high-performance glove
               engineered with a precision-fit Apple Watch mount on the back of
               the hand. Built for athletes, adventurers, and professionals who
               need their data without reaching for their wrist.
-            </p>
+            </motion.p>
 
             {/* Specs */}
             <div className="mb-10">
-              <div className="mb-4 font-mono text-[0.58rem] uppercase tracking-[0.2em] text-white/25">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.25 }}
+                className="mb-4 font-mono text-[0.58rem] uppercase tracking-[0.2em] text-white/25"
+              >
                 Specifications
-              </div>
+              </motion.div>
 
-              {specs.map((s) => (
-                <div
+              {specs.map((s, i) => (
+                <motion.div
                   key={s.label}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.3 + i * 0.05 }}
                   className="flex items-center justify-between border-b border-white/10 py-[0.65rem]"
                 >
                   <span className="font-mono text-[0.65rem] uppercase tracking-widest text-white/30">
                     {s.label}
                   </span>
-
                   <span className="font-sans text-[0.78rem] text-white/70">
                     {s.value}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
 
-            <Link
-              href="/signup"
-              className="inline-block bg-orange px-8 py-[0.9rem] font-sans text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-90"
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.7 }}
             >
-              Get Early Access
-            </Link>
-          </div>
+              <Link
+                href="/signup"
+                className="inline-block bg-orange px-8 py-[0.9rem] font-sans text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-90"
+              >
+                Get Early Access
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Second product — angle view */}
+      {/* Second product */}
       <section className="border-b border-white/10">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-0 px-6 md:grid-cols-2 md:px-12">
           {/* Details — reversed */}
-          <div className="border-r border-white/10 px-4 md:px-12 py-16">
-            <div className="mb-4 font-mono text-[0.58rem] uppercase tracking-[0.2em] text-orange">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="border-r border-white/10 px-4 md:px-12 py-16"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mb-4 font-mono text-[0.58rem] uppercase tracking-[0.2em] text-orange"
+            >
               Winter Edition
-            </div>
+            </motion.div>
 
-            <h2 className="mb-4 font-heading text-[clamp(2rem,5vw,3.5rem)] font-black uppercase text-white">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="mb-4 font-heading text-[clamp(2rem,5vw,3.5rem)] font-black uppercase text-white"
+            >
               Tek Glove Winter
-            </h2>
+            </motion.h2>
 
-            <p className="mb-10 font-sans text-[0.9rem] leading-[1.8] text-white/50">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-10 font-sans text-[0.9rem] leading-[1.8] text-white/50"
+            >
               All the power of the Standard, built for cold weather. Thermal
               insulation keeps your hands warm in harsh conditions while every
               feature of your Apple Watch remains fully accessible.
-            </p>
+            </motion.p>
 
-            <Link
-              href="/signup"
-              className="inline-block border border-white/15 px-8 py-[0.9rem] font-sans text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-white/60 no-underline transition-all duration-200 hover:border-white/40 hover:text-white"
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
-              Join Waitlist
-            </Link>
-          </div>
+              <Link
+                href="/signup"
+                className="inline-block border border-white/15 px-8 py-[0.9rem] font-sans text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-white/60 no-underline transition-all duration-200 hover:border-white/40 hover:text-white"
+              >
+                Join Waitlist
+              </Link>
+            </motion.div>
+          </motion.div>
 
           {/* Image */}
-          <div className="flex items-center justify-center bg-surface px-8 py-16">
-            <Image
-              src="/images/tekglove_angle_cutout.png"
-              alt="Tek Glove Winter"
-              width={480}
-              height={480}
-              className="max-w-full object-contain"
-            />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex items-center justify-center bg-surface px-8 py-16"
+          >
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5,
+              }}
+            >
+              <Image
+                src="/images/tekglove_angle_cutout.png"
+                alt="Tek Glove Winter"
+                width={480}
+                height={480}
+                className="max-w-full object-contain"
+              />
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
-      {/* All products grid */}
+      {/* Full catalogue */}
       <section className="px-6 py-24">
         <div className="mx-auto max-w-7xl px-4 md:px-10">
-          <div className="mb-12 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-white/25">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-12 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-white/25"
+          >
             Full Catalogue
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 gap-px bg-border-col md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-px bg-border md:grid-cols-3">
             {products.map((p, i) => (
               <motion.div
                 key={p.id}
@@ -149,17 +253,16 @@ export default function ProductPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-surface p-8"
+                className="group bg-surface p-8"
               >
                 <div className="relative mb-6 aspect-square overflow-hidden bg-black">
                   <Image
                     src={p.image}
                     alt={p.name}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-
-                  <div className="absolute top-3 left-3 bg-orange px-2 py-[0.2rem] font-mono text-[0.55rem] uppercase tracking-[0.15em] text-black">
+                  <div className="absolute top-3 left-3 bg-orange px-2 py-[0.2rem] font-mono text-[0.55rem] uppercase tracking-[0.15em] text-black transition-colors duration-300 group-hover:bg-white">
                     {p.tag}
                   </div>
                 </div>

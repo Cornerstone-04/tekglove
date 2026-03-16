@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+"use client";
+
+import { motion } from "motion/react";
 
 const TAGLINE_ITEMS = [
   "Apple Watch Integrated",
@@ -15,7 +17,12 @@ const TAGLINE_ITEMS = [
 
 export function Marquee() {
   return (
-    <div className="border-t border-b border-border bg-surface overflow-hidden py-5">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.3 }}
+      className="border-t border-b border-border bg-surface overflow-hidden py-5"
+    >
       <motion.div
         animate={{ x: ["0%", "-50%"] }}
         transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
@@ -31,6 +38,6 @@ export function Marquee() {
           </span>
         ))}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

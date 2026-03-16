@@ -1,5 +1,7 @@
+"use client";
+
 import { AnimatedCounter } from "@/lib/animatedCounter";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const COUNTERS = [
   { value: 4, suffix: "", label: "Products" },
