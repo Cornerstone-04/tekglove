@@ -15,4 +15,3 @@ const waitlist = {
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [waitlist],
 };
-  
