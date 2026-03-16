@@ -7,8 +7,6 @@ import { Marquee } from "@/components/home/marquee";
 import { CounterStrip } from "@/components/home/counter-strip";
 import { Features } from "@/components/home/features";
 import { SecurityArchitecture } from "@/components/home/security-architecture";
-import { Specs } from "@/components/home/specs";
-import { WorksWith } from "@/components/home/works-with";
 import { HeroCTA } from "@/components/home/hero-cta";
 
 export default function HomePage() {
@@ -21,8 +19,8 @@ export default function HomePage() {
       <StickyFeatures />
       <ProductShowcase />
       <SecurityArchitecture />
-      <Specs />
-      <WorksWith />
+      {/*<Specs />*/}
+      {/*<WorksWith />*/}
       <HeroCTA />
     </div>
   );

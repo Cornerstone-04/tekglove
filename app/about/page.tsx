@@ -55,7 +55,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="mb-6 font-sans text-[1rem] leading-[1.9] text-white/55"
+              className="mb-6 font-sans text-base leading-[1.9] text-white/55"
             >
               People recovering from hand injuries, arthritis, and neurological
               conditions had no single wearable that addressed their needs
@@ -67,7 +67,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="font-sans text-[1rem] leading-[1.9] text-white/55"
+              className="font-sans text-base leading-[1.9] text-white/55"
             >
               Athletes and sports professionals needed something they could rely
               on in the gym, in the field, and in the clinic — without carrying
@@ -95,7 +95,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="mb-6 font-sans text-[1rem] leading-[1.9] text-white/55"
+              className="mb-6 font-sans text-base leading-[1.9] text-white/55"
             >
               Designed by Keniye Koroye, Tek Glove started with a simple idea —
               bring everything to the hand. The V2 combined EMS, TENS,
@@ -107,7 +107,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.35 }}
-              className="font-sans text-[1rem] leading-[1.9] text-white/55"
+              className="font-sans text-base leading-[1.9] text-white/55"
             >
               Now in development, the V4 pushes further into sports, healthcare,
               and military applications — with advanced motion sensing,
@@ -128,7 +128,7 @@ export default function AboutPage() {
             transition={{ duration: 0.5 }}
             className="mb-4 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-orange"
           >
-            What We Believe
+            How We Build
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -137,7 +137,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mb-16 font-heading text-[clamp(2rem,5vw,4rem)] font-black uppercase text-white"
           >
-            Our Principles
+            Design Focus
           </motion.h2>
 
           <div className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
@@ -341,7 +341,7 @@ export default function AboutPage() {
               transition={{ duration: 0.4, delay: 0.44 }}
             >
               <Link
-                href="/signup"
+                href="/waitlist"
                 className="border-b border-orange/40 pb-0.5 font-sans text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-orange no-underline hover:border-orange transition-colors duration-200"
               >
                 Join the Beta →
@@ -366,7 +366,7 @@ export default function AboutPage() {
               <span className="text-orange">the Future?</span>
             </h2>
             <Link
-              href="/signup"
+              href="/waitlist"
               className="inline-block bg-orange px-10 py-4 font-sans text-[0.85rem] font-semibold uppercase tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-85"
             >
               Get Early Access →

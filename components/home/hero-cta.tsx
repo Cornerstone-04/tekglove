@@ -23,7 +23,7 @@ export function HeroCTA() {
             Sign up for beta testing or early access. Limited spots available.
           </p>
           <Link
-            href="/signup"
+            href="/waitlist"
             className="font-sans font-semibold text-[0.85rem] tracking-[0.08em] uppercase bg-orange text-black px-10 py-4 inline-block transition-opacity duration-200 hover:opacity-85"
           >
             Get Early Access →

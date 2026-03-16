@@ -135,7 +135,7 @@ export default function ProductPage() {
               transition={{ duration: 0.5, delay: 0.7 }}
             >
               <Link
-                href="/signup"
+                href="/waitlist"
                 className="inline-block bg-orange px-8 py-[0.9rem] font-sans text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-90"
               >
                 Get Early Access
@@ -195,7 +195,7 @@ export default function ProductPage() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <Link
-                href="/signup"
+                href="/waitlist"
                 className="inline-block border border-white/15 px-8 py-[0.9rem] font-sans text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-white/60 no-underline transition-all duration-200 hover:border-white/40 hover:text-white"
               >
                 Join Waitlist
@@ -246,7 +246,7 @@ export default function ProductPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 gap-px bg-border md:grid-cols-3">
-            {products.map((p, i) => (
+            {products.slice(0,3).map((p, i) => (
               <motion.div
                 key={p.id}
                 initial={{ opacity: 0, y: 16 }}

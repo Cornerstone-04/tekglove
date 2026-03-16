@@ -11,7 +11,7 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/product", label: "Product" },
   { href: "/about", label: "About" },
-  { href: "/signup", label: "Get Early Access" },
+  { href: "/waitlist", label: "Get Early Access" },
 ];
 
 export const features = [

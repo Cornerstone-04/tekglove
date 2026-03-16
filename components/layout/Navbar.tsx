@@ -71,7 +71,7 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <Link
-          href="/signup"
+          href="/waitlist"
           className="hidden items-center gap-2 bg-orange px-5 py-2 font-sans text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-90 md:inline-flex"
         >
           Get Early Access
@@ -159,7 +159,7 @@ export default function Navbar() {
               className="flex flex-col gap-4 px-6 pt-8 pb-12"
             >
               <Link
-                href="/signup"
+                href="/waitlist"
                 onClick={close}
                 className="w-full bg-orange px-6 py-4 text-center font-sans text-[0.85rem] font-semibold uppercase tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-90"
               >

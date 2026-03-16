@@ -84,7 +84,7 @@ export function Hero() {
             className="flex flex-wrap gap-4"
           >
             <Link
-              href="/signup"
+              href="/waitlist"
               className="font-sans font-semibold text-[0.8rem] tracking-[0.08em] uppercase bg-orange text-black px-8 py-[0.9rem] transition-opacity duration-200 hover:opacity-85"
             >
               Get Early Access

@@ -32,7 +32,7 @@ export default function Footer() {
             Navigation
           </div>
           <ul className="flex list-none flex-col gap-2">
-            {navLinks.map(({ href, label }, i) => (
+            {navLinks.slice(0,3).map(({ href, label }, i) => (
               <motion.li
                 key={href}
                 initial={{ opacity: 0, x: -8 }}
@@ -67,7 +67,7 @@ export default function Footer() {
             {site.email}
           </a>
           <Link
-            href="/signup"
+            href="/waitlist"
             className="mt-4 inline-block bg-orange px-4 py-2 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-85"
           >
             Get Early Access →
