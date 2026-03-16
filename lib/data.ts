@@ -17,7 +17,7 @@ export const navLinks = [
 export const features = [
   {
     id: "01",
-    title: "EMS + TENS + Vibration",
+    title: "EMS + Heat + Vibration",
     desc: "Three proven therapies in one glove. Electrical muscle stimulation, transcutaneous nerve stimulation, and vibration therapy — delivered simultaneously.",
   },
   {

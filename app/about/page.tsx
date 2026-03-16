@@ -166,7 +166,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── VISION ── */}
-      <section className="border-b border-white/10 px-6 py-24 md:px-10">
+      {/* <section className="border-b border-white/10 px-6 py-24 md:px-10">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-4 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -271,7 +271,7 @@ export default function AboutPage() {
             </ul>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── ARCHITECTURE ── */}
       <section className="border-b border-white/10 px-6 py-24 md:px-10">
@@ -344,7 +344,7 @@ export default function AboutPage() {
                 href="/waitlist"
                 className="border-b border-orange/40 pb-0.5 font-sans text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-orange no-underline hover:border-orange transition-colors duration-200"
               >
-                Join the Beta →
+                Get early access →
               </Link>
             </motion.div>
           </motion.div>

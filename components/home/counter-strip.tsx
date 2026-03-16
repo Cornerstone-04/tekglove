@@ -4,7 +4,7 @@ import { AnimatedCounter } from "@/lib/animatedCounter";
 import { motion } from "motion/react";
 
 const COUNTERS = [
-  { value: 4, suffix: "", label: "Products" },
+  { value: 3, suffix: "", label: "Products" },
   { value: 3, suffix: "", label: "Therapy Modes" },
   { value: 2026, suffix: "", label: "Launch Year" },
 ];
