@@ -8,30 +8,35 @@ export default function ScreenLoader() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Prevent scroll while loading
     document.body.style.overflow = "hidden";
 
     const start = performance.now();
     const duration = 2200;
+    let rafId = 0;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
     const tick = (now: number) => {
       const elapsed = now - start;
       const p = Math.min(elapsed / duration, 1);
-      // Ease out expo
       const eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
+
       setProgress(Math.round(eased * 100));
-      if (p < 1) requestAnimationFrame(tick);
-      else {
-        setTimeout(() => {
+
+      if (p < 1) {
+        rafId = requestAnimationFrame(tick);
+      } else {
+        timeoutId = setTimeout(() => {
           setVisible(false);
           document.body.style.overflow = "";
         }, 400);
       }
     };
 
-    requestAnimationFrame(tick);
+    rafId = requestAnimationFrame(tick);
 
     return () => {
+      cancelAnimationFrame(rafId);
+      if (timeoutId) clearTimeout(timeoutId);
       document.body.style.overflow = "";
     };
   }, []);
@@ -45,84 +50,38 @@ export default function ScreenLoader() {
             opacity: 0,
             transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
           }}
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 9999,
-            background: "#000",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "2.5rem",
-          }}
+          className="fixed inset-0 z-9999 flex flex-col items-center justify-center gap-10 bg-black"
         >
-          {/* SVG Watch / Glove */}
           <WatchSVG progress={progress} />
 
-          {/* Brand name */}
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            style={{ textAlign: "center" }}
+            className="text-center"
           >
-            <div
-              style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontSize: "1.4rem",
-                fontWeight: 800,
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "white",
-              }}
-            >
-              Tek<span style={{ color: "var(--orange)" }}>Glove</span>
+            <div className="font-heading text-[1.4rem] font-extrabold uppercase tracking-[0.2em] text-white">
+              Tek<span className="text-orange">Glove</span>
             </div>
           </motion.div>
 
-          {/* Progress bar */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            style={{
-              width: "120px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.5rem",
-              alignItems: "center",
-            }}
+            className="flex w-30 flex-col items-center gap-2"
           >
-            <div
-              style={{
-                width: "100%",
-                height: "1px",
-                background: "rgba(255,255,255,0.1)",
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
+            <div className="relative h-px w-full overflow-hidden bg-white/10">
               <motion.div
+                className="absolute top-0 left-0 h-full bg-orange"
                 style={{
-                  position: "absolute",
-                  left: 0,
-                  top: 0,
-                  height: "100%",
-                  background: "var(--orange)",
                   width: `${progress}%`,
                   transition: "width 0.05s linear",
                 }}
               />
             </div>
-            <span
-              style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: "0.55rem",
-                letterSpacing: "0.2em",
-                color: "rgba(255,255,255,0.3)",
-              }}
-            >
+
+            <span className="font-mono text-[0.55rem] tracking-[0.2em] text-white/30">
               {String(progress).padStart(3, "0")}
             </span>
           </motion.div>
@@ -133,11 +92,8 @@ export default function ScreenLoader() {
 }
 
 function WatchSVG({ progress }: { progress: number }) {
-  // Second hand angle: 0→360 as progress 0→100
   const secondAngle = (progress / 100) * 360;
-  // Minute hand: slow tick
   const minuteAngle = (progress / 100) * 30;
-  // Screen opacity builds up with progress
   const screenOpacity = Math.min(progress / 60, 1);
 
   return (
@@ -147,129 +103,121 @@ function WatchSVG({ progress }: { progress: number }) {
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
       <svg
-        width="120"
-        height="148"
+        width={120}
+        height={148}
         viewBox="0 0 120 148"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Watch band top */}
         <rect
-          x="38"
-          y="0"
-          width="44"
-          height="22"
-          rx="6"
+          x={38}
+          y={0}
+          width={44}
+          height={22}
+          rx={6}
           fill="#1a1a1a"
           stroke="#333"
-          strokeWidth="1"
-        />
-        {/* Band buckle detail */}
-        <line x1="46" y1="8" x2="74" y2="8" stroke="#2a2a2a" strokeWidth="1" />
-        <line
-          x1="46"
-          y1="12"
-          x2="74"
-          y2="12"
-          stroke="#2a2a2a"
-          strokeWidth="1"
-        />
-        <line
-          x1="46"
-          y1="16"
-          x2="74"
-          y2="16"
-          stroke="#2a2a2a"
-          strokeWidth="1"
+          strokeWidth={1}
         />
 
-        {/* Watch band bottom */}
+        <line x1={46} y1={8} x2={74} y2={8} stroke="#2a2a2a" strokeWidth={1} />
+        <line
+          x1={46}
+          y1={12}
+          x2={74}
+          y2={12}
+          stroke="#2a2a2a"
+          strokeWidth={1}
+        />
+        <line
+          x1={46}
+          y1={16}
+          x2={74}
+          y2={16}
+          stroke="#2a2a2a"
+          strokeWidth={1}
+        />
+
         <rect
-          x="38"
-          y="126"
-          width="44"
-          height="22"
-          rx="6"
+          x={38}
+          y={126}
+          width={44}
+          height={22}
+          rx={6}
           fill="#1a1a1a"
           stroke="#333"
-          strokeWidth="1"
+          strokeWidth={1}
         />
         <line
-          x1="46"
-          y1="132"
-          x2="74"
-          y2="132"
+          x1={46}
+          y1={132}
+          x2={74}
+          y2={132}
           stroke="#2a2a2a"
-          strokeWidth="1"
+          strokeWidth={1}
         />
         <line
-          x1="46"
-          y1="136"
-          x2="74"
-          y2="136"
+          x1={46}
+          y1={136}
+          x2={74}
+          y2={136}
           stroke="#2a2a2a"
-          strokeWidth="1"
+          strokeWidth={1}
         />
         <line
-          x1="46"
-          y1="140"
-          x2="74"
-          y2="140"
+          x1={46}
+          y1={140}
+          x2={74}
+          y2={140}
           stroke="#2a2a2a"
-          strokeWidth="1"
+          strokeWidth={1}
         />
 
-        {/* Watch case */}
         <rect
-          x="8"
-          y="20"
-          width="104"
-          height="108"
-          rx="26"
+          x={8}
+          y={20}
+          width={104}
+          height={108}
+          rx={26}
           fill="#111"
           stroke="#2a2a2a"
-          strokeWidth="1.5"
+          strokeWidth={1.5}
         />
 
-        {/* Crown / side button */}
         <rect
-          x="112"
-          y="50"
-          width="6"
-          height="18"
-          rx="3"
+          x={112}
+          y={50}
+          width={6}
+          height={18}
+          rx={3}
           fill="#222"
           stroke="#333"
-          strokeWidth="1"
+          strokeWidth={1}
         />
         <rect
-          x="112"
-          y="72"
-          width="6"
-          height="10"
-          rx="3"
+          x={112}
+          y={72}
+          width={6}
+          height={10}
+          rx={3}
           fill="#222"
           stroke="#333"
-          strokeWidth="1"
+          strokeWidth={1}
         />
 
-        {/* Screen background */}
-        <rect x="16" y="28" width="88" height="92" rx="20" fill="#0a0a0a" />
+        <rect x={16} y={28} width={88} height={92} rx={20} fill="#0a0a0a" />
 
-        {/* Screen glow — builds up as progress increases */}
         <rect
-          x="16"
-          y="28"
-          width="88"
-          height="92"
-          rx="20"
+          x={16}
+          y={28}
+          width={88}
+          height={92}
+          rx={20}
           fill="rgba(249,115,22,0.06)"
           opacity={screenOpacity}
         />
 
-        {/* Clock face */}
         <g opacity={screenOpacity}>
-          {/* Hour markers */}
           {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(
             (angle, i) => {
               const rad = (angle - 90) * (Math.PI / 180);
@@ -280,6 +228,7 @@ function WatchSVG({ progress }: { progress: number }) {
               const y1 = 74 + r1 * Math.sin(rad);
               const x2 = 60 + r2 * Math.cos(rad);
               const y2 = 74 + r2 * Math.sin(rad);
+
               return (
                 <line
                   key={angle}
@@ -297,69 +246,62 @@ function WatchSVG({ progress }: { progress: number }) {
             },
           )}
 
-          {/* Hour hand */}
           <motion.line
-            x1="60"
-            y1="74"
+            x1={60}
+            y1={74}
             x2={60 + 18 * Math.cos((minuteAngle * 12 - 90) * (Math.PI / 180))}
             y2={74 + 18 * Math.sin((minuteAngle * 12 - 90) * (Math.PI / 180))}
             stroke="white"
-            strokeWidth="2.5"
+            strokeWidth={2.5}
             strokeLinecap="round"
           />
 
-          {/* Minute hand */}
           <motion.line
-            x1="60"
-            y1="74"
+            x1={60}
+            y1={74}
             x2={60 + 26 * Math.cos((minuteAngle - 90) * (Math.PI / 180))}
             y2={74 + 26 * Math.sin((minuteAngle - 90) * (Math.PI / 180))}
             stroke="white"
-            strokeWidth="1.5"
+            strokeWidth={1.5}
             strokeLinecap="round"
           />
 
-          {/* Second hand */}
           <motion.line
             x1={60 - 8 * Math.cos((secondAngle - 90) * (Math.PI / 180))}
             y1={74 - 8 * Math.sin((secondAngle - 90) * (Math.PI / 180))}
             x2={60 + 30 * Math.cos((secondAngle - 90) * (Math.PI / 180))}
             y2={74 + 30 * Math.sin((secondAngle - 90) * (Math.PI / 180))}
             stroke="var(--orange)"
-            strokeWidth="1"
+            strokeWidth={1}
             strokeLinecap="round"
           />
 
-          {/* Center dot */}
-          <circle cx="60" cy="74" r="2.5" fill="var(--orange)" />
+          <circle cx={60} cy={74} r={2.5} fill="var(--orange)" />
 
-          {/* TekGlove wordmark on screen */}
           <text
-            x="60"
-            y="56"
+            x={60}
+            y={56}
             textAnchor="middle"
             fontFamily="'Barlow Condensed', sans-serif"
-            fontSize="7"
-            fontWeight="700"
-            letterSpacing="1.5"
+            fontSize={7}
+            fontWeight={700}
+            letterSpacing={1.5}
             fill="rgba(255,255,255,0.5)"
           >
             TEKGLOVE
           </text>
 
-          {/* Status indicator */}
-          <circle cx="60" cy="100" r="2" fill="var(--orange)" opacity="1" />
+          <circle cx={60} cy={100} r={2} fill="var(--orange)" opacity={1} />
         </g>
 
-        {/* Glove hex texture overlay on the band — subtle */}
-        <g opacity="0.15">
+        <g opacity={0.15}>
           {[44, 52, 60, 68, 76].map((x, i) => (
             <polygon
               key={i}
               points={`${x},3 ${x + 4},5.3 ${x + 4},9.9 ${x},12.2 ${x - 4},9.9 ${x - 4},5.3`}
               fill="none"
               stroke="white"
-              strokeWidth="0.5"
+              strokeWidth={0.5}
             />
           ))}
         </g>

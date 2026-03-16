@@ -5,7 +5,7 @@ import { navLinks, site } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border-col bg-surface">
+    <footer className="border-t border-border bg-surface">
       <div className="grid grid-cols-1 gap-10 px-6 py-12 md:grid-cols-3 md:px-12">
         <div>
           <span className="mb-3 block font-heading text-[1.1rem] font-extrabold uppercase tracking-[0.15em] text-white">
@@ -57,12 +57,12 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex items-center justify-between border-t border-border-col px-6 py-4 md:px-12">
-        <p className="font-mono text-[0.6rem] tracking-[0.1em] text-white/20">
+      <div className="flex items-center justify-between border-t border-border px-6 py-4 md:px-12">
+        <p className="font-mono text-[0.6rem] tracking-widest text-white/20">
           © {new Date().getFullYear()} TekGlove. All rights reserved.
         </p>
 
-        <p className="font-mono text-[0.6rem] tracking-[0.1em] text-white/20">
+        <p className="font-mono text-[0.6rem] tracking-widest text-white/20">
           United Kingdom
         </p>
       </div>

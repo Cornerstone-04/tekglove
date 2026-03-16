@@ -35,6 +35,7 @@ export const metadata: Metadata = {
     title: "TekGlove",
     description: "Your Apple Watch, reinvented.",
     siteName: "TekGlove",
+    images: [{ url: "/tekglove_icon.png" }],
   },
 };
 
