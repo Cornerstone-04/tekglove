@@ -34,7 +34,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-mono text-xxs tracking-[0.3em] uppercase text-orange mb-6"
           >
-            Introducing TekGlove
+            Introducing Tek Glove
           </motion.p>
 
           <h1 className="font-heading font-black text-[clamp(3.5rem,10vw,8rem)] leading-[0.9] tracking-[-0.02em] text-white mb-6">
@@ -119,8 +119,8 @@ export function Hero() {
             >
               <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[60%] h-[30%] bg-orange/20 blur-3xl rounded-full pointer-events-none" />
               <Image
-                src="/images/tekglove_front_cutout.png"
-                alt="TekGlove with Apple Watch Ultra"
+                src="/images/Tek Glove_front_cutout.png"
+                alt="Tek Glove with Apple Watch Ultra"
                 width={520}
                 height={520}
                 className="object-contain max-w-full relative z-10"

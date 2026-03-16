@@ -27,15 +27,15 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: { default: "TekGlove", template: "%s | TekGlove" },
+  title: { default: "Tek Glove", template: "%s | Tek Glove" },
   description:
-    "TekGlove — Your Apple Watch, reinvented. The world's first smart glove with integrated Apple Watch mount. Based in the UK.",
-  metadataBase: new URL("https://tekglove.co.uk"),
+    "Tek Glove — Your Apple Watch, reinvented. The world's first smart glove with integrated Apple Watch mount. Based in the UK.",
+  metadataBase: new URL("https://Tek Glove.co.uk"),
   openGraph: {
-    title: "TekGlove",
+    title: "Tek Glove",
     description: "Your Apple Watch, reinvented.",
-    siteName: "TekGlove",
-    images: [{ url: "/tekglove_icon.png" }],
+    siteName: "Tek Glove",
+    images: [{ url: "/Tek Glove_icon.png" }],
   },
 };
 

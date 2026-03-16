@@ -1,10 +1,10 @@
 export const site = {
-  name: "TekGlove",
+  name: "Tek Glove",
   tagline: "Your Apple Watch, Reinvented.",
   description:
     "The world's first performance glove with an integrated Apple Watch mount. Built for athletes, adventurers, and professionals who refuse to compromise.",
-  url: "https://tekglove.co.uk",
-  email: "hello@tekglove.co.uk",
+  url: "https://Tek Glove.co.uk",
+  email: "hello@Tek Glove.co.uk",
 };
 
 export const navLinks = [
@@ -54,18 +54,18 @@ export const specs = [
 export const products = [
   {
     id: "01",
-    name: "TekGloves",
+    name: "Tek Gloves",
     version: "V1",
     desc: "The original. A precision-engineered performance glove with an integrated Apple Watch mount. Built for athletes, adventurers, and professionals who refuse to compromise.",
     price: "TBC",
-    image: "/images/tekglove-front.jpg",
-    cutout: "/images/tekglove_front_cutout.png",
+    image: "/images/Tek Glove-front.jpg",
+    cutout: "/images/Tek Glove_front_cutout.png",
     tag: "Original",
     available: true,
   },
   {
     id: "02",
-    name: "TekGloves V2",
+    name: "Tek Gloves V2",
     version: "V2",
     desc: "The world's first therapy glove. Combines EMS, TENS, vibration, and heat in one wearable device. Pairs with Apple Watch for real-time therapy monitoring and data analysis. Designed for arthritis, injury recovery, Parkinson's, carpal tunnel, and daily hand fatigue.",
     price: "Coming 2026",
@@ -76,18 +76,18 @@ export const products = [
   },
   {
     id: "03",
-    name: "Winter TekGloves",
+    name: "Winter Tek Gloves",
     version: "Winter",
     desc: "All the therapy and Apple Watch functionality of the V2, engineered for cold weather. Insulated for harsh conditions without sacrificing treatment efficacy or wearability.",
     price: "TBC",
-    image: "/images/tekglove-angle.jpg",
-    cutout: "/images/tekglove_angle_cutout.png",
+    image: "/images/Tek Glove-angle.jpg",
+    cutout: "/images/Tek Glove_angle_cutout.png",
     tag: "Winter Edition",
     available: true,
   },
   {
     id: "04",
-    name: "TekGloves V4",
+    name: "Tek Gloves V4",
     version: "V4",
     desc: "Next-generation interaction. Advanced motion sensing, instantaneous somatosensory input, and refined haptic feedback. Gesture recognition for proprietary Morse code, neuroadaptive XR training, and assistive robotics control. Built for sports, healthcare, and military applications.",
     price: "In Development",
@@ -129,7 +129,7 @@ export const principles = [
   {
     id: "01",
     title: "Human-First Design",
-    desc: "Every TekGlove product starts with the human wearing it. We design for real conditions, real environments, and real recovery — not lab benchmarks.",
+    desc: "Every Tek Glove product starts with the human wearing it. We design for real conditions, real environments, and real recovery — not lab benchmarks.",
   },
   {
     id: "02",
@@ -144,24 +144,24 @@ export const principles = [
   {
     id: "04",
     title: "Adaptive Intelligence",
-    desc: "From gesture recognition to neuroadaptive feedback, TekGlove learns from the wearer. The V4 pushes this further — bridging machine learning, human touch, and digital interaction.",
+    desc: "From gesture recognition to neuroadaptive feedback, Tek Glove learns from the wearer. The V4 pushes this further — bridging machine learning, human touch, and digital interaction.",
   },
 ];
 
 export const about = {
   story:
-    "TekGlove was born from a simple observation: people recovering from hand injuries, arthritis, and neurological conditions had no single wearable that addressed their needs comprehensively. Designed by Keniye Koroye, the original TekGlove integrated an Apple Watch mount to bring data to the hand. The V2 went further — combining EMS, TENS, vibration, and heat into a single therapy device that syncs with Apple Watch via Bluetooth. Now in development, the V4 pushes into new territory entirely: advanced motion sensing, somatosensory input, haptic feedback, and gesture-based control for sports, healthcare, and military applications.",
+    "Tek Glove was born from a simple observation: people recovering from hand injuries, arthritis, and neurological conditions had no single wearable that addressed their needs comprehensively. Designed by Keniye Koroye, the original Tek Glove integrated an Apple Watch mount to bring data to the hand. The V2 went further — combining EMS, TENS, vibration, and heat into a single therapy device that syncs with Apple Watch via Bluetooth. Now in development, the V4 pushes into new territory entirely: advanced motion sensing, somatosensory input, haptic feedback, and gesture-based control for sports, healthcare, and military applications.",
   mission:
     "To build the world's most advanced wearable therapy and interaction system — making recovery, performance, and human-machine communication as natural as putting on a glove.",
   vision:
-    "A world where technology disappears into the human body seamlessly. Where a glove can heal an arthritic hand in the morning, train a surgeon's precision in the afternoon, and guide a drone with gesture in the evening. TekGlove is building towards that future — one version at a time.",
+    "A world where technology disappears into the human body seamlessly. Where a glove can heal an arthritic hand in the morning, train a surgeon's precision in the afternoon, and guide a drone with gesture in the evening. Tek Glove is building towards that future — one version at a time.",
 };
 
 export const team = [
   {
     name: "Keniye B. Koroye",
     role: "Founder & Designer",
-    bio: "An industrial designer, product analyst, and entrepreneur celebrated for merging African cultural narratives with global innovation. A SCAD alum and Tech Nation Global Talent ambassador, Keniye has designed for brands like Tecno Mobile and AFA Sports, and holds a patent for the TekGlove. Based in London, he specializes in bridging the gap between high-impact hardware and fintech strategy.",
+    bio: "An industrial designer, product analyst, and entrepreneur celebrated for merging African cultural narratives with global innovation. A SCAD alum and Tech Nation Global Talent ambassador, Keniye has designed for brands like Tecno Mobile and AFA Sports, and holds a patent for the Tek Glove. Based in London, he specializes in bridging the gap between high-impact hardware and fintech strategy.",
   },
   // {
   //   name: "Evangel Iheukwumere",

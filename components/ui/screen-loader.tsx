@@ -288,7 +288,7 @@ function WatchSVG({ progress }: { progress: number }) {
             letterSpacing={1.5}
             fill="rgba(255,255,255,0.5)"
           >
-            TEKGLOVE
+            Tek Glove
           </text>
 
           <circle cx={60} cy={100} r={2} fill="var(--orange)" opacity={1} />

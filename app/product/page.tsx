@@ -26,7 +26,7 @@ export default function ProductPage() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-heading text-[clamp(3rem,9vw,7rem)] font-black uppercase text-white"
           >
-            TekGlove
+            Tek Glove
           </motion.h1>
         </div>
       </div>
@@ -37,8 +37,8 @@ export default function ProductPage() {
           {/* Image */}
           <div className="flex items-center justify-center border-r border-white/10 bg-surface px-8 py-16">
             <Image
-              src="/images/tekglove_front_cutout.png"
-              alt="TekGlove Standard"
+              src="/images/Tek Glove_front_cutout.png"
+              alt="Tek Glove Standard"
               width={480}
               height={480}
               className="max-w-full object-contain"
@@ -52,11 +52,11 @@ export default function ProductPage() {
             </div>
 
             <h2 className="mb-4 font-heading text-[clamp(2rem,5vw,3.5rem)] font-black uppercase text-white">
-              TekGlove Standard
+              Tek Glove Standard
             </h2>
 
             <p className="mb-10 font-sans text-[0.9rem] leading-[1.8] text-white/50">
-              The original TekGlove. A lightweight, high-performance glove
+              The original Tek Glove. A lightweight, high-performance glove
               engineered with a precision-fit Apple Watch mount on the back of
               the hand. Built for athletes, adventurers, and professionals who
               need their data without reaching for their wrist.
@@ -104,7 +104,7 @@ export default function ProductPage() {
             </div>
 
             <h2 className="mb-4 font-heading text-[clamp(2rem,5vw,3.5rem)] font-black uppercase text-white">
-              TekGlove Winter
+              Tek Glove Winter
             </h2>
 
             <p className="mb-10 font-sans text-[0.9rem] leading-[1.8] text-white/50">
@@ -124,8 +124,8 @@ export default function ProductPage() {
           {/* Image */}
           <div className="flex items-center justify-center bg-surface px-8 py-16">
             <Image
-              src="/images/tekglove_angle_cutout.png"
-              alt="TekGlove Winter"
+              src="/images/Tek Glove_angle_cutout.png"
+              alt="Tek Glove Winter"
               width={480}
               height={480}
               className="max-w-full object-contain"

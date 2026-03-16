@@ -166,7 +166,7 @@ export default function SignupPage() {
               {/* Use case */}
               <div>
                 <label className="mb-2 block font-mono text-[0.6rem] uppercase tracking-[0.2em] text-white/30">
-                  How do you plan to use TekGlove?
+                  How do you plan to use Tek Glove?
                 </label>
                 <textarea
                   name="useCase"

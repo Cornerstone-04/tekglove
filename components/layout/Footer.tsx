@@ -59,7 +59,7 @@ export default function Footer() {
 
       <div className="flex items-center justify-between border-t border-border px-6 py-4 md:px-12">
         <p className="font-mono text-[0.6rem] tracking-widest text-white/20">
-          © {new Date().getFullYear()} TekGlove. All rights reserved.
+          © {new Date().getFullYear()} Tek Glove. All rights reserved.
         </p>
 
         <p className="font-mono text-[0.6rem] tracking-widest text-white/20">

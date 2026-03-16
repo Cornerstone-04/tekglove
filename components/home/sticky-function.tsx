@@ -23,7 +23,7 @@ const STICKY_FEATURES = [
   {
     id: "04",
     title: "Security Ecosystem",
-    body: "TekGlove is the physical anchor of a connected security system — linking your wrist to AR glasses, drone feeds, and a phone hub for full situational awareness.",
+    body: "Tek Glove is the physical anchor of a connected security system — linking your wrist to AR glasses, drone feeds, and a phone hub for full situational awareness.",
     tag: "Ecosystem",
   },
 ];
@@ -46,8 +46,8 @@ export function StickyFeatures() {
                 }}
               >
                 <Image
-                  src="/images/tekglove_angle_cutout.png"
-                  alt="TekGlove"
+                  src="/images/Tek Glove_angle_cutout.png"
+                  alt="Tek Glove"
                   width={440}
                   height={440}
                   className="object-contain relative z-10"

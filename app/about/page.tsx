@@ -7,7 +7,7 @@ import SecurityArchitectureSVG from "@/components/ui/security-architecture-svg";
 const principles = [
   {
     title: "Human-First Design",
-    desc: "Every TekGlove product starts with the human wearing it. We design for real conditions, real environments, and real recovery — not lab benchmarks.",
+    desc: "Every Tek Glove product starts with the human wearing it. We design for real conditions, real environments, and real recovery — not lab benchmarks.",
   },
   {
     title: "Multi-Modal Therapy",
@@ -19,7 +19,7 @@ const principles = [
   },
   {
     title: "Adaptive Intelligence",
-    desc: "From gesture recognition to neuroadaptive feedback, TekGlove learns from the wearer. The V4 bridges machine learning, human touch, and digital interaction.",
+    desc: "From gesture recognition to neuroadaptive feedback, Tek Glove learns from the wearer. The V4 bridges machine learning, human touch, and digital interaction.",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function AboutPage() {
             </div>
 
             <p className="mb-6 font-sans text-[1rem] leading-[1.9] text-white/55">
-              Designed by Keniye Koroye, TekGlove started with a simple idea —
+              Designed by Keniye Koroye, Tek Glove started with a simple idea —
               bring everything to the hand. The V2 combined EMS, TENS,
               vibration, and heat into a single wearable that syncs with Apple
               Watch via Bluetooth for real-time therapy monitoring.
@@ -156,7 +156,7 @@ export default function AboutPage() {
             <p className="mb-8 font-sans text-[0.9rem] leading-[1.85] text-white/50">
               A world where a glove can heal in the morning, train a surgeon in
               the afternoon, and guide a drone with gesture in the evening.
-              TekGlove is building toward that future — one version at a time.
+              Tek Glove is building toward that future — one version at a time.
             </p>
 
             <Link
@@ -179,7 +179,7 @@ export default function AboutPage() {
               In Development
             </div>
             <h3 className="mb-6 font-heading text-[2.5rem] font-black uppercase text-white leading-none">
-              TekGlove V4
+              Tek Glove V4
             </h3>
             <ul className="space-y-4">
               {[
@@ -226,7 +226,7 @@ export default function AboutPage() {
             </h2>
 
             <p className="mb-6 font-sans text-[0.9rem] leading-[1.85] text-white/50">
-              TekGlove is the foundation of a personal security and interaction
+              Tek Glove is the foundation of a personal security and interaction
               architecture. Your glove connects to AR smart glasses for heads-up
               drone telemetry, a voice-activated companion glove, and a phone
               hub that centralises control and alerts.

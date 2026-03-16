@@ -7,7 +7,7 @@ export function Features() {
       <div className="px-6 md:px-10 max-w-7xl mx-auto">
         <div className="mb-16">
           <p className="font-mono text-xxs tracking-[0.3em] uppercase text-orange mb-4">
-            Why TekGlove?
+            Why Tek Glove?
           </p>
           <h2 className="font-heading font-black text-[clamp(2.5rem,6vw,5rem)] text-white">
             Built Different.
