@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 export default function WaitlistPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
-      window.location.href = "https://tekglove.co.uk";
+      window.location.href = "https://knk-labs.vercel.app";
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
