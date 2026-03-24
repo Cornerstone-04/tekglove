@@ -58,7 +58,7 @@ export default function Navbar() {
               <li key={href}>
                 <Link
                   href={href}
-                  className={`font-sans text-[0.78rem] tracking-[0.05em] no-underline transition-colors duration-200 ${
+                  className={`font-sans text-[0.78rem] tracking-[0.05em] uppercase no-underline transition-colors duration-200 ${
                     active ? "text-white" : "text-white/50 hover:text-white"
                   }`}
                 >
