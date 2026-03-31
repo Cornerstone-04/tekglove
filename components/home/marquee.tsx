@@ -3,12 +3,12 @@
 import { motion } from "motion/react";
 
 const TAGLINE_ITEMS = [
-  "Apple Watch Integrated",
+  "Smart Watch Integrated",
   "Performance Grip",
   "Winter & Standard",
   "Personal Security Ecosystem",
   "Made for Athletes",
-  "Apple Watch Integrated",
+  "Smart Watch Integrated",
   "Performance Grip",
   "Winter & Standard",
   "Personal Security Ecosystem",

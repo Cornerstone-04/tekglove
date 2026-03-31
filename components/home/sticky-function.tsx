@@ -5,7 +5,7 @@ const STICKY_FEATURES = [
   {
     id: "01",
     title: "Precision Mount",
-    body: "A precision-engineered housing locks your Apple Watch Ultra securely to the back of your hand. No straps, no slippage — just your watch, exactly where you need it.",
+    body: "A precision-engineered housing locks your Smart Watch Ultra securely to the back of your hand. No straps, no slippage — just your watch, exactly where you need it.",
     tag: "Hardware",
   },
   {

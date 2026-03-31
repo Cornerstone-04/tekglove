@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | Tek Glove",
   },
   description:
-    "Tek Glove is the world's first therapy glove combining EMS, TENS, vibration, and heat in one wearable device. Relieves pain, restores muscle function, and boosts circulation. Designed for arthritis, Parkinson's, carpal tunnel, injury recovery, and daily hand fatigue. Pairs with Apple Watch via Bluetooth. Coming 2026.",
+    "Tek Glove is the world's first therapy glove combining EMS, TENS, vibration, and heat in one wearable device. Relieves pain, restores muscle function, and boosts circulation. Designed for arthritis, Parkinson's, carpal tunnel, injury recovery, and daily hand fatigue. Pairs with Smart Watch via Bluetooth. Coming 2026.",
   metadataBase: new URL("https://tekglove.vercel.app"),
   keywords: [
     "Tek Glove",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "therapy glove",
     "EMS glove",
     "TENS glove",
-    "Apple Watch glove",
+    "Smart Watch glove",
     "wearable therapy",
     "arthritis glove",
     "recovery glove",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     url: "https://tekglove.vercel.app",
     title: "Tek Glove — Recovery, Reinvented.",
     description:
-      "The world's first therapy glove. EMS + TENS + Vibration + Heat in one wearable. Pairs with Apple Watch. Coming 2026.",
+      "The world's first therapy glove. EMS + TENS + Vibration + Heat in one wearable. Pairs with Smart Watch. Coming 2026.",
     siteName: "Tek Glove",
     images: [
       {
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tek Glove — Recovery, Reinvented.",
     description:
-      "The world's first therapy glove. EMS + TENS + Vibration + Heat in one wearable. Pairs with Apple Watch. Coming 2026.",
+      "The world's first therapy glove. EMS + TENS + Vibration + Heat in one wearable. Pairs with Smart Watch. Coming 2026.",
     images: ["https://tekglove.vercel.app/images/tekglove-front.jpg"],
   },
   robots: {

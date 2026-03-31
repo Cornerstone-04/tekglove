@@ -50,7 +50,7 @@ export default function ProductPage() {
               <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[60%] h-[30%] bg-orange/20 blur-3xl rounded-full pointer-events-none" />
               <Image
                 src="/images/tekglove_front_cutout.png"
-                alt="Tek Glove with Apple Watch Ultra"
+                alt="Tek Glove with Smart Watch Ultra"
                 width={520}
                 height={520}
                 className="object-contain max-w-full relative z-10"
@@ -95,7 +95,7 @@ export default function ProductPage() {
               className="mb-10 font-sans text-[0.9rem] leading-[1.8] text-white/50"
             >
               The original Tek Glove. A lightweight, high-performance glove
-              engineered with a precision-fit Apple Watch mount on the back of
+              engineered with a precision-fit Smart Watch mount on the back of
               the hand. Built for athletes, adventurers, and professionals who
               need their data without reaching for their wrist.
             </motion.p>

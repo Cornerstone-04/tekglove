@@ -1,8 +1,8 @@
 export const site = {
   name: "Tek Glove",
-  tagline: "Your Apple Watch, Reinvented.",
+  tagline: "Your Smart Watch, Reinvented.",
   description:
-    "The world's first performance glove with an integrated Apple Watch mount. Built for athletes, adventurers, and professionals who refuse to compromise.",
+    "The world's first performance glove with an integrated Smart Watch mount. Built for athletes, adventurers, and professionals who refuse to compromise.",
   url: "https://tekglove.co.uk",
   email: "hello@tekglove.co.uk",
 };
@@ -22,8 +22,8 @@ export const features = [
   },
   {
     id: "02",
-    title: "Apple Watch Integration",
-    desc: "Data is seamlessly transmitted to your Apple Watch via Bluetooth for real-time analysis, session tracking, and therapy monitoring.",
+    title: "Smart Watch Integration",
+    desc: "Data is seamlessly transmitted to your Smart Watch via Bluetooth for real-time analysis, session tracking, and therapy monitoring.",
   },
   {
     id: "03",
@@ -39,8 +39,8 @@ export const features = [
 
 export const specs = [
   { label: "Therapy Modes", value: "EMS · TENS · Vibration · Heat" },
-  { label: "Connectivity", value: "Bluetooth — Apple Watch" },
-  { label: "Compatible Watches", value: "Apple Watch Series / Ultra" },
+  { label: "Connectivity", value: "Bluetooth — Smart Watch" },
+  { label: "Compatible Watches", value: "Smart Watch Series / Ultra" },
   { label: "Material", value: "Performance nylon · Hex-grip" },
   { label: "Water Resistance", value: "IPX4" },
   { label: "Sizes", value: "S / M / L / XL" },
@@ -56,7 +56,7 @@ export const products = [
     id: "01",
     name: "Tek Gloves",
     version: "V1",
-    desc: "The original. A precision-engineered performance glove with an integrated Apple Watch mount. Built for athletes, adventurers, and professionals who refuse to compromise.",
+    desc: "The original. A precision-engineered performance glove with an integrated Smart Watch mount. Built for athletes, adventurers, and professionals who refuse to compromise.",
     price: "TBC",
     image: "/images/tekglove-front.jpg",
     cutout: "/images/tekglove_front_cutout.png",
@@ -67,7 +67,7 @@ export const products = [
     id: "02",
     name: "Tek Gloves V2",
     version: "V2",
-    desc: "The world's first therapy glove. Combines EMS, TENS, vibration, and heat in one wearable device. Pairs with Apple Watch for real-time therapy monitoring and data analysis. Designed for arthritis, injury recovery, Parkinson's, carpal tunnel, and daily hand fatigue.",
+    desc: "The world's first therapy glove. Combines EMS, TENS, vibration, and heat in one wearable device. Pairs with Smart Watch for real-time therapy monitoring and data analysis. Designed for arthritis, injury recovery, Parkinson's, carpal tunnel, and daily hand fatigue.",
     price: "Coming 2026",
     image: "/images/tekv2_front.jpg",
     cutout: "/images/tekv2_front_cutout.png",
@@ -78,7 +78,7 @@ export const products = [
     id: "03",
     name: "Winter Tek Gloves",
     version: "Winter",
-    desc: "All the therapy and Apple Watch functionality of the V2, engineered for cold weather. Insulated for harsh conditions without sacrificing treatment efficacy or wearability.",
+    desc: "All the therapy and Smart Watch functionality of the V2, engineered for cold weather. Insulated for harsh conditions without sacrificing treatment efficacy or wearability.",
     price: "TBC",
     image: "/images/tekglove-angle.jpg",
     cutout: "/images/tekglove_angle_cutout.png",
@@ -136,7 +136,7 @@ export const principles = [
   },
   {
     title: "Seamless Integration",
-    desc: "Technology should disappear into the experience. Our gloves connect to Apple Watch, XR systems, and robotics without friction — data flows where you need it, when you need it.",
+    desc: "Technology should disappear into the experience. Our gloves connect to Smart Watch, XR systems, and robotics without friction — data flows where you need it, when you need it.",
   },
   {
     title: "Adaptive Intelligence",
@@ -146,7 +146,7 @@ export const principles = [
 
 export const about = {
   story:
-    "Tek Glove was born from a simple observation: people recovering from hand injuries, arthritis, and neurological conditions had no single wearable that addressed their needs comprehensively. Designed by Keniye Koroye, the original Tek Glove integrated an Apple Watch mount to bring data to the hand. The V2 went further — combining EMS, TENS, vibration, and heat into a single therapy device that syncs with Apple Watch via Bluetooth. Now in development, the V4 pushes into new territory entirely: advanced motion sensing, somatosensory input, haptic feedback, and gesture-based control for sports, healthcare, and military applications.",
+    "Tek Glove was born from a simple observation: people recovering from hand injuries, arthritis, and neurological conditions had no single wearable that addressed their needs comprehensively. Designed by Keniye Koroye, the original Tek Glove integrated an Smart Watch mount to bring data to the hand. The V2 went further — combining EMS, TENS, vibration, and heat into a single therapy device that syncs with Smart Watch via Bluetooth. Now in development, the V4 pushes into new territory entirely: advanced motion sensing, somatosensory input, haptic feedback, and gesture-based control for sports, healthcare, and military applications.",
   mission:
     "To build the world's most advanced wearable therapy and interaction system — making recovery, performance, and human-machine communication as natural as putting on a glove.",
   vision:
