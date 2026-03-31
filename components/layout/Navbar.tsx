@@ -58,7 +58,7 @@ export default function Navbar() {
               <li key={href}>
                 <Link
                   href={href}
-                  className={`font-sans text-[0.78rem] tracking-[0.05em] uppercase no-underline transition-colors duration-200 ${
+                  className={`font-sans text-[0.78rem] tracking-[0.05em] normal-case no-underline transition-colors duration-200 ${
                     active ? "text-white" : "text-white/50 hover:text-white"
                   }`}
                 >
@@ -72,7 +72,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <Link
           href="/waitlist"
-          className="hidden items-center gap-2 bg-orange px-5 py-2 font-sans text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-90 md:inline-flex"
+          className="hidden items-center gap-2 bg-orange px-5 py-2 font-sans text-[0.72rem] font-semibold normal-case tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-90 md:inline-flex"
         >
           Get Early Access
         </Link>
@@ -135,7 +135,7 @@ export default function Navbar() {
                       className="group flex items-center justify-between py-5 no-underline"
                     >
                       <span
-                        className={`font-heading text-[clamp(2rem,8vw,3rem)] font-black uppercase leading-none transition-colors duration-200 ${
+                        className={`font-heading text-[clamp(2rem,8vw,3rem)] font-black normal-case leading-none transition-colors duration-200 ${
                           active ? "text-orange" : "text-white/85"
                         }`}
                       >
@@ -161,12 +161,12 @@ export default function Navbar() {
               <Link
                 href="/waitlist"
                 onClick={close}
-                className="w-full bg-orange px-6 py-4 text-center font-sans text-[0.85rem] font-semibold uppercase tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-90"
+                className="w-full bg-orange px-6 py-4 text-center font-sans text-[0.85rem] font-semibold normal-case tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-90"
               >
                 Get Early Access →
               </Link>
 
-              <p className="text-center font-mono text-xxs uppercase tracking-[0.2em] text-white/20">
+              <p className="text-center font-mono text-xxs normal-case tracking-[0.2em] text-white/20">
                 tekglove.co.uk
               </p>
             </motion.div>

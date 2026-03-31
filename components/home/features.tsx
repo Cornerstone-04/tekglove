@@ -19,7 +19,7 @@ export function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="font-mono text-xxs tracking-[0.3em] uppercase text-orange mb-4"
+            className="font-mono text-xxs tracking-[0.3em] normal-case text-orange mb-4"
           >
             Why Tek Glove?
           </motion.p>

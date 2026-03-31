@@ -18,7 +18,7 @@ export function SecurityArchitecture() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-mono text-xxs tracking-[0.3em] uppercase text-orange mb-4"
+            className="font-mono text-xxs tracking-[0.3em] normal-case text-orange mb-4"
           >
             Ecosystem
           </motion.p>

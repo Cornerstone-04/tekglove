@@ -68,7 +68,7 @@ export default function Footer() {
           </a>
           <Link
             href="/waitlist"
-            className="mt-4 inline-block bg-orange px-4 py-2 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-85"
+            className="mt-4 inline-block bg-orange px-4 py-2 font-sans text-[0.7rem] font-semibold normal-case tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-85"
           >
             Get Early Access →
           </Link>

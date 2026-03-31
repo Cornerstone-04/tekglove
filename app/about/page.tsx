@@ -15,7 +15,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-4 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-orange"
+            className="mb-4 font-mono text-[0.6rem] normal-case tracking-[0.3em] text-orange"
           >
             Our Story
           </motion.div>
@@ -46,7 +46,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="mb-8 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-white/25"
+              className="mb-8 font-mono text-[0.6rem] normal-case tracking-[0.3em] text-orange"
             >
               The Problem
             </motion.div>
@@ -86,7 +86,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.2 }}
-              className="mb-8 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-white/25"
+              className="mb-8 font-mono text-[0.6rem] normal-case tracking-[0.3em] text-orange"
             >
               The Solution
             </motion.div>
@@ -126,7 +126,7 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-4 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-orange"
+            className="mb-4 font-mono text-[0.6rem] normal-case tracking-[0.3em] text-orange"
           >
             How We Build
           </motion.div>
@@ -297,7 +297,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.2 }}
-              className="mb-4 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-orange"
+              className="mb-4 font-mono text-[0.6rem] normal-case tracking-[0.3em] text-orange"
             >
               The Ecosystem
             </motion.div>
@@ -342,7 +342,7 @@ export default function AboutPage() {
             >
               <Link
                 href="/waitlist"
-                className="border-b border-orange/40 pb-0.5 font-sans text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-orange no-underline hover:border-orange transition-colors duration-200"
+                className="border-b border-orange/40 pb-0.5 font-sans text-[0.78rem] font-semibold normal-case tracking-[0.08em] text-orange no-underline hover:border-orange transition-colors duration-200"
               >
                 Get early access →
               </Link>
@@ -367,7 +367,7 @@ export default function AboutPage() {
             </h2>
             <Link
               href="/waitlist"
-              className="inline-block bg-orange px-10 py-4 font-sans text-[0.85rem] font-semibold uppercase tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-85"
+              className="inline-block bg-orange px-10 py-4 font-sans text-[0.85rem] font-semibold normal-case tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-85"
             >
               Get Early Access →
             </Link>

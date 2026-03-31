@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 export default function WaitlistPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
-      window.location.href = "https://knk-labs.vercel.app";
+      window.location.href = "https://knk-labs.vercel.app/";
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
@@ -25,7 +25,7 @@ export default function WaitlistPage() {
           className="h-1.5 w-1.5 rounded-full bg-orange"
         />
 
-        <p className="font-mono text-xxs uppercase tracking-[0.35em] text-white/40">
+        <p className="font-mono text-xxs normal-case tracking-[0.35em] text-white/40">
           Redirecting
         </p>
       </motion.div>

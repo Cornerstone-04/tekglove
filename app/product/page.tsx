@@ -15,7 +15,7 @@ export default function ProductPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-4 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-orange"
+            className="mb-4 font-mono text-[0.6rem] normal-case tracking-[0.3em] text-orange"
           >
             The Collection
           </motion.div>
@@ -72,7 +72,7 @@ export default function ProductPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="mb-4 font-mono text-[0.58rem] uppercase tracking-[0.2em] text-orange"
+              className="mb-4 font-mono text-[0.58rem] normal-case tracking-[0.2em] text-orange"
             >
               Flagship
             </motion.div>
@@ -121,7 +121,7 @@ export default function ProductPage() {
                   transition={{ duration: 0.4, delay: 0.3 + i * 0.05 }}
                   className="flex items-center justify-between border-b border-white/10 py-[0.65rem]"
                 >
-                  <span className="font-mono text-left text-[0.65rem] uppercase tracking-widest text-white/30">
+                  <span className="font-mono text-left text-[0.65rem] uppercase tracking-widest text-orange">
                     {s.label}
                   </span>
                   <span className="font-sans text-right text-[0.78rem] text-white/70">
@@ -140,7 +140,7 @@ export default function ProductPage() {
             >
               <Link
                 href="/waitlist"
-                className="inline-block bg-orange px-8 py-[0.9rem] font-sans text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-90"
+                className="inline-block bg-orange px-8 py-[0.9rem] font-sans text-[0.8rem] font-semibold normal-case tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-90"
               >
                 Get Early Access →
               </Link>
