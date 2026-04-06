@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     siteName: "Tek Glove",
     images: [
       {
-        url: "https://tekglove.vercel.app/images/tekglove-front.jpg",
+        url: "https://tekglove.vercel.app/images/tekglove_front.png",
         width: 1200,
         height: 630,
         alt: "TekGlove — The world's first therapy glove combining EMS, TENS, vibration and heat.",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     title: "Tek Glove — Recovery, Reinvented.",
     description:
       "The world's first therapy glove. EMS + TENS + Vibration + Heat in one wearable. Pairs with Smart Watch. Coming 2026.",
-    images: ["https://tekglove.vercel.app/images/tekglove-front.jpg"],
+    images: ["https://tekglove.vercel.app/images/tekglove_front.png"],
   },
   robots: {
     index: true,
