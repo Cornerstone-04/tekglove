@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Barlow_Condensed, Inter, DM_Mono } from "next/font/google";
 import ScreenLoader from "@/components/ui/screen-loader";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 
 const barlow = Barlow_Condensed({
   variable: "--font-barlow",
@@ -97,6 +98,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );
