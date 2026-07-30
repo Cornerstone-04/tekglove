@@ -7,6 +7,7 @@ import { CounterStrip } from "@/components/home/counter-strip";
 import { Features } from "@/components/home/features";
 import { SecurityArchitecture } from "@/components/home/security-architecture";
 import { HeroCTA } from "@/components/home/hero-cta";
+import { Ecosystem } from "@/components/home/ecosystem";
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Hero />
       <Marquee />
       <CounterStrip />
+      <Ecosystem />
       <Features />
       <StickyFeatures />
       <SecurityArchitecture />

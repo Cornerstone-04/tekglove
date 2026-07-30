@@ -1,11 +1,107 @@
 export const site = {
   name: "Tek Glove",
-  tagline: "Your Smart Watch, Reinvented.",
+  tagline: "One Platform. Endless Possibilities.",
   description:
-    "The world's first performance glove with an integrated Smart Watch mount. Built for athletes, adventurers, and professionals who refuse to compromise.",
+    "One intelligent wearable platform powering healthcare, athletic performance, and intuitive human-computer interaction.",
   url: "https://tekglove.co.uk",
   email: "hello@tekglove.co.uk",
 };
+
+export const ecosystemProducts = [
+  {
+    id: "01",
+    name: "Kradle",
+    mark: "KRADLE™",
+    category: "Maternal & Health Monitoring",
+    purpose: "Maternal and healthcare monitoring",
+    accent: "Health",
+    features: [
+      "Doppler fetal heartbeat detection",
+      "Maternal heart rate monitoring",
+      "Blood oxygen (SpO₂)",
+      "Body temperature sensing",
+      "Gestural emergency alerts",
+      "Integration with Kradle Centres",
+      "AI health assistant & telemedicine",
+    ],
+    users: [
+      "Pregnant women",
+      "Midwives",
+      "Doctors",
+      "Rural healthcare workers",
+      "Maternal health NGOs",
+    ],
+    value:
+      "Helping reduce maternal and infant mortality through wearable monitoring and early intervention.",
+  },
+  {
+    id: "02",
+    name: "Kinetix",
+    mark: "KINETIX™",
+    category: "Sports & Athletic Performance",
+    purpose: "Sports performance and training",
+    accent: "Performance",
+    features: [
+      "Motion tracking",
+      "Biometric monitoring",
+      "Grip-force sensing",
+      "Muscle activity monitoring",
+      'Coaching AI — "Edwin"',
+      "Performance analytics",
+      "Injury prediction alerts",
+      "Tek Vest & BRB App integration",
+    ],
+    users: [
+      "Boxers",
+      "Cyclists",
+      "Runners",
+      "Golfers",
+      "Tennis players",
+      "Professional sports teams",
+    ],
+    value:
+      "Turning every training session into measurable performance data.",
+  },
+  {
+    id: "03",
+    name: "Kursor",
+    mark: "KURSOR™",
+    category: "Human–Computer Interaction",
+    purpose: "Human-computer interaction",
+    accent: "Interaction",
+    features: [
+      "Air mouse functionality",
+      "Gesture-based cursor control",
+      "Virtual keyboard",
+      "Presentation control",
+      "AR/VR navigation",
+      "Voice commands",
+      "Haptic feedback",
+      "Wireless multi-device connectivity",
+    ],
+    users: [
+      "Office workers",
+      "Designers",
+      "Engineers",
+      "Gamers",
+      "VR users",
+      "People with accessibility needs",
+    ],
+    value:
+      "Replacing traditional mouse and keyboard interaction with intuitive hand gestures.",
+  },
+];
+
+export const sharedTechnology = [
+  "AI & Machine Learning",
+  "Gesture Recognition",
+  "Haptic Feedback",
+  "Bluetooth / Wi-Fi",
+  "Edge Computing",
+  "Cloud Dashboard",
+  "Mobile App Integration",
+  "Digital Twin Analytics",
+];
 
 export const navLinks = [
   { href: "/", label: "Home" },

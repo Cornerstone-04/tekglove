@@ -34,11 +34,11 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-mono text-xxs tracking-[0.3em] normal-case text-orange mb-6"
           >
-            Introducing Tek Glove
+            Introducing the TekGlove Ecosystem
           </motion.p>
 
           <h1 className="font-heading font-black text-[clamp(3.5rem,10vw,8rem)] leading-[0.9] tracking-[-0.02em] text-white mb-6">
-            {["Your", "Apple", "Watch,"].map((word, i) => (
+            {["One", "Platform."].map((word, i) => (
               <motion.span
                 key={word}
                 initial={{ opacity: 0, y: 40 }}
@@ -64,7 +64,7 @@ export function Hero() {
               }}
               className="inline-block text-orange"
             >
-              Reinvented.
+              Endless Possibilities.
             </motion.span>
           </h1>
 
@@ -90,10 +90,10 @@ export function Hero() {
               Get Early Access
             </Link>
             <Link
-              href="/product"
+              href="#ecosystem"
               className="font-sans font-medium text-[0.8rem] tracking-[0.08em] normal-case text-white/60 border border-white/15 px-8 py-[0.9rem] transition-all duration-200 hover:text-white hover:border-white/40"
             >
-              View Product
+              Explore the Ecosystem
             </Link>
           </motion.div>
         </div>
