@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 export default function WaitlistPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
-      window.location.href = "https://knk-labs.vercel.app/";
+      window.location.href = "https://www.knklabs.co.uk/";
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
