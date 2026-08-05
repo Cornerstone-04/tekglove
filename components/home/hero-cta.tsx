@@ -4,7 +4,7 @@ import Link from "next/link";
 export function HeroCTA() {
   return (
     <section className="py-32 text-center">
-      <div className="px-6 md:px-10 max-w-3xl mx-auto">
+      <div className="w-full px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -19,7 +19,7 @@ export function HeroCTA() {
             <br />
             Wear It.
           </h2>
-          <p className="font-sans text-[0.9rem] leading-[1.8] text-white/40 mb-10">
+          <p className="mx-auto mb-10 max-w-3xl font-sans text-[0.9rem] leading-[1.8] text-white/40">
             Sign up for beta testing or early access. Limited spots available.
           </p>
           <Link

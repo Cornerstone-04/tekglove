@@ -6,7 +6,7 @@ import SecurityArchitectureSVG from "../ui/security-architecture-svg";
 export function SecurityArchitecture() {
   return (
     <section className="py-32 border-b border-border bg-surface">
-      <div className="px-6 md:px-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div className="grid w-full grid-cols-1 items-center gap-16 px-6 md:grid-cols-2 md:px-12">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}

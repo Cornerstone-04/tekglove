@@ -34,11 +34,11 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-mono text-xxs tracking-[0.3em] normal-case text-orange mb-6"
           >
-            Introducing the TekGlove Ecosystem
+            Introducing Tek Glove
           </motion.p>
 
           <h1 className="font-heading font-black text-[clamp(3.5rem,10vw,8rem)] leading-[0.9] tracking-[-0.02em] text-white mb-6">
-            {["One", "Platform."].map((word, i) => (
+            {["Your", "Smart", "Glove,"].map((word, i) => (
               <motion.span
                 key={word}
                 initial={{ opacity: 0, y: 40 }}
@@ -64,7 +64,7 @@ export function Hero() {
               }}
               className="inline-block text-orange"
             >
-              Endless Possibilities.
+              Reinvented.
             </motion.span>
           </h1>
 
@@ -90,10 +90,10 @@ export function Hero() {
               Get Early Access
             </Link>
             <Link
-              href="#ecosystem"
+              href="/product"
               className="font-sans font-medium text-[0.8rem] tracking-[0.08em] normal-case text-white/60 border border-white/15 px-8 py-[0.9rem] transition-all duration-200 hover:text-white hover:border-white/40"
             >
-              Explore the Ecosystem
+              View Product
             </Link>
           </motion.div>
         </div>
@@ -120,7 +120,7 @@ export function Hero() {
               <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[60%] h-[30%] bg-orange/20 blur-3xl rounded-full pointer-events-none" />
               <Image
                 src="/images/tekglove_front_cutout.png"
-                alt="Tek Glove with Smart Watch Ultra"
+                alt="TekGlove smart wearable glove"
                 width={520}
                 height={520}
                 className="object-contain max-w-full relative z-10"

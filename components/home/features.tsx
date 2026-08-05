@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 export function Features() {
   return (
     <section className="py-32 border-b border-border">
-      <div className="px-6 md:px-10 max-w-7xl mx-auto">
+      <div className="w-full px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

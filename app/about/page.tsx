@@ -1,16 +1,27 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
 import SecurityArchitectureSVG from "@/components/ui/security-architecture-svg";
 import { principles } from "@/lib/data";
 
 export default function AboutPage() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+
   return (
     <div className="bg-bg pt-16">
       {/* ── HEADER ── */}
-      <div className="border-b border-white/10 px-6 pt-20 pb-16 md:px-10">
-        <div className="mx-auto max-w-7xl px-4">
+      <div
+        ref={heroRef}
+        className="border-b border-white/10 px-6 pt-20 pb-16 md:px-12"
+      >
+        <motion.div style={{ opacity: heroOpacity }} className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -29,12 +40,12 @@ export default function AboutPage() {
             <br />
             <span className="text-orange">Intersection.</span>
           </motion.h1>
-        </div>
+        </motion.div>
       </div>
 
       {/* ── ORIGIN STORY ── */}
-      <section className="border-b border-white/10 px-6 py-24 md:px-10">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-16 px-4 md:grid-cols-2">
+      <section className="border-b border-white/10 px-6 py-24 md:px-12">
+        <div className="grid w-full grid-cols-1 items-start gap-16 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -119,8 +130,8 @@ export default function AboutPage() {
       </section>
 
       {/* ── PRINCIPLES ── */}
-      <section className="border-b border-white/10 bg-surface px-6 py-24 md:px-10">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="border-b border-white/10 bg-surface px-6 py-24 md:px-12">
+        <div className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -167,7 +178,7 @@ export default function AboutPage() {
 
       {/* ── VISION ── */}
       {/* <section className="border-b border-white/10 px-6 py-24 md:px-10">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-4 md:grid-cols-2">
+        <div className="grid w-full grid-cols-1 items-center gap-16 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -274,8 +285,8 @@ export default function AboutPage() {
       </section> */}
 
       {/* ── ARCHITECTURE ── */}
-      <section className="border-b border-white/10 px-6 py-24 md:px-10">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-4 md:grid-cols-2">
+      <section className="border-b border-white/10 px-6 py-24 md:px-12">
+        <div className="grid w-full grid-cols-1 items-center gap-16 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}

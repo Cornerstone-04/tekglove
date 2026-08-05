@@ -9,7 +9,7 @@ const icons = [Activity, Crosshair, MousePointer2];
 export function Ecosystem() {
   return (
     <section id="ecosystem" className="border-b border-border py-28 md:py-36">
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
+      <div className="w-full px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
