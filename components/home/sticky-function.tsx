@@ -31,7 +31,7 @@ const STICKY_FEATURES = [
 export function StickyFeatures() {
   return (
     <section className="border-b border-border">
-      <div className="px-6 md:px-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2">
+      <div className="grid w-full grid-cols-1 px-6 md:grid-cols-2 md:px-12">
         {/* Left — sticky image */}
         <div className="hidden md:flex items-start">
           <div className="sticky top-0 h-svh w-full flex items-center justify-center">

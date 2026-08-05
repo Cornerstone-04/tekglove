@@ -1,16 +1,27 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { specs } from "@/lib/data";
 
 export default function ProductPage() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+
   return (
     <div className="bg-bg pt-16">
       {/* Header */}
-      <div className="border-b border-white/10 px-6 pt-20 pb-16 md:px-10">
-        <div className="mx-auto max-w-7xl px-4">
+      <div
+        ref={heroRef}
+        className="border-b border-white/10 px-6 pt-20 pb-16 md:px-12"
+      >
+        <motion.div style={{ opacity: heroOpacity }} className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -28,12 +39,12 @@ export default function ProductPage() {
           >
             Tek Glove
           </motion.h1>
-        </div>
+        </motion.div>
       </div>
 
       {/* Main product */}
       <section className="border-b border-white/10 pb-12 md:pb-24">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-0 px-6 md:grid-cols-2 md:px-12">
+        <div className="grid w-full grid-cols-1 gap-0 px-6 md:grid-cols-2 md:px-12">
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

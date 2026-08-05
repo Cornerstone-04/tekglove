@@ -1,8 +1,8 @@
 export const site = {
   name: "Tek Glove",
-  tagline: "One Platform. Endless Possibilities.",
+  tagline: "Your Smart Glove, Reinvented.",
   description:
-    "One intelligent wearable platform powering healthcare, athletic performance, and intuitive human-computer interaction.",
+    "An intelligent wearable glove built for performance, health, and human-computer interaction—with seamless smartwatch connectivity when you need it.",
   url: "https://tekglove.co.uk",
   email: "hello@tekglove.co.uk",
 };

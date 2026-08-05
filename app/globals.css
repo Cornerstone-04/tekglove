@@ -67,3 +67,24 @@
     @apply text-inherit no-underline cursor-pointer;
   }
 }
+
+/* Keep interface labels and supporting copy comfortable on large displays. */
+@media (min-width: 96rem) {
+  .text-xxs,
+  .text-\[0\.55rem\],
+  .text-\[0\.58rem\],
+  .text-\[0\.6rem\],
+  .text-\[0\.65rem\] {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .text-\[0\.7rem\],
+  .text-\[0\.72rem\],
+  .text-\[0\.78rem\],
+  .text-\[0\.8rem\],
+  .text-\[0\.82rem\] {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
