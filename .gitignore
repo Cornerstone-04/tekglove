@@ -20,6 +20,9 @@
 # production
 /build
 
+# completed implementation plans
+/plans/
+
 # misc
 .DS_Store
 *.pem

@@ -1,25 +1,18 @@
-"use client";
+import { createPageMetadata } from "@/shared/seo/metadata";
 
-import { StickyFeatures } from "@/components/home/sticky-function";
-import { Hero } from "@/components/home/hero";
-import { Marquee } from "@/components/home/marquee";
-import { CounterStrip } from "@/components/home/counter-strip";
-import { Features } from "@/components/home/features";
-import { HeroCTA } from "@/components/home/hero-cta";
-import { Ecosystem } from "@/components/home/ecosystem";
-import { PersonalIntelligenceArchitecture } from "@/components/home/personal-intelligence-architecture";
+export const metadata = createPageMetadata({
+  title: "Your Smart Glove, Reinvented.",
+  absoluteTitle: "TekGlove | Your Smart Glove, Reinvented.",
+  description:
+    "Discover TekGlove, a wearable hand-data platform that turns movement, grip, gestures, and physical response into useful insight across six industries.",
+  path: "/",
+  keywords: [
+    "connected glove",
+    "gesture recognition glove",
+    "grip force monitoring",
+    "wearable technology UK",
+    "AI wearable platform",
+  ],
+});
 
-export default function HomePage() {
-  return (
-    <div className="bg-bg">
-      <Hero />
-      <Marquee />
-      <CounterStrip />
-      <Features />
-      <StickyFeatures />
-      <PersonalIntelligenceArchitecture />
-      <Ecosystem />
-      <HeroCTA />
-    </div>
-  );
-}
+export { default } from "@/features/home/home-page";

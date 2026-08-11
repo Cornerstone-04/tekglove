@@ -1,34 +1,16 @@
-"use client";
+import { createPageMetadata } from "@/shared/seo/metadata";
 
-import { useEffect } from "react";
-import { motion } from "motion/react";
+export const metadata = createPageMetadata({
+  title: "Join the TekGlove Early Access List",
+  description:
+    "Get early access updates for TekGlove and follow the development of the Smart Dorsal Sensor platform and its connected glove ecosystem.",
+  path: "/waitlist",
+  keywords: [
+    "TekGlove early access",
+    "TekGlove waitlist",
+    "smart glove release",
+    "wearable technology launch",
+  ],
+});
 
-export default function WaitlistPage() {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      window.location.href = "https://www.knklabs.co.uk/";
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  return (
-    <div className="min-h-svh bg-bg flex items-center justify-center">
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="flex flex-col items-center gap-6 text-center"
-      >
-        <motion.div
-          animate={{ opacity: [0.3, 1, 0.3] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-          className="h-1.5 w-1.5 rounded-full bg-orange"
-        />
-
-        <p className="font-mono text-xxs normal-case tracking-[0.35em] text-white/40">
-          Redirecting
-        </p>
-      </motion.div>
-    </div>
-  );
-}
+export { default } from "@/features/waitlist/waitlist-page";

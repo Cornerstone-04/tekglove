@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
-import { ecosystemProducts, navLinks, site } from "@/lib/data";
+import { Mail, MapPin } from "lucide-react";
+import { BsArrowRight } from "react-icons/bs";
+import { ecosystemProducts, navLinks, site } from "@/content/site";
+import { ButtonLink } from "@/shared/components/ui/button";
 
 const companyLinks = navLinks.filter(({ label }) => label !== "Get Early Access");
 
@@ -9,7 +11,7 @@ export default function Footer() {
   return (
     <footer
       id="site-footer"
-      className="relative scroll-mt-16 overflow-hidden border-t border-white/10 bg-bg text-primary"
+      className="relative scroll-mt-16 overflow-hidden border-t border-white/8 bg-[#070708] text-primary"
     >
       <div className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-orange/5 blur-3xl" />
 
@@ -28,14 +30,14 @@ export default function Footer() {
         </div>
 
         <div className="mt-20 border-t border-white/10 pt-7 md:mt-28">
-          <div className="grid gap-4 font-mono text-[0.68rem] leading-relaxed text-white/38 md:grid-cols-2 md:items-center">
+          <div className="grid gap-4 font-mono text-xs leading-relaxed text-white/65 md:grid-cols-2 md:items-center">
             <p>
               © {new Date().getFullYear()} TekGlove. All rights reserved.
             </p>
             <p className="md:text-right">{site.tagline}</p>
           </div>
 
-          <p className="mt-7 border-t border-white/8 pt-7 font-mono text-[0.62rem] leading-[1.8] text-white/24">
+          <p className="mt-7 max-w-5xl border-t border-white/8 pt-7 font-sans text-xs leading-[1.8] text-white/58">
             TekGlove develops connected wearable systems that capture and
             interpret hand data across sport, health, recovery, defence,
             computing, and industry. Product capabilities described on this
@@ -58,29 +60,21 @@ function FooterBrand() {
           height={58}
           className="opacity-90"
         />
-        <span className="font-heading text-2xl font-bold uppercase leading-[0.88] tracking-[0.09em] text-white">
+        <span className="font-brand text-2xl font-bold uppercase leading-[0.88] tracking-[0.09em] text-white">
           Tek
           <br />
           <span className="text-orange">Glove</span>
         </span>
       </Link>
 
-      <p className="mt-7 max-w-[42ch] font-mono text-xs-plus leading-[1.9] text-white/48">
+      <p className="copy-secondary mt-7 max-w-[42ch] font-sans text-sm leading-[1.8]">
         Turning movement, grip, gestures, and physical response into useful
         intelligence through the connected hand.
       </p>
 
-      <Link
-        href="/waitlist"
-        className="group mt-8 inline-flex min-h-12 items-center gap-4 border border-white/20 px-5 py-3 font-mono text-xxs uppercase tracking-[0.18em] text-white transition-colors duration-200 hover:border-orange hover:bg-orange/8"
-      >
+      <ButtonLink href="/waitlist" variant="secondary" className="mt-8">
         Get early access
-        <ArrowRight
-          size={16}
-          className="transition-transform duration-300 group-hover:translate-x-1.5"
-          aria-hidden="true"
-        />
-      </Link>
+      </ButtonLink>
     </div>
   );
 }
@@ -100,7 +94,7 @@ function FooterColumn({
           <li key={`${link.href}-${link.label}`}>
             <Link
               href={link.href}
-              className="group inline-flex items-center gap-2 font-mono text-xs-plus text-white/48 transition-colors duration-200 hover:text-white"
+              className="group inline-flex items-center gap-2 font-sans text-sm text-white/68 transition-colors duration-200 hover:text-white"
             >
               <span className="h-px w-0 bg-orange transition-[width] duration-300 group-hover:w-3" />
               {link.label}
@@ -131,17 +125,17 @@ function FooterContact() {
       </div>
 
       <div className="mt-9 border-t border-white/10 pt-5">
-        <p className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-white/28">
+        <p className="font-mono text-xs tracking-[0.08em] text-white/60">
           Flagship
         </p>
         <Link
           href="/product"
-          className="group mt-3 inline-flex items-center gap-3 font-heading text-2xl font-bold uppercase text-white/65 transition-colors duration-200 hover:text-white"
+          className="site-button group mt-3 inline-flex items-center gap-3 font-brand text-2xl font-bold uppercase text-white/78 transition-colors duration-200 hover:text-white"
         >
           KINETIX™
-          <ArrowRight
+          <BsArrowRight
             size={16}
-            className="text-orange transition-transform duration-300 group-hover:translate-x-1.5"
+            className="button-icon button-icon-right text-orange"
             aria-hidden="true"
           />
         </Link>
@@ -158,7 +152,7 @@ function ContactItem({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex items-start gap-4 font-mono text-xs-plus leading-[1.75] text-white/48">
+    <div className="flex items-start gap-4 font-sans text-sm leading-[1.75] text-white/68">
       <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-surface text-orange">
         {icon}
       </span>
@@ -169,7 +163,7 @@ function ContactItem({
 
 function FooterHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-mono text-xxs font-medium uppercase tracking-[0.26em] text-white/38">
+    <h2 className="font-mono text-xs font-medium tracking-[0.08em] text-white/65">
       {children}
     </h2>
   );

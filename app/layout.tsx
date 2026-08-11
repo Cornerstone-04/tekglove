@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import Navbar from "@/shared/components/layout/navbar";
+import Footer from "@/shared/components/layout/footer";
 import { Barlow_Condensed, Inter, DM_Mono } from "next/font/google";
-import ScreenLoader from "@/components/ui/screen-loader";
-import { ScrollToTop } from "@/components/ui/scroll-to-top";
+import SplashScreen from "@/shared/components/ui/splash-screen";
+import { ScrollToTop } from "@/shared/components/ui/scroll-to-top";
+import { site } from "@/content/site";
 
 const barlow = Barlow_Condensed({
   variable: "--font-barlow",
@@ -28,57 +29,26 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
+  applicationName: "TekGlove",
   title: {
-    default: "Tek Glove | Smart Dorsal Sensor",
+    default: "TekGlove | Your Smart Glove, Reinvented.",
     template: "%s | Tek Glove",
   },
-  description:
-    "TekGlove is a hand-data platform powered by the Smart Dorsal Sensor, turning movement, grip, gestures, and physical response into useful insight across six industries.",
-  metadataBase: new URL("https://tekglove.vercel.app"),
-  keywords: [
-    "Tek Glove",
-    "TekGlove",
-    "Smart Dorsal Sensor",
-    "hand data",
-    "athletic performance glove",
-    "gesture recognition glove",
-    "grip force monitoring",
-    "wearable sensor platform",
-    "KINETIX glove",
-    "smart glove",
-    "Tek Athletic",
-    "Keniye Koroye",
-    "wearable technology UK",
-    "connected glove",
-  ],
-  authors: [{ name: "Keniye Koroye", url: "https://tekglove.vercel.app" }],
+  description: site.description,
+  authors: [{ name: "Keniye B. Koroye" }],
   creator: "Keniye Koroye",
-  openGraph: {
-    type: "website",
-    url: "https://tekglove.vercel.app",
-    title: "Tek Glove | Your Smart Glove, Reinvented.",
-    description:
-      "The Smart Dorsal Sensor turns movement, grip, gestures, and physical response into useful hand-data insight.",
-    siteName: "Tek Glove",
-    images: [
-      {
-        url: "https://tekglove.vercel.app/images/tekglove_front.png",
-        width: 1200,
-        height: 630,
-        alt: "TekGlove wearable with Smart Dorsal Sensor",
-      },
-    ],
+  publisher: "TekGlove",
+  category: "Wearable Technology",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Tek Glove | Your Smart Glove, Reinvented.",
-    description:
-      "A hand-data platform powered by the Smart Dorsal Sensor across sport, health, recovery, defence, computing, and industry.",
-    images: ["https://tekglove.vercel.app/images/tekglove_front.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/tekglove_icon.png",
   },
 };
 
@@ -93,7 +63,7 @@ export default function RootLayout({
       className={`${barlow.variable} ${inter.variable} ${dmMono.variable}`}
     >
       <body>
-        <ScreenLoader />
+        <SplashScreen />
         <Navbar />
         <main>{children}</main>
         <Footer />
