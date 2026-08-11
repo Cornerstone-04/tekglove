@@ -118,7 +118,7 @@ export default function ProductPage() {
             <FloatingGlove className="relative z-10 w-full">
               <Image
                 src="/images/kinetix-hero.webp"
-                alt="KINETIX athletic glove with a live biometric display"
+                alt=""
                 width={760}
                 height={760}
                 className="h-auto w-full max-w-184 object-contain"
@@ -174,7 +174,7 @@ export default function ProductPage() {
               <FloatingGlove className="relative w-full">
                 <Image
                   src="/images/kinetix-sensor-front.webp"
-                  alt="Front view of the KINETIX integrated dorsal sensor"
+                  alt=""
                   width={720}
                   height={720}
                   className="h-auto w-full max-w-136 object-contain"
@@ -203,7 +203,7 @@ export default function ProductPage() {
               <FloatingGlove delay={0.6} className="relative w-full">
                 <Image
                   src="/images/kinetix-biometric-front.webp"
-                  alt="Front view of KINETIX showing live biometric data"
+                  alt=""
                   width={720}
                   height={720}
                   className="h-auto w-full max-w-136 object-contain"
@@ -354,7 +354,7 @@ export default function ProductPage() {
             <FloatingGlove className="relative w-full">
               <Image
                 src="/images/kinetix-angle.webp"
-                alt="Angled view of the KINETIX athletic performance glove"
+                alt=""
                 width={760}
                 height={760}
                 className="h-auto w-full max-w-152 object-contain"

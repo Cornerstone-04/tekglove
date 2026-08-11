@@ -24,6 +24,8 @@ export default function WaitlistPage() {
         initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: reduceMotion ? 0.2 : 0.6 }}
+        role="status"
+        aria-atomic="true"
         className="relative z-10 flex flex-col items-center gap-6 text-center"
       >
         <motion.div
