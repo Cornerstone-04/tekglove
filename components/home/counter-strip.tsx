@@ -4,9 +4,9 @@ import { AnimatedCounter } from "@/lib/animatedCounter";
 import { motion } from "motion/react";
 
 const COUNTERS = [
-  { value: 3, suffix: "", label: "Products" },
-  { value: 3, suffix: "", label: "Therapy Modes" },
-  { value: 2025, suffix: "", label: "Launch Year" },
+  { value: 6, suffix: "", label: "Specialized Gloves" },
+  { value: 1, suffix: "", label: "Core Sensor" },
+  { value: 6, suffix: "", label: "Industries" },
 ];
 
 export function CounterStrip() {
@@ -19,7 +19,7 @@ export function CounterStrip() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: i * 0.1 }}
-          className={`flex flex-col items-center justify-center py-10 gap-2 ${i < 2 ? "border-r border-border" : ""}`}
+          className={`flex flex-col items-center text-center justify-center py-10 gap-2 ${i < 2 ? "border-r border-border" : ""}`}
         >
           <span className="font-heading font-black text-[clamp(2.5rem,6vw,4.5rem)] leading-none text-white">
             <AnimatedCounter value={c.value} suffix={c.suffix} />

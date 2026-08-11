@@ -6,7 +6,7 @@ export default function SecurityArchitectureSVG() {
       width="100%"
       viewBox="0 0 680 500"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="Tek Glove personal security architecture"
+      aria-label="Tek Glove personal intelligence architecture"
     >
       <defs>
         <marker

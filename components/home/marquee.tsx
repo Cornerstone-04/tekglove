@@ -3,16 +3,16 @@
 import { motion } from "motion/react";
 
 const TAGLINE_ITEMS = [
-  "Smart Watch Integrated",
-  "Performance Grip",
-  "Winter & Standard",
-  "Personal Security Ecosystem",
-  "Made for Athletes",
-  "Smart Watch Integrated",
-  "Performance Grip",
-  "Winter & Standard",
-  "Personal Security Ecosystem",
-  "Made for Athletes",
+  "Smart Dorsal Sensor",
+  "Movement Data",
+  "Grip Intelligence",
+  "Gesture Recognition",
+  "Built Around the Hand",
+  "Smart Dorsal Sensor",
+  "Movement Data",
+  "Grip Intelligence",
+  "Gesture Recognition",
+  "Built Around the Hand",
 ];
 
 export function Marquee() {

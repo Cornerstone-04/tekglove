@@ -58,8 +58,8 @@ export default function Navbar() {
               <li key={href}>
                 <Link
                   href={href}
-                  className={`font-sans text-[0.78rem] tracking-[0.05em] normal-case no-underline transition-colors duration-200 ${
-                    active ? "text-white" : "text-white/50 hover:text-white"
+                  className={`font-sans font-semibold text-[0.78rem] tracking-[0.05em] normal-case no-underline transition-colors duration-200 ${
+                    active ? "text-orange" : "text-white/50 hover:text-white"
                   }`}
                 >
                   {label}
@@ -77,7 +77,7 @@ export default function Navbar() {
           Get Early Access
         </Link>
 
-        {/* Mobile — hamburger */}
+        {/* Mobile: hamburger */}
         <button
           onClick={() => setOpen(!open)}
           className="-mr-2 flex flex-col justify-center gap-1.25 p-2 md:hidden"
@@ -140,10 +140,6 @@ export default function Navbar() {
                         }`}
                       >
                         {label}
-                      </span>
-
-                      <span className="font-mono text-xxs uppercase tracking-[0.2em] text-white/20 transition-colors duration-200 group-hover:text-orange">
-                        0{i + 1}
                       </span>
                     </Link>
                   </motion.div>

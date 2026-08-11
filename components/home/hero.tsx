@@ -98,7 +98,7 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right — floating glove */}
+        {/* Right: floating glove */}
         <motion.div
           style={{ y: gloveY, scale: gloveScale }}
           className="flex justify-center"

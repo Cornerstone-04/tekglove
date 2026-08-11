@@ -4,27 +4,21 @@ import Image from "next/image";
 const STICKY_FEATURES = [
   {
     id: "01",
-    title: "Precision Mount",
-    body: "A precision-engineered housing locks your Smart Watch Ultra securely to the back of your hand. No straps, no slippage — just your watch, exactly where you need it.",
-    tag: "Hardware",
+    title: "Smart Dorsal Sensor",
+    body: "A compact sensing system positioned on the back of the hand, leaving the palm and fingers free to grip, touch, move, and work naturally.",
+    tag: "Core Technology",
   },
   {
     id: "02",
-    title: "Full Access Retained",
-    body: "Every button, crown, and touchscreen remains completely accessible. Digital Crown, side button, microphone — nothing is blocked, nothing is compromised.",
-    tag: "Functionality",
+    title: "Hand-Data Capture",
+    body: "Track movement, grip, gesture, position, and physical response from one of the body's richest sources of actionable data.",
+    tag: "Sensing",
   },
   {
     id: "03",
-    title: "Hex-Grip Texture",
-    body: "A hexagonal rubber grip pattern across the palm delivers superior hold in wet, dry, and freezing conditions. Engineered for performance, not just protection.",
-    tag: "Materials",
-  },
-  {
-    id: "04",
-    title: "Security Ecosystem",
-    body: "Tek Glove is the physical anchor of a connected security system — linking your wrist to AR glasses, drone feeds, and a phone hub for full situational awareness.",
-    tag: "Ecosystem",
+    title: "Interpreted Insight",
+    body: "AI and connected software turn raw hand data into performance feedback, health signals, alerts, commands, and operational intelligence.",
+    tag: "Intelligence",
   },
 ];
 
@@ -32,7 +26,7 @@ export function StickyFeatures() {
   return (
     <section className="border-b border-border">
       <div className="grid w-full grid-cols-1 px-6 md:grid-cols-2 md:px-12">
-        {/* Left — sticky image */}
+        {/* Left: sticky image */}
         <div className="hidden md:flex items-start">
           <div className="sticky top-0 h-svh w-full flex items-center justify-center">
             <div className="relative">
@@ -57,7 +51,7 @@ export function StickyFeatures() {
           </div>
         </div>
 
-        {/* Right — scrolling feature blocks */}
+        {/* Right: scrolling feature blocks */}
         <div className="border-l border-border">
           {STICKY_FEATURES.map((f, i) => (
             <motion.div
@@ -68,10 +62,7 @@ export function StickyFeatures() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="flex flex-col gap-5 border-b border-border px-10 py-20"
             >
-              <div className="flex items-center gap-4">
-                <span className="font-mono text-xxs tracking-[0.25em] text-muted">
-                  {f.id}
-                </span>
+              <div className="flex items-center">
                 <span className="font-mono text-xxs tracking-[0.15em] uppercase text-black bg-orange px-2 py-0.5">
                   {f.tag}
                 </span>
