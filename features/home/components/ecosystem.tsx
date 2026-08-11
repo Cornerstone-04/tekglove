@@ -19,7 +19,23 @@ import { ShaderBackdrop } from "@/shared/components/ui/shader-backdrop";
 import Image from "next/image";
 import { FloatingGlove } from "@/shared/components/ui/floating-glove";
 
-const icons = [Crosshair, Activity, MousePointer2, Shield, Zap, Cog];
+const icons = {
+  Kinetix: Crosshair,
+  Kradle: Activity,
+  Kursor: MousePointer2,
+  Kovert: Shield,
+  Kapture: Zap,
+  Konnect: Cog,
+} as const;
+
+const desktopOrder = {
+  Kinetix: "lg:order-2",
+  Kradle: "lg:order-1",
+  Kursor: "lg:order-3",
+  Kovert: "lg:order-4",
+  Kapture: "lg:order-5",
+  Konnect: "lg:order-6",
+} as const;
 
 export function Ecosystem() {
   const reduceMotion = useReducedMotion();
@@ -68,13 +84,21 @@ export function Ecosystem() {
           className="grid gap-5 lg:grid-cols-3"
         >
           {ecosystemProducts.map((product, index) => {
-            const Icon = icons[index];
+            const productName = product.name as keyof typeof icons;
+            const Icon = icons[productName];
+            const isFlagship = product.name === "Kinetix";
             return (
               <motion.article
                 key={product.name}
                 custom={{ index, reduceMotion }}
                 variants={alternatingCardReveal}
-                className="surface-panel group relative flex min-h-full flex-col overflow-hidden p-8 transition-colors duration-500 hover:bg-surface-raised md:p-10"
+                className={`surface-panel group relative flex min-h-full flex-col overflow-hidden p-8 transition-colors duration-500 hover:bg-surface-raised md:p-10 ${
+                  desktopOrder[productName]
+                } ${
+                  isFlagship
+                    ? "border-orange/60 shadow-[0_0_48px_rgba(249,115,22,0.13)] ring-1 ring-inset ring-orange/25"
+                    : ""
+                }`}
               >
                 {product.image && (
                   <div
