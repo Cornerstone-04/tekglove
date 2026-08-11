@@ -24,7 +24,7 @@ export function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-svh flex items-center overflow-hidden"
+      className="hero-texture relative flex min-h-svh items-center overflow-hidden"
     >
       <div className="pointer-events-none absolute top-1/2 right-[-10%] -translate-y-1/2 w-[70vw] h-[70vw] rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.12)_0%,rgba(249,115,22,0.035)_38%,transparent_68%)] z-0" />
 

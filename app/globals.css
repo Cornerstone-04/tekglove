@@ -116,6 +116,48 @@
   .pressable:active {
     transform: scale(0.97);
   }
+
+  .hero-texture {
+    isolation: isolate;
+    background:
+      radial-gradient(circle at 72% 42%, rgba(249, 115, 22, 0.055), transparent 34%),
+      linear-gradient(180deg, #020202 0%, var(--bg) 72%);
+  }
+
+  .hero-texture::before,
+  .hero-texture::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-texture::before {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 88%);
+  }
+
+  .hero-texture::after {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+    background-size: 11rem 11rem;
+    mix-blend-mode: soft-light;
+    opacity: 0.12;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .hero-texture::before {
+    background-size: 3rem 3rem;
+    opacity: 0.65;
+  }
+
+  .hero-texture::after {
+    opacity: 0.08;
+  }
 }
 
 /* Keep interface labels and supporting copy comfortable on large displays. */
