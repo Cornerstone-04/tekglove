@@ -2,7 +2,10 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
-import { alternatingCardReveal } from "@/shared/motion/card-reveal";
+import {
+  alternatingCardReveal,
+  revealViewport,
+} from "@/shared/motion/card-reveal";
 
 const STICKY_FEATURES = [
   {
@@ -71,7 +74,7 @@ export function StickyFeatures() {
               variants={alternatingCardReveal}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
+              viewport={revealViewport}
               className="surface-panel flex min-h-72 flex-col justify-center gap-5 px-8 py-16 md:px-10"
             >
               <div className="flex items-center">

@@ -3,6 +3,7 @@
 import { features } from "@/content/site";
 import {
   alternatingCardReveal,
+  revealViewport,
   staggeredCardGroup,
 } from "@/shared/motion/card-reveal";
 import { motion, useReducedMotion } from "motion/react";
@@ -17,7 +18,7 @@ export function Features() {
         <motion.div
           initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={revealViewport}
           transition={{
             duration: reduceMotion ? 0.2 : 0.5,
             ease: [0.23, 1, 0.32, 1],
@@ -35,7 +36,7 @@ export function Features() {
           variants={staggeredCardGroup}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={revealViewport}
           className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
         >
           {features.map((f, index) => (
@@ -59,7 +60,7 @@ export function Features() {
         <motion.div
           initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={revealViewport}
           transition={{
             duration: reduceMotion ? 0.2 : 0.5,
             ease: [0.23, 1, 0.32, 1],

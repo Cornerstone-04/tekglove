@@ -11,6 +11,7 @@ import { about, principles, whyHandReasons } from "@/content/site";
 import {
   alternatingCardReveal,
   motionEaseOut,
+  revealViewport,
   staggeredCardGroup,
 } from "@/shared/motion/card-reveal";
 import { ButtonLink } from "@/shared/components/ui/button";
@@ -165,7 +166,7 @@ export default function AboutPage() {
               transform: reduceMotion ? "translateX(0px)" : "translateX(-32px)",
             }}
             whileInView={{ opacity: 1, transform: "translateX(0px)" }}
-            viewport={{ once: true }}
+            viewport={revealViewport}
             transition={{
               duration: reduceMotion ? 0.2 : 0.5,
               ease: motionEaseOut,
@@ -189,7 +190,7 @@ export default function AboutPage() {
               transform: reduceMotion ? "translateX(0px)" : "translateX(32px)",
             }}
             whileInView={{ opacity: 1, transform: "translateX(0px)" }}
-            viewport={{ once: true }}
+            viewport={revealViewport}
             transition={{
               duration: reduceMotion ? 0.2 : 0.5,
               delay: reduceMotion ? 0 : 0.1,
@@ -215,7 +216,7 @@ export default function AboutPage() {
         <motion.div
           initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={revealViewport}
           transition={{
             duration: reduceMotion ? 0.2 : 0.5,
             ease: [0.23, 1, 0.32, 1],
@@ -242,7 +243,7 @@ export default function AboutPage() {
           variants={staggeredCardGroup}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={revealViewport}
           className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
           {whyHandReasons.map((reason, index) => (
@@ -267,7 +268,7 @@ export default function AboutPage() {
         <motion.div
           initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={revealViewport}
           transition={{
             duration: reduceMotion ? 0.2 : 0.5,
             ease: [0.23, 1, 0.32, 1],
@@ -284,7 +285,7 @@ export default function AboutPage() {
           variants={staggeredCardGroup}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={revealViewport}
           className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
         >
           {principles.map((principle, index) => (
@@ -309,7 +310,7 @@ export default function AboutPage() {
         <motion.div
           initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={revealViewport}
           transition={{
             duration: reduceMotion ? 0.2 : 0.5,
             ease: [0.23, 1, 0.32, 1],

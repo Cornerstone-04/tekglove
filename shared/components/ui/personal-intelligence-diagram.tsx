@@ -3,7 +3,10 @@
 import { Activity, BrainCircuit, CloudCog, Cpu, Network } from "lucide-react";
 import { BsArrowRight } from "react-icons/bs";
 import { motion, useReducedMotion } from "motion/react";
-import { alternatingCardReveal } from "@/shared/motion/card-reveal";
+import {
+  alternatingCardReveal,
+  revealViewport,
+} from "@/shared/motion/card-reveal";
 
 const architecture = [
   {
@@ -85,7 +88,7 @@ export function PersonalIntelligenceDiagram() {
                 variants={alternatingCardReveal}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-40px" }}
+                viewport={revealViewport}
                 className={`relative flex min-h-56 flex-col rounded-2xl border p-6 ${
                   node.core
                     ? "pia-core border-orange bg-orange text-black"

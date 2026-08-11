@@ -11,6 +11,7 @@ import Image from "next/image";
 import { athleticUseCases, features, specs } from "@/content/site";
 import {
   alternatingCardReveal,
+  revealViewport,
   staggeredCardGroup,
 } from "@/shared/motion/card-reveal";
 import { ShaderBackdrop } from "@/shared/components/ui/shader-backdrop";
@@ -157,38 +158,11 @@ export default function ProductPage() {
           variants={staggeredCardGroup}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={revealViewport}
           className="grid gap-5 lg:grid-cols-2"
         >
           <motion.article
             custom={{ index: 0, reduceMotion }}
-            variants={alternatingCardReveal}
-            className="surface-panel overflow-hidden"
-          >
-            <div className="relative flex min-h-88 items-center justify-center bg-white/2 p-8 sm:min-h-120">
-              <div className="absolute inset-[18%] rounded-full bg-orange/10 blur-3xl" />
-              <Image
-                src="/images/kinetix-biometric-front.webp"
-                alt="Front view of KINETIX showing live biometric data"
-                width={720}
-                height={720}
-                className="relative h-auto w-full max-w-136 object-contain"
-              />
-            </div>
-            <div className="border-t border-white/10 p-7 sm:p-9">
-              <p className="section-kicker mb-4">Live Performance Signals</p>
-              <h2 className="mb-4 font-heading text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                Feedback at a Glance.
-              </h2>
-              <p className="copy-secondary max-w-[48ch] text-sm leading-[1.8]">
-                KINETIX brings key training signals into view, helping athletes
-                connect movement and effort with useful performance context.
-              </p>
-            </div>
-          </motion.article>
-
-          <motion.article
-            custom={{ index: 1, reduceMotion }}
             variants={alternatingCardReveal}
             className="surface-panel overflow-hidden"
           >
@@ -213,6 +187,33 @@ export default function ProductPage() {
               </p>
             </div>
           </motion.article>
+
+          <motion.article
+            custom={{ index: 1, reduceMotion }}
+            variants={alternatingCardReveal}
+            className="surface-panel overflow-hidden"
+          >
+            <div className="relative flex min-h-88 items-center justify-center bg-white/2 p-8 sm:min-h-120">
+              <div className="absolute inset-[18%] rounded-full bg-orange/10 blur-3xl" />
+              <Image
+                src="/images/kinetix-biometric-front.webp"
+                alt="Front view of KINETIX showing live biometric data"
+                width={720}
+                height={720}
+                className="relative h-auto w-full max-w-136 object-contain"
+              />
+            </div>
+            <div className="border-t border-white/10 p-7 sm:p-9">
+              <p className="section-kicker mb-4">Live Performance Signals</p>
+              <h2 className="mb-4 font-heading text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
+                Feedback at a Glance.
+              </h2>
+              <p className="copy-secondary max-w-[48ch] text-sm leading-[1.8]">
+                KINETIX brings key training signals into view, helping athletes
+                connect movement and effort with useful performance context.
+              </p>
+            </div>
+          </motion.article>
         </motion.div>
       </section>
 
@@ -221,7 +222,7 @@ export default function ProductPage() {
         <motion.div
           initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={revealViewport}
           transition={{
             duration: reduceMotion ? 0.2 : 0.5,
             ease: [0.23, 1, 0.32, 1],
@@ -248,7 +249,7 @@ export default function ProductPage() {
           variants={staggeredCardGroup}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={revealViewport}
           className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
         >
           {features.map((feature, index) => (
@@ -275,7 +276,7 @@ export default function ProductPage() {
           <motion.div
             initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={revealViewport}
             transition={{
               duration: reduceMotion ? 0.2 : 0.5,
               ease: [0.23, 1, 0.32, 1],
@@ -293,7 +294,7 @@ export default function ProductPage() {
             variants={staggeredCardGroup}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={revealViewport}
             className="grid grid-cols-2 gap-3 lg:grid-cols-3"
           >
             {athleticUseCases.map((useCase, index) => (
@@ -319,7 +320,7 @@ export default function ProductPage() {
         <motion.div
           initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={revealViewport}
           transition={{
             duration: reduceMotion ? 0.2 : 0.5,
             ease: [0.23, 1, 0.32, 1],

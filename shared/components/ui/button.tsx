@@ -37,7 +37,7 @@ function getButtonClasses({
   className = "",
 }: Omit<SharedButtonProps, "children" | "arrow" | "icon" | "iconPosition">) {
   return [
-    "site-button pressable group inline-flex items-center justify-center gap-3 rounded-full border font-sans font-semibold no-underline transition-[border-color,background-color,color,transform] duration-200",
+    "site-button pressable group inline-flex items-center justify-center gap-3 rounded-full border font-sans font-semibold no-underline transition-[border-color,background-color,color,transform] ease-linear duration-200",
     variantClasses[variant],
     sizeClasses[size],
     fullWidth ? "w-full" : "w-fit",
@@ -52,17 +52,15 @@ function ButtonContent({
   arrow = "right",
   icon,
   iconPosition,
-}: Pick<
-  SharedButtonProps,
-  "children" | "arrow" | "icon" | "iconPosition"
->) {
-  const resolvedPosition = iconPosition ?? (arrow === "left" ? "left" : "right");
+}: Pick<SharedButtonProps, "children" | "arrow" | "icon" | "iconPosition">) {
+  const resolvedPosition =
+    iconPosition ?? (arrow === "left" ? "left" : "right");
   const DefaultIcon = arrow === "left" ? BsArrowLeft : BsArrowRight;
   const resolvedIcon =
     icon === false
       ? null
-      : icon ??
-        (arrow === "none" ? null : <DefaultIcon aria-hidden="true" />);
+      : (icon ??
+        (arrow === "none" ? null : <DefaultIcon aria-hidden="true" />));
 
   const iconElement = resolvedIcon ? (
     <span
@@ -102,11 +100,7 @@ export function ButtonLink({
       {...props}
       className={getButtonClasses({ variant, size, fullWidth, className })}
     >
-      <ButtonContent
-        arrow={arrow}
-        icon={icon}
-        iconPosition={iconPosition}
-      >
+      <ButtonContent arrow={arrow} icon={icon} iconPosition={iconPosition}>
         {children}
       </ButtonContent>
     </Link>
@@ -131,11 +125,7 @@ export function Button({
       {...props}
       className={getButtonClasses({ variant, size, fullWidth, className })}
     >
-      <ButtonContent
-        arrow={arrow}
-        icon={icon}
-        iconPosition={iconPosition}
-      >
+      <ButtonContent arrow={arrow} icon={icon} iconPosition={iconPosition}>
         {children}
       </ButtonContent>
     </button>

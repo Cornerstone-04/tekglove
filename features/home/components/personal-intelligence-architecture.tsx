@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import { PersonalIntelligenceDiagram } from "@/shared/components/ui/personal-intelligence-diagram";
 import { ShaderBackdrop } from "@/shared/components/ui/shader-backdrop";
+import { revealViewport } from "@/shared/motion/card-reveal";
 
 export function PersonalIntelligenceArchitecture() {
   const reduceMotion = useReducedMotion();
@@ -20,7 +21,7 @@ export function PersonalIntelligenceArchitecture() {
         <motion.div
           initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={revealViewport}
           transition={{
             duration: reduceMotion ? 0.2 : 0.5,
             ease: [0.23, 1, 0.32, 1],
@@ -48,7 +49,7 @@ export function PersonalIntelligenceArchitecture() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={revealViewport}
           transition={{
             duration: reduceMotion ? 0.2 : 0.5,
             ease: [0.23, 1, 0.32, 1],

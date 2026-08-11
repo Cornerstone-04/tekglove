@@ -12,8 +12,7 @@ export default function SplashScreen() {
 
   useEffect(() => {
     const shouldShow =
-      startedRef.current ||
-      !sessionStorage.getItem("tekglove-splash-seen");
+      startedRef.current || !sessionStorage.getItem("tekglove-splash-seen");
     if (!shouldShow) return;
 
     if (!startedRef.current) {
@@ -68,7 +67,7 @@ export default function SplashScreen() {
           }}
           className="fixed inset-0 z-9999 flex flex-col items-center justify-center gap-8 bg-black"
         >
-          <div className="relative grid h-48 w-48 place-items-center overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_50%_65%,rgba(249,115,22,0.2),transparent_60%)]">
+          <div className="relative grid h-48 w-48 place-items-center overflow-hidden rounded-4xl border border-white/10 bg-[radial-gradient(circle_at_50%_65%,rgba(249,115,22,0.2),transparent_60%)]">
             <Image
               src="/images/tekglove_front_cutout.png"
               alt=""
