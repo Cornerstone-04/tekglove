@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TekGlove
 
-## Getting Started
+TekGlove is a wearable hand-data platform built around the Smart Dorsal Sensor. The website introduces the core platform, the KINETIX flagship product, and six glove concepts spanning sport, healthcare, recovery, defence, computing, and industrial work.
 
-First, run the development server:
+## Technology
+
+- Next.js 16 with the App Router
+- React 19 and TypeScript
+- Tailwind CSS 4
+- Motion for interface animation
+- Lucide and React Icons
+- Bun for dependency management
+
+## Getting started
+
+Install dependencies and start the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+bun run dev        # Start the local development server
+bun run lint       # Run ESLint
+bun run typecheck  # Check TypeScript
+bun run build      # Create a production build
+bun run check      # Run lint, type checking, and the production build
+bun run start      # Serve the production build
+```
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```text
+app/       Next.js routes, metadata, global styles, and app composition
+content/   Static product, navigation, and company content
+features/  Page-level features and their private components
+shared/    Reusable layout, UI, and motion utilities
+public/    Images and icons served by Next.js
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Route files remain thin and delegate page implementation to `features/`. Shared modules must not import from routes or features. See [ARCHITECTURE.md](./ARCHITECTURE.md) for the complete dependency rules.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Routes
 
-## Deploy on Vercel
+- `/` introduces the platform and product ecosystem
+- `/about` explains the origin of TekGlove and why the hand matters
+- `/product` presents TekGlove V1 and the Smart Dorsal Sensor
+- `/waitlist` provides the early-access entry point
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `global.d.ts` is intentionally retained to prevent CSS import type errors in the root layout.
+- The splash screen is session-aware and respects reduced-motion preferences.
+- Completed implementation plans are kept locally under `plans/` and ignored by Git.
+
+## Production
+
+Run `bun run check` before deploying. The application is configured as a statically rendered Next.js site and can be deployed to Vercel or another compatible host.
