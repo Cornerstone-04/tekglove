@@ -63,9 +63,14 @@ export default function RootLayout({
       className={`${barlow.variable} ${inter.variable} ${dmMono.variable}`}
     >
       <body>
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <SplashScreen />
         <Navbar />
-        <main>{children}</main>
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
         <ScrollToTop />
       </body>

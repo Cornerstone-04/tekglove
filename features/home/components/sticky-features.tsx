@@ -56,7 +56,7 @@ export function StickyFeatures() {
               <FloatingGlove className="flex w-full justify-center">
                 <Image
                   src="/images/tekglove-platform-angle.webp"
-                  alt="Tek Glove"
+                  alt=""
                   width={560}
                   height={560}
                   className="relative z-10 h-auto w-[88%] max-w-140 object-contain"

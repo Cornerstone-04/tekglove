@@ -78,9 +78,33 @@
   a {
     @apply text-inherit no-underline cursor-pointer;
   }
+
+  :focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 4px;
+  }
 }
 
 @layer components {
+  .skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10000;
+    transform: translate3d(0, calc(-100% - 2rem), 0);
+    border-radius: 9999px;
+    background: var(--orange);
+    color: #000000;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: transform 160ms var(--ease-out);
+  }
+
+  .skip-link:focus-visible {
+    transform: translate3d(0, 0, 0);
+  }
+
   .section-kicker {
     @apply font-mono text-xs font-medium tracking-[0.12em] text-orange;
   }
@@ -234,6 +258,11 @@
     transform: none;
   }
 
+  .skip-link,
+  .skip-link:focus-visible {
+    transition-duration: 0.01ms;
+  }
+
   .button-icon,
   .site-button:hover .button-icon-right,
   .site-button:hover .button-icon-left {
@@ -243,5 +272,11 @@
   .ecosystem-render-stage,
   .group:hover .ecosystem-render-stage {
     transform: none;
+  }
+}
+
+@media (forced-colors: active) {
+  :focus-visible {
+    outline-color: Highlight;
   }
 }

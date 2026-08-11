@@ -9,7 +9,7 @@ import {
   useMotionValueEvent,
   useReducedMotion,
 } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navLinks } from "@/content/site";
 import { ButtonLink } from "@/shared/components/ui/button";
 
@@ -20,6 +20,21 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const reduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
+
+  useEffect(() => {
+    if (!open) return;
+
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousDocumentOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousDocumentOverflow;
+    };
+  }, [open]);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const prev = scrollY.getPrevious() ?? 0;

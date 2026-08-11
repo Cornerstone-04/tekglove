@@ -128,7 +128,7 @@ export function Hero() {
               <div className="pointer-events-none absolute bottom-[-10%] left-1/2 h-[34%] w-[68%] -translate-x-1/2 rounded-full bg-orange/28 blur-3xl" />
               <Image
                 src="/images/tekglove-platform-front.webp"
-                alt="TekGlove smart wearable glove"
+                alt=""
                 width={610}
                 height={610}
                 className="relative z-10 max-w-full object-contain"
