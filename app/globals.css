@@ -4,7 +4,8 @@
   /*fonts*/
   --font-sans: "Inter", sans-serif;
   --font-mono: "DM Mono", monospace;
-  --font-heading: "Barlow Condensed", sans-serif;
+  --font-heading: "Inter", sans-serif;
+  --font-brand: "Barlow Condensed", sans-serif;
 
   /*font size*/
   --text-xxs: 0.625rem; /* 10px */
@@ -18,15 +19,23 @@
   --color-primary: var(--primary);
   --color-orange: var(--orange);
   --color-muted: var(--muted);
+  --color-surface-raised: var(--surface-raised);
+  --color-copy-secondary: var(--copy-secondary);
+  --color-copy-muted: var(--copy-muted);
 }
 
 :root {
   --bg: #000000;
-  --surface: #0a0a0a;
-  --border-col: #1a1a1a;
+  --surface: #0b0b0d;
+  --surface-raised: #141416;
+  --border-col: #242428;
   --primary: #ffffff;
   --orange: #f97316;
-  --muted: #6b7280;
+  --muted: #8b8b94;
+  --copy-secondary: #b8b8c0;
+  --copy-muted: #91919a;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 @layer base {
@@ -41,6 +50,7 @@
   body {
     @apply bg-bg text-primary font-sans;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
   h1,
   h2,
@@ -48,7 +58,9 @@
   h4,
   h5,
   h6 {
-    @apply font-heading uppercase tracking-[0.04em];
+    @apply font-heading;
+    font-optical-sizing: auto;
+    letter-spacing: -0.025em;
   }
 
   ::selection {
@@ -65,6 +77,44 @@
   }
   a {
     @apply text-inherit no-underline cursor-pointer;
+  }
+}
+
+@layer components {
+  .section-kicker {
+    @apply font-mono text-xs font-medium tracking-[0.12em] text-orange;
+  }
+
+  .display-title {
+    @apply font-heading font-semibold tracking-[-0.045em];
+    line-height: 0.94;
+    text-wrap: balance;
+  }
+
+  .surface-panel {
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.045), transparent 42%),
+      var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 1.5rem;
+  }
+
+  .copy-secondary {
+    color: var(--copy-secondary);
+  }
+
+  .copy-muted {
+    color: var(--copy-muted);
+  }
+
+  .pressable {
+    transition-property: transform;
+    transition-duration: 160ms;
+    transition-timing-function: var(--ease-out);
+  }
+
+  .pressable:active {
+    transform: scale(0.97);
   }
 }
 
@@ -104,7 +154,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .pia-connector {
     animation: none;
+  }
+
+  .pressable,
+  .pressable:active {
+    transform: none;
   }
 }

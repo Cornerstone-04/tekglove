@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import Navbar from "@/shared/components/layout/navbar";
+import Footer from "@/shared/components/layout/footer";
 import { Barlow_Condensed, Inter, DM_Mono } from "next/font/google";
-import ScreenLoader from "@/components/ui/screen-loader";
-import { ScrollToTop } from "@/components/ui/scroll-to-top";
+import SplashScreen from "@/shared/components/ui/splash-screen";
+import { ScrollToTop } from "@/shared/components/ui/scroll-to-top";
 
 const barlow = Barlow_Condensed({
   variable: "--font-barlow",
@@ -93,7 +93,7 @@ export default function RootLayout({
       className={`${barlow.variable} ${inter.variable} ${dmMono.variable}`}
     >
       <body>
-        <ScreenLoader />
+        <SplashScreen />
         <Navbar />
         <main>{children}</main>
         <Footer />

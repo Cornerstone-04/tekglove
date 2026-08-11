@@ -1,44 +1,55 @@
-import { motion } from "motion/react";
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
+import { alternatingCardReveal } from "@/shared/motion/card-reveal";
 
 const STICKY_FEATURES = [
   {
     id: "01",
     title: "Smart Dorsal Sensor",
     body: "A compact sensing system positioned on the back of the hand, leaving the palm and fingers free to grip, touch, move, and work naturally.",
-    tag: "Core Technology",
+    tag: "Flagship technology",
   },
   {
     id: "02",
     title: "Hand-Data Capture",
     body: "Track movement, grip, gesture, position, and physical response from one of the body's richest sources of actionable data.",
-    tag: "Sensing",
+    tag: "Hand intelligence",
   },
   {
     id: "03",
     title: "Interpreted Insight",
     body: "AI and connected software turn raw hand data into performance feedback, health signals, alerts, commands, and operational intelligence.",
-    tag: "Intelligence",
+    tag: "Performance insight",
   },
 ];
 
 export function StickyFeatures() {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <section className="border-b border-border">
-      <div className="grid w-full grid-cols-1 px-6 md:grid-cols-2 md:px-12">
+    <section className="border-b border-white/8 py-20 md:py-28">
+      <div className="mb-14 grid gap-6 px-6 md:grid-cols-[1.2fr_0.8fr] md:items-end md:px-12">
+        <div>
+          <p className="section-kicker mb-5">KINETIX™ · TekGlove V1</p>
+          <h2 className="display-title max-w-[12ch] text-[clamp(2.75rem,6vw,5.5rem)] text-white">
+            The flagship, built around the hand.
+          </h2>
+        </div>
+        <p className="copy-secondary max-w-[52ch] text-[0.95rem] leading-[1.85] md:pb-1">
+          TekGlove V1 captures hand-related athletic data without interrupting
+          natural movement, then turns every session into feedback athletes can
+          understand and use.
+        </p>
+      </div>
+      <div className="grid w-full grid-cols-1 gap-6 px-6 md:grid-cols-2 md:px-12">
         {/* Left: sticky image */}
         <div className="hidden md:flex items-start">
-          <div className="sticky top-0 h-svh w-full flex items-center justify-center">
+          <div className="surface-panel sticky top-24 flex h-[calc(100svh-8rem)] w-full items-center justify-center overflow-hidden">
             <div className="relative">
               <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(249,115,22,0.1)_0%,transparent_65%)] pointer-events-none" />
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
+              <div>
                 <Image
                   src="/images/tekglove_angle_cutout.png"
                   alt="Tek Glove"
@@ -46,31 +57,32 @@ export function StickyFeatures() {
                   height={440}
                   className="object-contain relative z-10"
                 />
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Right: scrolling feature blocks */}
-        <div className="border-l border-border">
+        <div className="space-y-4">
           {STICKY_FEATURES.map((f, i) => (
             <motion.div
               key={f.id}
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              custom={{ index: i, reduceMotion, delay: i * 0.06 }}
+              variants={alternatingCardReveal}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex flex-col gap-5 border-b border-border px-10 py-20"
+              className="surface-panel flex min-h-72 flex-col justify-center gap-5 px-8 py-16 md:px-10"
             >
               <div className="flex items-center">
                 <span className="font-mono text-xxs tracking-[0.15em] uppercase text-black bg-orange px-2 py-0.5">
                   {f.tag}
                 </span>
               </div>
-              <h3 className="font-heading font-black text-[clamp(2rem,4vw,3rem)] text-white leading-none">
+              <h3 className="font-heading text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white">
                 {f.title}
               </h3>
-              <p className="font-sans text-[0.88rem] leading-[1.8] text-white/50 max-w-[48ch]">
+              <p className="copy-secondary max-w-[48ch] font-sans text-[0.95rem] leading-[1.8]">
                 {f.body}
               </p>
             </motion.div>

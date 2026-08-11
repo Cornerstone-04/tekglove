@@ -1,10 +1,16 @@
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
-import { site } from "@/lib/data";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "motion/react";
+import { site } from "@/content/site";
 import Link from "next/link";
 
 export function Hero() {
+  const reduceMotion = useReducedMotion();
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -20,7 +26,7 @@ export function Hero() {
       ref={heroRef}
       className="relative min-h-svh flex items-center overflow-hidden"
     >
-      <div className="pointer-events-none absolute top-1/2 right-[-10%] -translate-y-1/2 w-[70vw] h-[70vw] rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.08)_0%,transparent_65%)] z-0" />
+      <div className="pointer-events-none absolute top-1/2 right-[-10%] -translate-y-1/2 w-[70vw] h-[70vw] rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.12)_0%,rgba(249,115,22,0.035)_38%,transparent_68%)] z-0" />
 
       <motion.div
         style={{ opacity: heroOpacity }}
@@ -29,37 +35,40 @@ export function Hero() {
         {/* Left */}
         <div>
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-mono text-xxs tracking-[0.3em] normal-case text-orange mb-6"
+            transition={{
+              duration: reduceMotion ? 0.2 : 0.6,
+              delay: reduceMotion ? 0 : 0.2,
+            }}
+            className="section-kicker mb-6"
           >
             Introducing Tek Glove
           </motion.p>
 
-          <h1 className="font-heading font-black text-[clamp(3.5rem,10vw,8rem)] leading-[0.9] tracking-[-0.02em] text-white mb-6">
+          <h1 className="display-title mb-7 max-w-[11ch] text-[clamp(3.5rem,7vw,6.75rem)] text-white">
             {["Your", "Smart", "Glove,"].map((word, i) => (
               <motion.span
                 key={word}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: reduceMotion ? 0 : 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.7,
-                  delay: 0.3 + i * 0.1,
+                  duration: reduceMotion ? 0.2 : 0.7,
+                  delay: reduceMotion ? 0 : 0.3 + i * 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="inline-block mr-[0.2em]"
+                className="mr-[0.16em] inline-block"
               >
                 {word}
               </motion.span>
             ))}
             <br />
             <motion.span
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: reduceMotion ? 0 : 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 0.7,
-                delay: 0.6,
+                duration: reduceMotion ? 0.2 : 0.7,
+                delay: reduceMotion ? 0 : 0.6,
                 ease: [0.16, 1, 0.3, 1],
               }}
               className="inline-block text-orange"
@@ -69,29 +78,35 @@ export function Hero() {
           </h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.7 }}
-            className="font-sans text-base leading-relaxed text-white/50 max-w-[42ch] mb-10"
+            transition={{
+              duration: reduceMotion ? 0.2 : 0.7,
+              delay: reduceMotion ? 0 : 0.7,
+            }}
+            className="copy-secondary mb-10 max-w-[46ch] font-sans text-[clamp(1rem,1.4vw,1.18rem)] leading-[1.7]"
           >
             {site.description}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.85 }}
+            transition={{
+              duration: reduceMotion ? 0.2 : 0.6,
+              delay: reduceMotion ? 0 : 0.85,
+            }}
             className="flex flex-wrap gap-4"
           >
             <Link
               href="/waitlist"
-              className="font-sans font-semibold text-[0.8rem] tracking-[0.08em] normal-case bg-orange text-black px-8 py-[0.9rem] transition-opacity duration-200 hover:opacity-85"
+              className="pressable rounded-full bg-orange px-8 py-[0.9rem] font-sans text-[0.8rem] font-semibold normal-case tracking-[-0.01em] text-black transition-[opacity,transform] duration-200 hover:opacity-85"
             >
               Get Early Access
             </Link>
             <Link
               href="/product"
-              className="font-sans font-medium text-[0.8rem] tracking-[0.08em] normal-case text-white/60 border border-white/15 px-8 py-[0.9rem] transition-all duration-200 hover:text-white hover:border-white/40"
+              className="pressable rounded-full border border-white/18 bg-white/4 px-8 py-[0.9rem] font-sans text-[0.8rem] font-medium normal-case tracking-[0.03em] text-white/75 transition-[border-color,background-color,color,transform] duration-200 hover:border-white/35 hover:bg-white/8 hover:text-white"
             >
               View Product
             </Link>
@@ -100,19 +115,23 @@ export function Hero() {
 
         {/* Right: floating glove */}
         <motion.div
-          style={{ y: gloveY, scale: gloveScale }}
+          style={reduceMotion ? undefined : { y: gloveY, scale: gloveScale }}
           className="flex justify-center"
         >
           <motion.div
-            animate={{ y: [0, -14, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            animate={reduceMotion ? { y: 0 } : { y: [0, -14, 0] }}
+            transition={
+              reduceMotion
+                ? { duration: 0.2 }
+                : { duration: 4, repeat: Infinity, ease: "easeInOut" }
+            }
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
+              initial={{ opacity: 0, scale: reduceMotion ? 1 : 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{
-                duration: 1,
-                delay: 0.4,
+                duration: reduceMotion ? 0.2 : 1,
+                delay: reduceMotion ? 0 : 0.4,
                 ease: [0.16, 1, 0.3, 1],
               }}
               className="relative"
@@ -136,14 +155,10 @@ export function Hero() {
         style={{ opacity: scrollHintOpacity }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
       >
-        <span className="font-mono text-xxs tracking-[0.25em] uppercase text-white/25">
+        <span className="font-mono text-xs tracking-[0.12em] text-white/60">
           Scroll
         </span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
-          className="w-px h-8 bg-linear-to-b from-orange/60 to-transparent"
-        />
+        <div className="w-px h-8 bg-linear-to-b from-orange/60 to-transparent" />
       </motion.div>
     </section>
   );

@@ -9,14 +9,14 @@ export default function NotFound() {
         </div>
 
         <h1
-          className="mb-8 font-heading text-[clamp(5rem,20vw,14rem)] leading-[0.9] font-black uppercase text-transparent"
+          className="mb-8 font-brand text-[clamp(5rem,20vw,14rem)] font-black uppercase leading-[0.9] text-transparent"
           style={{ WebkitTextStroke: "1px rgba(255,255,255,0.1)" }}
         >
           Lost.
         </h1>
 
-        <p className="mb-10 font-sans text-[0.85rem] text-white/35">
-          This page doesn't exist.
+        <p className="mb-10 font-sans text-base text-white/68">
+          This page doesn&apos;t exist.
         </p>
 
         <Link

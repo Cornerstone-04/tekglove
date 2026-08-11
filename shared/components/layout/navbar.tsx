@@ -7,15 +7,17 @@ import {
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
+  useReducedMotion,
 } from "motion/react";
 import { useState } from "react";
-import { navLinks } from "@/lib/data";
+import { navLinks } from "@/content/site";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -31,11 +33,14 @@ export default function Navbar() {
     <>
       <motion.nav
         initial={{ y: 0, opacity: 0 }}
-        animate={{ y: hidden ? "-100%" : 0, opacity: 1 }}
-        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        animate={{ y: reduceMotion ? 0 : hidden ? "-100%" : 0, opacity: 1 }}
+        transition={{
+          duration: reduceMotion ? 0.2 : 0.24,
+          ease: [0.23, 1, 0.32, 1],
+        }}
         className={`fixed top-0 right-0 left-0 z-50 flex h-16 items-center justify-between px-6 md:px-12 ${
           scrolled || open
-            ? "border-b border-white/6 bg-black/95 backdrop-blur-md"
+            ? "bg-black/72 shadow-[0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-2xl"
             : "border-b-0 bg-transparent"
         }`}
         style={{
@@ -44,7 +49,7 @@ export default function Navbar() {
       >
         {/* Logo */}
         <Link href="/" onClick={close} className="no-underline">
-          <span className="font-heading text-[1.1rem] font-black uppercase tracking-[0.15em] text-white">
+          <span className="font-brand text-[1.1rem] font-black uppercase tracking-[0.15em] text-white">
             Tek<span className="text-orange">Glove</span>
           </span>
         </Link>
@@ -58,8 +63,8 @@ export default function Navbar() {
               <li key={href}>
                 <Link
                   href={href}
-                  className={`font-sans font-semibold text-[0.78rem] tracking-[0.05em] normal-case no-underline transition-colors duration-200 ${
-                    active ? "text-orange" : "text-white/50 hover:text-white"
+                  className={`font-sans font-medium text-[0.82rem] tracking-[-0.01em] normal-case no-underline transition-colors duration-200 ${
+                    active ? "text-orange" : "text-white/70 hover:text-white"
                   }`}
                 >
                   {label}
@@ -72,7 +77,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <Link
           href="/waitlist"
-          className="hidden items-center gap-2 bg-orange px-5 py-2 font-sans text-[0.72rem] font-semibold normal-case tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-90 md:inline-flex"
+          className="pressable hidden items-center gap-2 rounded-full bg-orange px-5 py-2 font-sans text-[0.78rem] font-semibold normal-case tracking-[-0.01em] text-black no-underline transition-[opacity,transform] duration-200 hover:opacity-90 md:inline-flex"
         >
           Get Early Access
         </Link>
@@ -80,22 +85,22 @@ export default function Navbar() {
         {/* Mobile: hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          className="-mr-2 flex flex-col justify-center gap-1.25 p-2 md:hidden"
+          className="pressable -mr-2 flex flex-col justify-center gap-1.25 p-2 md:hidden"
           aria-label="Toggle menu"
         >
           <motion.span
             animate={{ rotate: open ? 45 : 0, y: open ? 7 : 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: reduceMotion ? 0 : 0.24 }}
             className="block h-px w-6 origin-center bg-white"
           />
           <motion.span
             animate={{ opacity: open ? 0 : 1, scaleX: open ? 0 : 1 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: reduceMotion ? 0 : 0.2 }}
             className="block h-px w-6 origin-center bg-white"
           />
           <motion.span
             animate={{ rotate: open ? -45 : 0, y: open ? -7 : 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: reduceMotion ? 0 : 0.24 }}
             className="block h-px w-6 origin-center bg-white"
           />
         </button>
@@ -105,11 +110,14 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, y: reduceMotion ? 0 : -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 flex flex-col bg-black/97 pt-16 backdrop-blur-[20px] md:hidden"
+            exit={{ opacity: 0, y: reduceMotion ? 0 : -8 }}
+            transition={{
+              duration: reduceMotion ? 0.2 : 0.24,
+              ease: [0.23, 1, 0.32, 1],
+            }}
+            className="fixed inset-0 z-40 flex flex-col bg-black/92 pt-16 backdrop-blur-[28px] md:hidden"
             style={{ WebkitBackdropFilter: "blur(20px)" }}
           >
             {/* Nav links */}
@@ -120,12 +128,12 @@ export default function Navbar() {
                 return (
                   <motion.div
                     key={href}
-                    initial={{ opacity: 0, x: -16 }}
+                    initial={{ opacity: 0, x: reduceMotion ? 0 : -16 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{
-                      duration: 0.3,
-                      delay: 0.05 + i * 0.07,
-                      ease: [0.16, 1, 0.3, 1],
+                      duration: reduceMotion ? 0.2 : 0.24,
+                      delay: reduceMotion ? 0 : i * 0.05,
+                      ease: [0.23, 1, 0.32, 1],
                     }}
                     className="border-b border-white/5"
                   >
@@ -135,7 +143,7 @@ export default function Navbar() {
                       className="group flex items-center justify-between py-5 no-underline"
                     >
                       <span
-                        className={`font-heading text-[clamp(2rem,8vw,3rem)] font-black normal-case leading-none transition-colors duration-200 ${
+                        className={`font-heading text-[clamp(2rem,8vw,3rem)] font-semibold normal-case leading-none tracking-[-0.04em] transition-colors duration-200 ${
                           active ? "text-orange" : "text-white/85"
                         }`}
                       >
@@ -149,20 +157,26 @@ export default function Navbar() {
 
             {/* Bottom CTA */}
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.3 }}
+              transition={{
+                duration: reduceMotion ? 0.2 : 0.24,
+                delay: reduceMotion
+                  ? 0
+                  : Math.max(0, navLinks.slice(0, -1).length - 1) * 0.05,
+                ease: [0.23, 1, 0.32, 1],
+              }}
               className="flex flex-col gap-4 px-6 pt-8 pb-12"
             >
               <Link
                 href="/waitlist"
                 onClick={close}
-                className="w-full bg-orange px-6 py-4 text-center font-sans text-[0.85rem] font-semibold normal-case tracking-[0.08em] text-black no-underline transition-opacity duration-200 hover:opacity-90"
+                className="pressable w-full bg-orange px-6 py-4 text-center font-sans text-[0.85rem] font-semibold normal-case tracking-[0.08em] text-black no-underline transition-[opacity,transform] duration-200 hover:opacity-90"
               >
                 Get Early Access →
               </Link>
 
-              <p className="text-center font-mono text-xxs normal-case tracking-[0.2em] text-white/20">
+              <p className="text-center font-mono text-xs normal-case tracking-[0.08em] text-white/55">
                 tekglove.co.uk
               </p>
             </motion.div>

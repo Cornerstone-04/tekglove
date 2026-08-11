@@ -1,12 +1,15 @@
+"use client";
+
 import {
   Activity,
-  ArrowRight,
   BrainCircuit,
   CloudCog,
   Cpu,
   Network,
 } from "lucide-react";
 import { BsArrowRight } from "react-icons/bs";
+import { motion, useReducedMotion } from "motion/react";
+import { alternatingCardReveal } from "@/shared/motion/card-reveal";
 
 const architecture = [
   {
@@ -55,6 +58,8 @@ function Connector({ index }: { index: number }) {
 }
 
 export function PersonalIntelligenceDiagram() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <figure aria-labelledby="pia-title" aria-describedby="pia-description">
       <figcaption className="sr-only">
@@ -72,16 +77,21 @@ export function PersonalIntelligenceDiagram() {
 
           return (
             <li key={node.title} className="contents">
-              <article
-                className={`relative flex min-h-56 flex-col border p-6 ${
+              <motion.article
+                custom={{ index, reduceMotion, delay: index * 0.06 }}
+                variants={alternatingCardReveal}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                className={`relative flex min-h-56 flex-col rounded-2xl border p-6 ${
                   node.core
                     ? "pia-core border-orange bg-orange text-black"
-                    : "border-white/10 bg-bg text-white"
+                    : "border-white/10 bg-black/55 text-white"
                 }`}
               >
                 <div className="mb-10 flex items-start justify-between gap-4">
                   <span
-                    className={`font-mono text-xxs uppercase tracking-[0.2em] ${
+                    className={`font-mono text-xs tracking-[0.08em] ${
                       node.core ? "text-black/60" : "text-orange"
                     }`}
                   >
@@ -95,18 +105,18 @@ export function PersonalIntelligenceDiagram() {
                   />
                 </div>
                 <div className="mt-auto">
-                  <h3 className="mb-3 font-heading text-2xl font-bold uppercase leading-none">
+                  <h3 className="mb-3 font-heading text-xl font-semibold leading-tight tracking-[-0.035em]">
                     {node.title}
                   </h3>
                   <p
                     className={`text-xs leading-[1.75] ${
-                      node.core ? "text-black/70" : "text-white/45"
+                      node.core ? "text-black/75" : "text-white/70"
                     }`}
                   >
                     {node.description}
                   </p>
                 </div>
-              </article>
+              </motion.article>
               {index < architecture.length - 1 && (
                 <Connector index={index} />
               )}
@@ -115,7 +125,7 @@ export function PersonalIntelligenceDiagram() {
         })}
       </ol>
 
-      <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/10 pt-5 font-mono text-xxs uppercase tracking-[0.14em] text-white/35">
+      <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/10 pt-5 font-mono text-xs tracking-[0.05em] text-white/60">
         <span>Data flows outward</span>
         <span>Feedback and commands return to the hand</span>
         <span>One core architecture across six gloves</span>
