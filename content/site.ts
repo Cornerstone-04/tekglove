@@ -15,6 +15,7 @@ export const ecosystemProducts = [
     category: "Sports & Athletic Performance",
     purpose: "Sports performance and training",
     accent: "Performance",
+    image: "/images/kinetix-angle.webp",
     features: [
       "Motion tracking",
       "Biometric monitoring",
@@ -41,6 +42,7 @@ export const ecosystemProducts = [
     category: "Maternal & Health Monitoring",
     purpose: "Maternal and healthcare monitoring",
     accent: "Health",
+    image: null,
     features: [
       "Doppler fetal heartbeat detection",
       "Maternal heart rate monitoring",
@@ -66,6 +68,7 @@ export const ecosystemProducts = [
     category: "Human–Computer Interaction",
     purpose: "Human-computer interaction",
     accent: "Interaction",
+    image: null,
     features: [
       "Air mouse functionality",
       "Gesture-based cursor control",
@@ -93,6 +96,7 @@ export const ecosystemProducts = [
     purpose: "Defence, security, and field operations",
     accent: "Defence",
     tagline: "Mission Ready. Hands Connected.",
+    image: null,
     features: [
       "Secure hands-free communications",
       "Silent haptic alerts",
@@ -119,6 +123,7 @@ export const ecosystemProducts = [
     purpose: "Physiotherapy, rehabilitation, and sports recovery",
     accent: "Recovery",
     tagline: "Recovery. Reinvented.",
+    image: null,
     features: [
       "EMS & TENS therapy",
       "Heat & vibration therapy",
@@ -145,6 +150,7 @@ export const ecosystemProducts = [
     purpose: "Manufacturing, warehousing, and logistics",
     accent: "Industry",
     tagline: "Connected Hands. Smarter Work.",
+    image: null,
     features: [
       "Digital work instructions & training",
       "Barcode & RFID interaction",

@@ -8,6 +8,7 @@ import {
 } from "motion/react";
 import { site } from "@/content/site";
 import { ButtonLink } from "@/shared/components/ui/button";
+import { FloatingGlove } from "@/shared/components/ui/floating-glove";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -112,14 +113,7 @@ export function Hero() {
           style={reduceMotion ? undefined : { y: gloveY, scale: gloveScale }}
           className="flex justify-center md:-ml-8 lg:-ml-16"
         >
-          <motion.div
-            animate={reduceMotion ? { y: 0 } : { y: [0, -14, 0] }}
-            transition={
-              reduceMotion
-                ? { duration: 0.2 }
-                : { duration: 4, repeat: Infinity, ease: "easeInOut" }
-            }
-          >
+          <FloatingGlove>
             <motion.div
               initial={{ opacity: 0, scale: reduceMotion ? 1 : 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -149,7 +143,7 @@ export function Hero() {
                 </p>
               </div>
             </motion.div>
-          </motion.div>
+          </FloatingGlove>
         </motion.div>
       </motion.div>
 
