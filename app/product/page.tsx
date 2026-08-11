@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { specs } from "@/lib/data";
+import { athleticUseCases, features, specs } from "@/lib/data";
 
 export default function ProductPage() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -28,7 +28,7 @@ export default function ProductPage() {
             transition={{ duration: 0.6 }}
             className="mb-4 font-mono text-[0.6rem] normal-case tracking-[0.3em] text-orange"
           >
-            The Collection
+            The Flagship
           </motion.div>
 
           <motion.h1
@@ -37,7 +37,7 @@ export default function ProductPage() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-heading text-[clamp(3rem,9vw,7rem)] font-black uppercase text-white"
           >
-            Tek Glove
+            TekGlove V1
           </motion.h1>
         </motion.div>
       </div>
@@ -61,7 +61,7 @@ export default function ProductPage() {
               <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[60%] h-[30%] bg-orange/20 blur-3xl rounded-full pointer-events-none" />
               <Image
                 src="/images/tekglove_front_cutout.png"
-                alt="Tek Glove with Smart Watch Ultra"
+                alt="Tek Glove with Smart Sensor"
                 width={520}
                 height={520}
                 className="object-contain max-w-full relative z-10"
@@ -85,7 +85,7 @@ export default function ProductPage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="mb-4 font-mono text-[0.58rem] normal-case tracking-[0.2em] text-orange"
             >
-              Flagship
+              Flagship · KINETIX™
             </motion.div>
 
             <motion.h2
@@ -95,7 +95,7 @@ export default function ProductPage() {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="mb-4 font-heading text-[clamp(2rem,5vw,3.5rem)] font-black uppercase text-white"
             >
-              Tek Glove Standard
+              Hand Data for Athletes
             </motion.h2>
 
             <motion.p
@@ -105,10 +105,10 @@ export default function ProductPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-10 font-sans text-[0.9rem] leading-[1.8] text-white/50"
             >
-              The original Tek Glove. A lightweight, high-performance glove
-              engineered with a precision-fit Smart Watch mount on the back of
-              the hand. Built for athletes, adventurers, and professionals who
-              need their data without reaching for their wrist.
+              TekGlove V1 is the athletic expression of the TekGlove platform.
+              Its Smart Dorsal Sensor captures movement, grip, gestures, and
+              hand position, turning every session into useful performance data
+              without restricting how an athlete moves.
             </motion.p>
 
             {/* Specs */}
@@ -157,6 +157,90 @@ export default function ProductPage() {
               </Link>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Hand-first performance */}
+      <section className="border-b border-white/10 bg-surface px-6 py-24 md:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-14 grid gap-8 md:grid-cols-2 md:items-end"
+        >
+          <div>
+            <p className="mb-4 font-mono text-xxs tracking-[0.3em] text-orange">
+              Hand-First Performance
+            </p>
+            <h2 className="font-heading text-[clamp(2.8rem,6vw,5rem)] font-black leading-[0.92] uppercase text-white">
+              The Hand Holds
+              <br />
+              <span className="text-orange">Actionable Data.</span>
+            </h2>
+          </div>
+          <p className="max-w-[58ch] text-sm leading-[1.9] text-white/50 md:pb-1">
+            Every movement, grip, gesture, and physical response contains
+            information. TekGlove captures that information at the hand and
+            transforms it into insight athletes can use.
+          </p>
+        </motion.div>
+
+        <div className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+          {features.map((feature, index) => (
+            <motion.article
+              key={feature.id}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              className="bg-surface p-8"
+            >
+              <h3 className="mb-3 font-heading text-2xl font-bold uppercase text-white">
+                {feature.title}
+              </h3>
+              <p className="text-sm leading-[1.8] text-white/45">
+                {feature.desc}
+              </p>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+      {/* Use cases */}
+      <section className="border-b border-white/10 px-6 py-24 md:px-12">
+        <div className="grid gap-12 md:grid-cols-[0.7fr_1.3fr] md:items-start">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="mb-4 font-mono text-xxs tracking-[0.3em] text-orange">
+              Athletic Use Cases
+            </p>
+            <h2 className="font-heading text-[clamp(2.5rem,5vw,4.5rem)] font-black uppercase text-white">
+              Built to Measure
+              <br />
+              <span className="text-orange">How You Perform.</span>
+            </h2>
+          </motion.div>
+          <div className="grid grid-cols-2 gap-px bg-border lg:grid-cols-3">
+            {athleticUseCases.map((useCase, index) => (
+              <motion.div
+                key={useCase}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.06 }}
+                className="flex min-h-28 items-end bg-bg p-6"
+              >
+                <div>
+                  <span className="font-heading text-2xl font-bold uppercase text-white">
+                    {useCase}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

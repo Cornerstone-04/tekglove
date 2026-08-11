@@ -21,7 +21,7 @@ export function Features() {
             transition={{ duration: 0.5 }}
             className="font-mono text-xxs tracking-[0.3em] normal-case text-orange mb-4"
           >
-            Why Tek Glove?
+            Built Around the Hand
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ export function Features() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-heading font-black text-[clamp(2.5rem,6vw,5rem)] text-white"
           >
-            Built Different.
+            The Body&apos;s Natural Interface.
           </motion.h2>
         </motion.div>
 
@@ -51,9 +51,6 @@ export function Features() {
               className="group relative bg-bg p-10 overflow-hidden"
             >
               <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-orange/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <p className="font-mono text-xxs tracking-[0.2em] uppercase text-orange mb-3">
-                {f.id}
-              </p>
               <h3 className="font-heading font-bold text-[1.4rem] text-white mb-3">
                 {f.title}
               </h3>

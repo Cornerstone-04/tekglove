@@ -40,7 +40,7 @@ export function SecurityArchitecture() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="font-sans text-[0.9rem] leading-[1.8] text-white/50 mb-8"
           >
-            Tek Glove is more than a product — it's the centrepiece of a
+            Tek Glove is more than a product; it's the centrepiece of a
             connected security ecosystem. Your glove communicates with AR smart
             glasses, drone feeds, and a phone hub to give you complete
             situational awareness in real time.

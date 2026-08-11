@@ -29,52 +29,51 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Tek Glove — Recovery, Reinvented.",
+    default: "Tek Glove | Smart Dorsal Sensor",
     template: "%s | Tek Glove",
   },
   description:
-    "Tek Glove is the world's first therapy glove combining EMS, TENS, vibration, and heat in one wearable device. Relieves pain, restores muscle function, and boosts circulation. Designed for arthritis, Parkinson's, carpal tunnel, injury recovery, and daily hand fatigue. Pairs with Smart Watch via Bluetooth. Coming 2026.",
+    "TekGlove is a hand-data platform powered by the Smart Dorsal Sensor, turning movement, grip, gestures, and physical response into useful insight across six industries.",
   metadataBase: new URL("https://tekglove.vercel.app"),
   keywords: [
     "Tek Glove",
     "TekGlove",
-    "therapy glove",
-    "EMS glove",
-    "TENS glove",
-    "Smart Watch glove",
-    "wearable therapy",
-    "arthritis glove",
-    "recovery glove",
-    "Parkinson's wearable",
-    "carpal tunnel treatment",
+    "Smart Dorsal Sensor",
+    "hand data",
+    "athletic performance glove",
+    "gesture recognition glove",
+    "grip force monitoring",
+    "wearable sensor platform",
+    "KINETIX glove",
     "smart glove",
     "Tek Athletic",
     "Keniye Koroye",
     "wearable technology UK",
+    "connected glove",
   ],
   authors: [{ name: "Keniye Koroye", url: "https://tekglove.vercel.app" }],
   creator: "Keniye Koroye",
   openGraph: {
     type: "website",
     url: "https://tekglove.vercel.app",
-    title: "Tek Glove — Recovery, Reinvented.",
+    title: "Tek Glove | Your Smart Glove, Reinvented.",
     description:
-      "The world's first therapy glove. EMS + TENS + Vibration + Heat in one wearable. Pairs with Smart Watch. Coming 2026.",
+      "The Smart Dorsal Sensor turns movement, grip, gestures, and physical response into useful hand-data insight.",
     siteName: "Tek Glove",
     images: [
       {
         url: "https://tekglove.vercel.app/images/tekglove_front.png",
         width: 1200,
         height: 630,
-        alt: "TekGlove — The world's first therapy glove combining EMS, TENS, vibration and heat.",
+        alt: "TekGlove wearable with Smart Dorsal Sensor",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tek Glove — Recovery, Reinvented.",
+    title: "Tek Glove | Your Smart Glove, Reinvented.",
     description:
-      "The world's first therapy glove. EMS + TENS + Vibration + Heat in one wearable. Pairs with Smart Watch. Coming 2026.",
+      "A hand-data platform powered by the Smart Dorsal Sensor across sport, health, recovery, defence, computing, and industry.",
     images: ["https://tekglove.vercel.app/images/tekglove_front.png"],
   },
   robots: {

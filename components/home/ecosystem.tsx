@@ -2,9 +2,16 @@
 
 import { ecosystemProducts, sharedTechnology } from "@/lib/data";
 import { motion } from "motion/react";
-import { Activity, Crosshair, MousePointer2 } from "lucide-react";
+import {
+  Activity,
+  Cog,
+  Crosshair,
+  MousePointer2,
+  Shield,
+  Zap,
+} from "lucide-react";
 
-const icons = [Activity, Crosshair, MousePointer2];
+const icons = [Crosshair, Activity, MousePointer2, Shield, Zap, Cog];
 
 export function Ecosystem() {
   return (
@@ -27,9 +34,9 @@ export function Ecosystem() {
             </h2>
           </div>
           <p className="max-w-[52ch] font-sans text-sm leading-[1.8] text-white/50 md:pb-2">
-            Each glove serves a distinct market while sharing the same core AI,
-            sensor, connectivity, and wearable ecosystem—expanding impact
-            without rebuilding the platform.
+            Six specialized gloves interpret hand data for six distinct fields,
+            all powered by the same sensor, intelligence, connectivity, and
+            wearable platform.
           </p>
         </motion.div>
 
@@ -45,13 +52,10 @@ export function Ecosystem() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group flex min-h-full flex-col bg-bg p-8 transition-colors duration-500 hover:bg-surface md:p-10"
               >
-                <div className="mb-10 flex items-start justify-between">
+                <div className="mb-10 flex items-start">
                   <div className="flex h-12 w-12 items-center justify-center border border-orange/40 text-orange">
                     <Icon size={21} strokeWidth={1.5} />
                   </div>
-                  <span className="font-mono text-xxs tracking-[0.2em] text-white/25">
-                    {product.id} / 03
-                  </span>
                 </div>
 
                 <p className="mb-3 font-mono text-xxs uppercase tracking-[0.2em] text-orange">
