@@ -76,13 +76,11 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop CTA */}
-        <ButtonLink
-          href="/waitlist"
-          size="sm"
-          className="hidden md:inline-flex"
-        >
-          Get Early Access
-        </ButtonLink>
+        <div className="hidden md:block">
+          <ButtonLink href="/waitlist" size="sm">
+            Get Early Access
+          </ButtonLink>
+        </div>
 
         {/* Mobile: hamburger */}
         <button
@@ -157,7 +155,7 @@ export default function Navbar() {
               })}
             </div>
 
-            {/* Bottom CTA */}
+            {/* Mobile footer */}
             <motion.div
               initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -170,15 +168,6 @@ export default function Navbar() {
               }}
               className="flex flex-col gap-4 px-6 pt-8 pb-12"
             >
-              <ButtonLink
-                href="/waitlist"
-                onClick={close}
-                size="lg"
-                fullWidth
-              >
-                Get Early Access
-              </ButtonLink>
-
               <p className="text-center font-mono text-xs normal-case tracking-[0.08em] text-white/55">
                 tekglove.co.uk
               </p>
