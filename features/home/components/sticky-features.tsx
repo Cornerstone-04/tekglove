@@ -6,6 +6,7 @@ import {
   alternatingCardReveal,
   revealViewport,
 } from "@/shared/motion/card-reveal";
+import { FloatingGlove } from "@/shared/components/ui/floating-glove";
 
 const STICKY_FEATURES = [
   {
@@ -52,15 +53,15 @@ export function StickyFeatures() {
           <div className="surface-panel sticky top-24 flex h-[calc(100svh-8rem)] w-full items-center justify-center overflow-hidden">
             <div className="relative">
               <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(249,115,22,0.1)_0%,transparent_65%)] pointer-events-none" />
-              <div>
+              <FloatingGlove className="flex w-full justify-center">
                 <Image
                   src="/images/tekglove-platform-angle.webp"
                   alt="Tek Glove"
-                  width={440}
-                  height={440}
-                  className="object-contain relative z-10"
+                  width={560}
+                  height={560}
+                  className="relative z-10 h-auto w-[88%] max-w-140 object-contain"
                 />
-              </div>
+              </FloatingGlove>
             </div>
           </div>
         </div>

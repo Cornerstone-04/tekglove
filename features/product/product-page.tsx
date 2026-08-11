@@ -16,6 +16,7 @@ import {
 } from "@/shared/motion/card-reveal";
 import { ShaderBackdrop } from "@/shared/components/ui/shader-backdrop";
 import { ButtonLink } from "@/shared/components/ui/button";
+import { FloatingGlove } from "@/shared/components/ui/floating-glove";
 
 export default function ProductPage() {
   const reduceMotion = useReducedMotion();
@@ -114,14 +115,16 @@ export default function ProductPage() {
             className="relative flex min-h-104 items-center justify-center lg:min-h-168"
           >
             <div className="absolute inset-[8%] rounded-full bg-orange/10 blur-3xl" />
-            <Image
-              src="/images/kinetix-hero.webp"
-              alt="KINETIX athletic glove with a live biometric display"
-              width={760}
-              height={760}
-              className="relative z-10 h-auto w-full max-w-184 object-contain"
-              priority
-            />
+            <FloatingGlove className="relative z-10 w-full">
+              <Image
+                src="/images/kinetix-hero.webp"
+                alt="KINETIX athletic glove with a live biometric display"
+                width={760}
+                height={760}
+                className="h-auto w-full max-w-184 object-contain"
+                priority
+              />
+            </FloatingGlove>
             <div className="absolute right-0 top-[16%] z-20 max-w-56 rounded-2xl border border-white/15 bg-black/55 p-4 shadow-2xl backdrop-blur-2xl md:p-5">
               <p className="mb-2 font-mono text-xs tracking-[0.08em] text-orange">
                 Smart Dorsal Sensor
@@ -168,13 +171,15 @@ export default function ProductPage() {
           >
             <div className="relative flex min-h-88 items-center justify-center bg-white/2 p-8 sm:min-h-120">
               <div className="absolute inset-[18%] rounded-full bg-orange/10 blur-3xl" />
-              <Image
-                src="/images/kinetix-sensor-front.webp"
-                alt="Front view of the KINETIX integrated dorsal sensor"
-                width={720}
-                height={720}
-                className="relative h-auto w-full max-w-136 object-contain"
-              />
+              <FloatingGlove className="relative w-full">
+                <Image
+                  src="/images/kinetix-sensor-front.webp"
+                  alt="Front view of the KINETIX integrated dorsal sensor"
+                  width={720}
+                  height={720}
+                  className="h-auto w-full max-w-136 object-contain"
+                />
+              </FloatingGlove>
             </div>
             <div className="border-t border-white/10 p-7 sm:p-9">
               <p className="section-kicker mb-4">Integrated Sensor System</p>
@@ -195,13 +200,15 @@ export default function ProductPage() {
           >
             <div className="relative flex min-h-88 items-center justify-center bg-white/2 p-8 sm:min-h-120">
               <div className="absolute inset-[18%] rounded-full bg-orange/10 blur-3xl" />
-              <Image
-                src="/images/kinetix-biometric-front.webp"
-                alt="Front view of KINETIX showing live biometric data"
-                width={720}
-                height={720}
-                className="relative h-auto w-full max-w-136 object-contain"
-              />
+              <FloatingGlove delay={0.6} className="relative w-full">
+                <Image
+                  src="/images/kinetix-biometric-front.webp"
+                  alt="Front view of KINETIX showing live biometric data"
+                  width={720}
+                  height={720}
+                  className="h-auto w-full max-w-136 object-contain"
+                />
+              </FloatingGlove>
             </div>
             <div className="border-t border-white/10 p-7 sm:p-9">
               <p className="section-kicker mb-4">Live Performance Signals</p>
@@ -344,13 +351,15 @@ export default function ProductPage() {
           </div>
           <div className="relative flex min-h-80 items-center justify-center sm:min-h-112">
             <div className="absolute inset-[16%] rounded-full bg-orange/10 blur-3xl" />
-            <Image
-              src="/images/kinetix-angle.webp"
-              alt="Angled view of the KINETIX athletic performance glove"
-              width={760}
-              height={760}
-              className="relative h-auto w-full max-w-152 object-contain"
-            />
+            <FloatingGlove className="relative w-full">
+              <Image
+                src="/images/kinetix-angle.webp"
+                alt="Angled view of the KINETIX athletic performance glove"
+                width={760}
+                height={760}
+                className="h-auto w-full max-w-152 object-contain"
+              />
+            </FloatingGlove>
           </div>
         </motion.div>
       </section>

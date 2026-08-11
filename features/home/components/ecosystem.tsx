@@ -16,8 +16,26 @@ import {
   Zap,
 } from "lucide-react";
 import { ShaderBackdrop } from "@/shared/components/ui/shader-backdrop";
+import Image from "next/image";
+import { FloatingGlove } from "@/shared/components/ui/floating-glove";
 
-const icons = [Crosshair, Activity, MousePointer2, Shield, Zap, Cog];
+const icons = {
+  Kinetix: Crosshair,
+  Kradle: Activity,
+  Kursor: MousePointer2,
+  Kovert: Shield,
+  Kapture: Zap,
+  Konnect: Cog,
+} as const;
+
+const desktopOrder = {
+  Kinetix: "lg:order-2",
+  Kradle: "lg:order-1",
+  Kursor: "lg:order-3",
+  Kovert: "lg:order-4",
+  Kapture: "lg:order-5",
+  Konnect: "lg:order-6",
+} as const;
 
 export function Ecosystem() {
   const reduceMotion = useReducedMotion();
@@ -66,36 +84,69 @@ export function Ecosystem() {
           className="grid gap-5 lg:grid-cols-3"
         >
           {ecosystemProducts.map((product, index) => {
-            const Icon = icons[index];
+            const productName = product.name as keyof typeof icons;
+            const Icon = icons[productName];
+            const isFlagship = product.name === "Kinetix";
             return (
               <motion.article
                 key={product.name}
                 custom={{ index, reduceMotion }}
                 variants={alternatingCardReveal}
-                className="surface-panel group flex min-h-full flex-col p-8 transition-colors duration-500 hover:bg-surface-raised md:p-10"
+                className={`surface-panel group relative flex min-h-full flex-col overflow-hidden p-8 transition-colors duration-500 hover:bg-surface-raised md:p-10 ${
+                  desktopOrder[productName]
+                } ${
+                  isFlagship
+                    ? "border-orange/60 shadow-[0_0_48px_rgba(249,115,22,0.13)] ring-1 ring-inset ring-orange/25"
+                    : ""
+                }`}
               >
-                <div className="mb-10 flex items-start">
+                {product.image && (
+                  <div
+                    aria-hidden="true"
+                    className="ecosystem-render-stage pointer-events-none absolute -right-20 -top-16 h-100 w-100 opacity-30"
+                  >
+                    <FloatingGlove
+                      delay={index * 0.35}
+                      className="relative h-full w-full"
+                    >
+                      <Image
+                        src={product.image}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 34vw, 100vw"
+                        className="object-contain"
+                      />
+                    </FloatingGlove>
+                  </div>
+                )}
+                {product.image && (
+                  <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/5 via-black/55 to-black/95" />
+                )}
+
+                <div className="relative z-10 mb-10 flex items-start">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange/12 text-orange ring-1 ring-inset ring-orange/25">
                     <Icon size={21} strokeWidth={1.5} />
                   </div>
                 </div>
 
-                <p className="mb-3 font-mono text-xs tracking-[0.08em] text-orange">
-                  {product.accent}
-                </p>
-                <h3 className="font-brand text-4xl font-black tracking-[0.01em] text-white">
-                  {product.mark}
-                </h3>
-                <p className="copy-secondary mt-2 min-h-10 font-sans text-sm leading-relaxed">
-                  {product.category}
-                </p>
+                <div className="relative z-10">
+                  <p className="mb-3 font-mono text-xs tracking-[0.08em] text-orange">
+                    {product.accent}
+                  </p>
+                  <h3 className="font-brand text-4xl font-black tracking-[0.01em] text-white">
+                    {product.mark}
+                  </h3>
+                  <p className="copy-secondary mt-2 min-h-10 font-sans text-sm leading-relaxed">
+                    {product.category}
+                  </p>
+                </div>
 
-                <div className="my-8 h-px bg-white/10" />
+                <div className="relative z-10 my-8 h-px bg-white/10" />
 
-                <p className="mb-4 font-mono text-xs tracking-[0.08em] text-white/60">
+                <p className="relative z-10 mb-4 font-mono text-xs tracking-[0.08em] text-white/60">
                   Core capabilities
                 </p>
-                <ul className="mb-9 space-y-2.5">
+                <ul className="relative z-10 mb-9 space-y-2.5">
                   {product.features.map((feature) => (
                     <li
                       key={feature}
@@ -107,7 +158,7 @@ export function Ecosystem() {
                   ))}
                 </ul>
 
-                <div className="mt-auto">
+                <div className="relative z-10 mt-auto">
                   <p className="mb-3 font-mono text-xs tracking-[0.08em] text-white/60">
                     Built for
                   </p>

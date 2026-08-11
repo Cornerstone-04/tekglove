@@ -7,6 +7,7 @@ import Image from "next/image";
 export default function SplashScreen() {
   const [visible, setVisible] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const reduceMotion = useReducedMotion();
   const startedRef = useRef(false);
 
@@ -68,13 +69,28 @@ export default function SplashScreen() {
           className="fixed inset-0 z-9999 flex flex-col items-center justify-center gap-8 bg-black"
         >
           <div className="relative grid h-48 w-48 place-items-center overflow-hidden rounded-4xl border border-white/10 bg-[radial-gradient(circle_at_50%_65%,rgba(249,115,22,0.2),transparent_60%)]">
+            <div
+              aria-hidden="true"
+              className={`absolute inset-0 grid place-items-center transition-opacity duration-200 ${
+                imageLoaded ? "opacity-0" : "opacity-100"
+              }`}
+            >
+              <div className="absolute h-28 w-28 rounded-full border border-orange/15" />
+              <div className="absolute h-20 w-20 rounded-full border border-orange/25" />
+              <span className="relative font-brand text-5xl font-black tracking-[-0.06em] text-white/90">
+                T<span className="text-orange">G</span>
+              </span>
+            </div>
             <Image
-              src="/images/tekglove_front_cutout.png"
+              src="/images/tekglove-platform-front.webp"
               alt=""
               width={170}
               height={170}
               priority
-              className="h-auto w-[82%] object-contain"
+              onLoad={() => setImageLoaded(true)}
+              className={`relative h-auto w-[82%] object-contain transition-opacity ${
+                reduceMotion ? "duration-200" : "duration-300"
+              } ${imageLoaded ? "opacity-100" : "opacity-0"}`}
             />
           </div>
 

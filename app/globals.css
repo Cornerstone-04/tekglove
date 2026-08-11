@@ -121,6 +121,12 @@
     transition: transform 160ms var(--ease-out);
   }
 
+  .ecosystem-render-stage {
+    transition:
+      opacity 500ms var(--ease-out),
+      transform 500ms var(--ease-out);
+  }
+
   @media (hover: hover) and (pointer: fine) {
     .site-button:hover .button-icon-right {
       transform: translateX(0.25rem);
@@ -128,6 +134,11 @@
 
     .site-button:hover .button-icon-left {
       transform: translateX(-0.25rem);
+    }
+
+    .group:hover .ecosystem-render-stage {
+      opacity: 0.76;
+      transform: translate3d(-12px, 10px, 0) scale(1.04);
     }
   }
 
@@ -226,6 +237,11 @@
   .button-icon,
   .site-button:hover .button-icon-right,
   .site-button:hover .button-icon-left {
+    transform: none;
+  }
+
+  .ecosystem-render-stage,
+  .group:hover .ecosystem-render-stage {
     transform: none;
   }
 }
