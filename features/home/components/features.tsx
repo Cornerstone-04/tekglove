@@ -6,6 +6,7 @@ import {
   staggeredCardGroup,
 } from "@/shared/motion/card-reveal";
 import { motion, useReducedMotion } from "motion/react";
+import { ButtonLink } from "@/shared/components/ui/button";
 
 export function Features() {
   const reduceMotion = useReducedMotion();
@@ -23,9 +24,7 @@ export function Features() {
           }}
           className="mb-14 max-w-4xl"
         >
-          <p className="section-kicker mb-5">
-            Built Around the Hand
-          </p>
+          <p className="section-kicker mb-5">Built Around the Hand</p>
           <h2 className="display-title text-[clamp(2.75rem,6vw,5.5rem)] text-white">
             The Body&apos;s Natural Interface.
           </h2>
@@ -55,6 +54,25 @@ export function Features() {
               </p>
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: reduceMotion ? 0.2 : 0.5,
+            ease: [0.23, 1, 0.32, 1],
+          }}
+          className="mt-10 flex flex-col gap-5 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <p className="copy-secondary max-w-[52ch] text-sm leading-[1.75]">
+            Discover how a compact sports sensor evolved into a platform built
+            around the hand.
+          </p>
+          <ButtonLink href="/about" variant="secondary">
+            Explore Our Story
+          </ButtonLink>
         </motion.div>
       </div>
     </section>

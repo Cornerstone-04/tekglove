@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { ButtonLink } from "@/shared/components/ui/button";
 
 export default function NotFound() {
   return (
@@ -19,12 +19,9 @@ export default function NotFound() {
           This page doesn&apos;t exist.
         </p>
 
-        <Link
-          href="/"
-          className="bg-orange px-7 py-[0.8rem] font-sans text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-black no-underline"
-        >
+        <ButtonLink href="/" arrow="left">
           Back to Home
-        </Link>
+        </ButtonLink>
       </div>
     </div>
   );

@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
+import { BsArrowRight } from "react-icons/bs";
 import { ecosystemProducts, navLinks, site } from "@/content/site";
+import { ButtonLink } from "@/shared/components/ui/button";
 
 const companyLinks = navLinks.filter(({ label }) => label !== "Get Early Access");
 
@@ -70,17 +72,9 @@ function FooterBrand() {
         intelligence through the connected hand.
       </p>
 
-      <Link
-        href="/waitlist"
-        className="pressable group mt-8 inline-flex min-h-12 items-center gap-4 rounded-full border border-white/20 bg-white/4 px-5 py-3 font-sans text-sm font-medium text-white transition-[border-color,background-color,transform] duration-200 hover:border-orange hover:bg-orange/8"
-      >
+      <ButtonLink href="/waitlist" variant="secondary" className="mt-8">
         Get early access
-        <ArrowRight
-          size={16}
-          className="transition-transform duration-300 group-hover:translate-x-1.5"
-          aria-hidden="true"
-        />
-      </Link>
+      </ButtonLink>
     </div>
   );
 }
@@ -136,12 +130,12 @@ function FooterContact() {
         </p>
         <Link
           href="/product"
-          className="group mt-3 inline-flex items-center gap-3 font-brand text-2xl font-bold uppercase text-white/78 transition-colors duration-200 hover:text-white"
+          className="site-button group mt-3 inline-flex items-center gap-3 font-brand text-2xl font-bold uppercase text-white/78 transition-colors duration-200 hover:text-white"
         >
           KINETIX™
-          <ArrowRight
+          <BsArrowRight
             size={16}
-            className="text-orange transition-transform duration-300 group-hover:translate-x-1.5"
+            className="button-icon button-icon-right text-orange"
             aria-hidden="true"
           />
         </Link>

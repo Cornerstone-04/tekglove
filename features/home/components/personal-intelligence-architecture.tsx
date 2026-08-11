@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { PersonalIntelligenceDiagram } from "@/shared/components/ui/personal-intelligence-diagram";
+import { ShaderBackdrop } from "@/shared/components/ui/shader-backdrop";
 
 export function PersonalIntelligenceArchitecture() {
   const reduceMotion = useReducedMotion();
@@ -9,9 +10,13 @@ export function PersonalIntelligenceArchitecture() {
   return (
     <section
       id="personal-intelligence"
-      className="scroll-mt-16 border-b border-white/8 bg-surface py-28 md:py-36"
+      className="relative scroll-mt-16 overflow-hidden border-b border-white/8 bg-surface py-28 md:py-36"
     >
-      <div className="w-full px-6 md:px-12">
+      <ShaderBackdrop
+        variant="intelligence"
+        className="opacity-25 mask-[linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]"
+      />
+      <div className="relative z-10 w-full px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}

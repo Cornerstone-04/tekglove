@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import Link from "next/link";
+import { ButtonLink } from "@/shared/components/ui/button";
 
 export function HeroCTA() {
   const reduceMotion = useReducedMotion();
@@ -18,9 +18,7 @@ export function HeroCTA() {
             ease: [0.23, 1, 0.32, 1],
           }}
         >
-          <p className="section-kicker mb-6">
-            Limited Beta
-          </p>
+          <p className="section-kicker mb-6">Limited Beta</p>
           <h2 className="display-title mb-6 text-[clamp(2.5rem,8vw,6rem)] text-white">
             Be First to
             <br />
@@ -29,12 +27,9 @@ export function HeroCTA() {
           <p className="copy-secondary mx-auto mb-10 max-w-3xl font-sans text-base leading-[1.8]">
             Sign up for beta testing or early access. Limited spots available.
           </p>
-          <Link
-            href="/waitlist"
-            className="pressable inline-block rounded-full bg-orange px-10 py-4 font-sans text-[0.88rem] font-semibold normal-case tracking-[-0.01em] text-black transition-[opacity,transform] duration-200 hover:opacity-85"
-          >
-            Get Early Access →
-          </Link>
+          <ButtonLink href="/waitlist" size="lg">
+            Get Early Access
+          </ButtonLink>
         </motion.div>
       </div>
     </section>

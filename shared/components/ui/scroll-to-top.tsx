@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
-import { LuArrowUp } from "react-icons/lu";
+import { BsArrowUp } from "react-icons/bs";
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -48,7 +48,7 @@ export function ScrollToTop() {
           aria-label="Scroll to top"
           className="pressable group fixed bottom-6 right-6 z-40 flex h-8 w-8 cursor-pointer items-center justify-center border border-white/70 bg-bg backdrop-blur-lg transition-colors duration-300 ease-out hover:bg-bg/95 md:bottom-8 md:right-8 hover:border-orange/80"
         >
-          <LuArrowUp className="relative z-2 text-sm text-white/80 transition-colors duration-300 group-hover:text-orange" />
+          <BsArrowUp className="relative z-2 text-sm text-white/80 transition-colors duration-300 group-hover:text-orange" />
 
           <span
             aria-hidden="true"

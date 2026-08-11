@@ -11,6 +11,7 @@ import {
 } from "motion/react";
 import { useState } from "react";
 import { navLinks } from "@/content/site";
+import { ButtonLink } from "@/shared/components/ui/button";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -75,12 +76,13 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop CTA */}
-        <Link
+        <ButtonLink
           href="/waitlist"
-          className="pressable hidden items-center gap-2 rounded-full bg-orange px-5 py-2 font-sans text-[0.78rem] font-semibold normal-case tracking-[-0.01em] text-black no-underline transition-[opacity,transform] duration-200 hover:opacity-90 md:inline-flex"
+          size="sm"
+          className="hidden md:inline-flex"
         >
           Get Early Access
-        </Link>
+        </ButtonLink>
 
         {/* Mobile: hamburger */}
         <button
@@ -168,13 +170,14 @@ export default function Navbar() {
               }}
               className="flex flex-col gap-4 px-6 pt-8 pb-12"
             >
-              <Link
+              <ButtonLink
                 href="/waitlist"
                 onClick={close}
-                className="pressable w-full bg-orange px-6 py-4 text-center font-sans text-[0.85rem] font-semibold normal-case tracking-[0.08em] text-black no-underline transition-[opacity,transform] duration-200 hover:opacity-90"
+                size="lg"
+                fullWidth
               >
-                Get Early Access →
-              </Link>
+                Get Early Access
+              </ButtonLink>
 
               <p className="text-center font-mono text-xs normal-case tracking-[0.08em] text-white/55">
                 tekglove.co.uk

@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/shared/components/ui/button";
+
 export default function GlobalError({ reset }: { reset: () => void }) {
   return (
     <section className="grid min-h-svh place-items-center bg-bg px-6 text-center">
@@ -9,16 +11,12 @@ export default function GlobalError({ reset }: { reset: () => void }) {
           Let&apos;s try that again.
         </h1>
         <p className="copy-secondary mx-auto mt-6 max-w-[48ch] leading-[1.8]">
-          The page could not be displayed. Your place is safe, and you can
-          retry without leaving TekGlove.
+          The page could not be displayed. Your place is safe, and you can retry
+          without leaving TekGlove.
         </p>
-        <button
-          type="button"
-          onClick={reset}
-          className="pressable mt-9 rounded-full bg-orange px-8 py-3 font-semibold text-black"
-        >
+        <Button type="button" onClick={reset} className="mt-9">
           Try again
-        </button>
+        </Button>
       </div>
     </section>
   );

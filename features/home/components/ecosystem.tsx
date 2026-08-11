@@ -14,6 +14,7 @@ import {
   Shield,
   Zap,
 } from "lucide-react";
+import { ShaderBackdrop } from "@/shared/components/ui/shader-backdrop";
 
 const icons = [Crosshair, Activity, MousePointer2, Shield, Zap, Cog];
 
@@ -21,8 +22,15 @@ export function Ecosystem() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="ecosystem" className="border-b border-white/8 py-28 md:py-36">
-      <div className="w-full px-6 md:px-12">
+    <section
+      id="ecosystem"
+      className="relative overflow-hidden border-b border-white/8 py-28 md:py-36"
+    >
+      <ShaderBackdrop
+        variant="ecosystem"
+        className="opacity-18 mask-[linear-gradient(to_bottom,black,transparent_62%)]"
+      />
+      <div className="relative z-10 w-full px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,9 +42,7 @@ export function Ecosystem() {
           className="mb-16 grid gap-8 md:grid-cols-[1.25fr_0.75fr] md:items-end"
         >
           <div>
-            <p className="section-kicker mb-5">
-              The TekGlove Ecosystem
-            </p>
+            <p className="section-kicker mb-5">The TekGlove Ecosystem</p>
             <h2 className="display-title max-w-4xl text-[clamp(3rem,7vw,6rem)] text-white">
               One Platform.
               <br />
@@ -130,9 +136,7 @@ export function Ecosystem() {
         >
           <div className="grid gap-8 md:grid-cols-[0.6fr_1.4fr] md:items-center">
             <div>
-              <p className="section-kicker mb-3">
-                Shared technology stack
-              </p>
+              <p className="section-kicker mb-3">Shared technology stack</p>
               <h3 className="font-heading text-3xl font-semibold tracking-[-0.035em] text-white">
                 The TekGlove Core
               </h3>

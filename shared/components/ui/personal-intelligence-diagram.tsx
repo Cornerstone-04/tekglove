@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Activity,
-  BrainCircuit,
-  CloudCog,
-  Cpu,
-  Network,
-} from "lucide-react";
+import { Activity, BrainCircuit, CloudCog, Cpu, Network } from "lucide-react";
 import { BsArrowRight } from "react-icons/bs";
 import { motion, useReducedMotion } from "motion/react";
 import { alternatingCardReveal } from "@/shared/motion/card-reveal";
@@ -15,32 +9,37 @@ const architecture = [
   {
     label: "Source",
     title: "Hand Signals",
-    description: "Movement, grip, gesture, position, physical response, and biometrics.",
+    description:
+      "Movement, grip, gesture, position, physical response, and biometrics.",
     icon: Activity,
   },
   {
     label: "Capture",
     title: "Smart Dorsal Sensor",
-    description: "Sensing, local processing, and wireless connectivity on the back of the hand.",
+    description:
+      "Sensing, local processing, and wireless connectivity on the back of the hand.",
     icon: Cpu,
     core: true,
   },
   {
     label: "Interpret",
     title: "Edge Intelligence",
-    description: "Recognition, pattern detection, analytics, recommendations, and alerts.",
+    description:
+      "Recognition, pattern detection, analytics, recommendations, and alerts.",
     icon: BrainCircuit,
   },
   {
     label: "Connect",
     title: "TekGlove Platform",
-    description: "Mobile apps, cloud dashboards, digital twins, AI assistants, and team systems.",
+    description:
+      "Mobile apps, cloud dashboards, digital twins, AI assistants, and team systems.",
     icon: CloudCog,
   },
   {
     label: "Apply",
     title: "Insights & Systems",
-    description: "Feedback, commands, connected devices, equipment, robotics, and people.",
+    description:
+      "Feedback, commands, connected devices, equipment, robotics, and people.",
     icon: Network,
   },
 ];
@@ -52,7 +51,11 @@ function Connector({ index }: { index: number }) {
       style={{ animationDelay: `${index * 240}ms` }}
       aria-hidden="true"
     >
-      <BsArrowRight className="rotate-90 lg:rotate-0" size={22} strokeWidth={0.5} />
+      <BsArrowRight
+        className="rotate-90 lg:rotate-0"
+        size={22}
+        strokeWidth={0.5}
+      />
     </div>
   );
 }
@@ -117,9 +120,7 @@ export function PersonalIntelligenceDiagram() {
                   </p>
                 </div>
               </motion.article>
-              {index < architecture.length - 1 && (
-                <Connector index={index} />
-              )}
+              {index < architecture.length - 1 && <Connector index={index} />}
             </li>
           );
         })}

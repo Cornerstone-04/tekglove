@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { motion, useReducedMotion } from "motion/react";
+import { ShaderBackdrop } from "@/shared/components/ui/shader-backdrop";
 
 export default function WaitlistPage() {
   const reduceMotion = useReducedMotion();
@@ -14,12 +15,16 @@ export default function WaitlistPage() {
   }, []);
 
   return (
-    <div className="min-h-svh bg-bg flex items-center justify-center">
+    <div className="relative flex min-h-svh items-center justify-center overflow-hidden bg-bg">
+      <ShaderBackdrop
+        variant="waitlist"
+        className="opacity-35 mask-[radial-gradient(circle_at_center,black,transparent_76%)]"
+      />
       <motion.div
         initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: reduceMotion ? 0.2 : 0.6 }}
-        className="flex flex-col items-center gap-6 text-center"
+        className="relative z-10 flex flex-col items-center gap-6 text-center"
       >
         <motion.div
           animate={reduceMotion ? { opacity: 1 } : { opacity: [0.3, 1, 0.3] }}

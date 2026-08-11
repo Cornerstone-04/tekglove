@@ -7,7 +7,7 @@ import {
   useTransform,
 } from "motion/react";
 import { site } from "@/content/site";
-import Link from "next/link";
+import { ButtonLink } from "@/shared/components/ui/button";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -98,25 +98,19 @@ export function Hero() {
             }}
             className="flex flex-wrap gap-4"
           >
-            <Link
-              href="/waitlist"
-              className="pressable rounded-full bg-orange px-8 py-[0.9rem] font-sans text-[0.8rem] font-semibold normal-case tracking-[-0.01em] text-black transition-[opacity,transform] duration-200 hover:opacity-85"
-            >
+            <ButtonLink href="/waitlist" icon={false}>
               Get Early Access
-            </Link>
-            <Link
-              href="/product"
-              className="pressable rounded-full border border-white/18 bg-white/4 px-8 py-[0.9rem] font-sans text-[0.8rem] font-medium normal-case tracking-[0.03em] text-white/75 transition-[border-color,background-color,color,transform] duration-200 hover:border-white/35 hover:bg-white/8 hover:text-white"
-            >
+            </ButtonLink>
+            <ButtonLink href="/product" variant="secondary" icon={false}>
               View Product
-            </Link>
+            </ButtonLink>
           </motion.div>
         </div>
 
         {/* Right: floating glove */}
         <motion.div
           style={reduceMotion ? undefined : { y: gloveY, scale: gloveScale }}
-          className="flex justify-center"
+          className="flex justify-center md:-ml-8 lg:-ml-16"
         >
           <motion.div
             animate={reduceMotion ? { y: 0 } : { y: [0, -14, 0] }}
@@ -136,15 +130,24 @@ export function Hero() {
               }}
               className="relative"
             >
-              <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[60%] h-[30%] bg-orange/20 blur-3xl rounded-full pointer-events-none" />
+              <div className="pointer-events-none absolute inset-[10%] rounded-full bg-orange/10 blur-[80px]" />
+              <div className="pointer-events-none absolute bottom-[-10%] left-1/2 h-[34%] w-[68%] -translate-x-1/2 rounded-full bg-orange/28 blur-3xl" />
               <Image
-                src="/images/tekglove_front_cutout.png"
+                src="/images/tekglove-platform-front.webp"
                 alt="TekGlove smart wearable glove"
-                width={520}
-                height={520}
-                className="object-contain max-w-full relative z-10"
+                width={610}
+                height={610}
+                className="relative z-10 max-w-full object-contain"
                 priority
               />
+              <div className="absolute right-0 top-[12%] z-20 hidden max-w-52 rounded-2xl border border-white/15 bg-black/55 p-4 shadow-2xl backdrop-blur-2xl sm:block lg:-right-4">
+                <p className="mb-1.5 font-mono text-xs tracking-[0.07em] text-orange">
+                  Smart Dorsal Sensor
+                </p>
+                <p className="text-xs leading-relaxed text-white/65">
+                  The intelligence behind every TekGlove.
+                </p>
+              </div>
             </motion.div>
           </motion.div>
         </motion.div>

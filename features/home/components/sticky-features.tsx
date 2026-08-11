@@ -51,7 +51,7 @@ export function StickyFeatures() {
               <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(249,115,22,0.1)_0%,transparent_65%)] pointer-events-none" />
               <div>
                 <Image
-                  src="/images/tekglove_angle_cutout.png"
+                  src="/images/tekglove-platform-angle.webp"
                   alt="Tek Glove"
                   width={440}
                   height={440}
