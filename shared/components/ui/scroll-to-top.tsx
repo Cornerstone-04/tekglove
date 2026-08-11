@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
-import { ArrowUp } from "lucide-react";
+import { LuArrowUp } from "react-icons/lu";
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,12 +46,18 @@ export function ScrollToTop() {
           }}
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          className="pressable group fixed bottom-6 right-6 z-40 flex h-8 w-8 cursor-pointer items-center justify-center border border-white/10 bg-black/60 backdrop-blur-md transition-[border-color,background-color,transform,opacity] duration-200 ease-[var(--ease-out)] hover:border-orange hover:bg-black/95 md:bottom-8 md:right-12"
+          className="pressable group fixed bottom-6 right-6 z-40 flex h-8 w-8 cursor-pointer items-center justify-center border border-white/70 bg-bg backdrop-blur-lg transition-colors duration-300 ease-out hover:bg-bg/95 md:bottom-8 md:right-8 hover:border-orange/80"
         >
-          <ArrowUp className="text-sm text-white/50 transition-colors duration-300 group-hover:text-orange" />
+          <LuArrowUp className="relative z-2 text-sm text-white/80 transition-colors duration-300 group-hover:text-orange" />
 
-          <span className="absolute -left-px -top-px h-1.5 w-1.5 border-l border-t border-white/30 transition-colors duration-300 group-hover:border-orange" />
-          <span className="absolute -bottom-px -right-px h-1.5 w-1.5 border-b border-r border-white/30 transition-colors duration-300 group-hover:border-orange" />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-px top-1 h-[calc(100%-0.5rem)] w-[calc(100%+0.125rem)] origin-center scale-y-100 bg-bg transition-transform duration-300 ease-out group-hover:scale-y-0"
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-px left-1 h-[calc(100%+0.125rem)] w-[calc(100%-0.5rem)] origin-center scale-x-100 bg-bg transition-transform delay-100 duration-300 ease-out group-hover:scale-x-0"
+          />
         </motion.button>
       )}
     </AnimatePresence>
