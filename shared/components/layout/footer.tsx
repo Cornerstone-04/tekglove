@@ -5,7 +5,9 @@ import { BsArrowRight } from "react-icons/bs";
 import { ecosystemProducts, navLinks, site } from "@/content/site";
 import { ButtonLink } from "@/shared/components/ui/button";
 
-const companyLinks = navLinks.filter(({ label }) => label !== "Get Early Access");
+const companyLinks = navLinks.filter(
+  ({ label }) => label !== "Get Early Access",
+);
 
 export default function Footer() {
   return (
@@ -31,9 +33,7 @@ export default function Footer() {
 
         <div className="mt-20 border-t border-white/10 pt-7 md:mt-28">
           <div className="grid gap-4 font-mono text-xs leading-relaxed text-white/65 md:grid-cols-2 md:items-center">
-            <p>
-              © {new Date().getFullYear()} TekGlove. All rights reserved.
-            </p>
+            <p>© {new Date().getFullYear()} TekGlove. All rights reserved.</p>
             <p className="md:text-right">{site.tagline}</p>
           </div>
 
@@ -94,9 +94,8 @@ function FooterColumn({
           <li key={`${link.href}-${link.label}`}>
             <Link
               href={link.href}
-              className="group inline-flex items-center gap-2 font-sans text-sm text-white/68 transition-colors duration-200 hover:text-white"
+              className="group inline-flex items-center gap-2 font-sans text-sm text-white/68 transition-colors duration-200 hover:text-orange"
             >
-              <span className="h-px w-0 bg-orange transition-[width] duration-300 group-hover:w-3" />
               {link.label}
             </Link>
           </li>
