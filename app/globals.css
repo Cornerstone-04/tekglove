@@ -244,12 +244,24 @@
   animation: pia-flow-pulse 2.4s ease-in-out infinite;
 }
 
+@keyframes pia-network-flow {
+  to {
+    stroke-dashoffset: -36;
+  }
+}
+
+.pia-network-line {
+  stroke-dasharray: 5 10;
+  animation: pia-network-flow 2.4s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
-  .pia-connector {
+  .pia-connector,
+  .pia-network-line {
     animation: none;
   }
 
