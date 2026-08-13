@@ -82,12 +82,12 @@ export default function ProductPage() {
               }}
               className="mb-5 text-[clamp(1.5rem,3vw,2.25rem)] font-semibold tracking-[-0.035em] text-white"
             >
-              Hand Data for Athletes
+              Your Hand Holds the Data
             </motion.h2>
             <p className="copy-secondary mb-9 max-w-[48ch] text-[0.98rem] leading-[1.8]">
-              The athletic expression of the TekGlove platform, capturing
-              movement, grip, gestures, and hand position without restricting
-              how an athlete moves.
+              TekGlove captures the signals behind how we move, work, recover,
+              communicate, and respond, turning the hand into a source of
+              actionable intelligence.
             </p>
             <div className="flex flex-wrap gap-3">
               <ButtonLink href="/waitlist" icon={false}>

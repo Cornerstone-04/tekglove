@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: "TekGlove",
   title: {
-    default: "TekGlove | Your Smart Glove, Reinvented.",
+    default: "TekGlove | The Smart Glove, Reinvented.",
     template: "%s | Tek Glove",
   },
   description: site.description,
