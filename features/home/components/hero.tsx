@@ -48,7 +48,7 @@ export function Hero() {
           </motion.p>
 
           <h1 className="display-title mb-7 max-w-[11ch] text-[clamp(3.5rem,7vw,6.75rem)] text-white">
-            {["Your", "Smart", "Glove,"].map((word, i) => (
+            {["The", "Smart", "Glove,"].map((word, i) => (
               <motion.span
                 key={word}
                 initial={{ opacity: 0, y: reduceMotion ? 0 : 40 }}
@@ -135,10 +135,10 @@ export function Hero() {
                 priority
               />
               <div className="absolute right-0 top-[12%] z-20 hidden max-w-52 rounded-2xl border border-white/15 bg-black/55 p-4 shadow-2xl backdrop-blur-2xl sm:block lg:-right-4">
-                <p className="mb-1.5 font-mono text-xs tracking-[0.07em] text-orange">
+                <p className="mb-1.5 font-mono text-xs font-semibold tracking-[0.07em] text-orange">
                   Smart Dorsal Sensor
                 </p>
-                <p className="text-xs leading-relaxed text-white/65">
+                <p className="text-xs leading-relaxed font-medium text-white/65">
                   The intelligence behind every TekGlove.
                 </p>
               </div>
