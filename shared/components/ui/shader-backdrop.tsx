@@ -5,7 +5,8 @@ import dynamic from "next/dynamic";
 import { useReducedMotion } from "motion/react";
 
 const NeuroNoise = dynamic(
-  () => import("@paper-design/shaders-react").then((module) => module.NeuroNoise),
+  () =>
+    import("@paper-design/shaders-react").then((module) => module.NeuroNoise),
   { ssr: false },
 );
 const DotOrbit = dynamic(
@@ -13,11 +14,15 @@ const DotOrbit = dynamic(
   { ssr: false },
 );
 const GrainGradient = dynamic(
-  () => import("@paper-design/shaders-react").then((module) => module.GrainGradient),
+  () =>
+    import("@paper-design/shaders-react").then(
+      (module) => module.GrainGradient,
+    ),
   { ssr: false },
 );
 const MeshGradient = dynamic(
-  () => import("@paper-design/shaders-react").then((module) => module.MeshGradient),
+  () =>
+    import("@paper-design/shaders-react").then((module) => module.MeshGradient),
   { ssr: false },
 );
 
@@ -57,7 +62,8 @@ export function ShaderBackdrop({
 
     updateAnimationState();
     desktopQuery.addEventListener("change", updateAnimationState);
-    return () => desktopQuery.removeEventListener("change", updateAnimationState);
+    return () =>
+      desktopQuery.removeEventListener("change", updateAnimationState);
   }, [reduceMotion]);
 
   return (

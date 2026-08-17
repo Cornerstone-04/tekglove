@@ -42,7 +42,13 @@ export const personalIntelligenceStages = [
   },
 ] as const;
 
-function Connector({ index, reduceMotion }: { index: number; reduceMotion: boolean | null }) {
+function Connector({
+  index,
+  reduceMotion,
+}: {
+  index: number;
+  reduceMotion: boolean | null;
+}) {
   return (
     <div
       className="flex items-center justify-center px-2 text-orange"
@@ -96,10 +102,7 @@ export function PersonalIntelligenceDiagram() {
 
       <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/10 pt-5 font-mono text-xs tracking-[0.05em] text-white/60">
         <span>Signals become actions</span>
-        <span
-          aria-hidden="true"
-          className="h-3 w-px bg-white/20"
-        />
+        <span aria-hidden="true" className="h-3 w-px bg-white/20" />
         <span>One core architecture across six gloves</span>
       </div>
     </figure>
@@ -115,58 +118,58 @@ export function LinearArchitectureDiagram({
     <>
       <div className="relative hidden pb-18 lg:block">
         <ol className="grid list-none items-stretch lg:grid-cols-[minmax(0,0.9fr)_48px_minmax(0,1.15fr)_48px_minmax(0,0.9fr)_48px_minmax(0,0.9fr)_48px_minmax(0,0.9fr)]">
-        {personalIntelligenceStages.map((node, index) => {
-          const Icon = node.icon;
-          const isCore = "core" in node && node.core;
+          {personalIntelligenceStages.map((node, index) => {
+            const Icon = node.icon;
+            const isCore = "core" in node && node.core;
 
-          return (
-            <li key={node.title} className="contents">
-              <motion.article
-                custom={{ index, reduceMotion, delay: index * 0.06 }}
-                variants={alternatingCardReveal}
-                initial="hidden"
-                whileInView="visible"
-                viewport={revealViewport}
-                className={`relative flex min-h-60 flex-col rounded-2xl border p-6 ${
-                  isCore
-                    ? "pia-core -my-3 min-h-66 border-orange bg-orange p-7 text-black"
-                    : "border-white/10 bg-black/55 text-white"
-                }`}
-              >
-                <div className="mb-10 flex items-start justify-between gap-4">
-                  <span
-                    className={`font-mono text-xs tracking-[0.08em] ${
-                      isCore ? "text-black/60" : "text-orange"
-                    }`}
-                  >
-                    {node.label}
-                  </span>
-                  <Icon
-                    size={22}
-                    strokeWidth={1.4}
-                    className={isCore ? "text-black" : "text-orange"}
-                    aria-hidden="true"
-                  />
-                </div>
-                <div className="mt-auto">
-                  <h3 className="mb-3 font-heading text-xl font-semibold leading-tight tracking-[-0.035em]">
-                    {node.title}
-                  </h3>
-                  <p
-                    className={`text-xs leading-[1.75] ${
-                      isCore ? "text-black/75" : "text-white/70"
-                    }`}
-                  >
-                    {node.description}
-                  </p>
-                </div>
-              </motion.article>
-              {index < personalIntelligenceStages.length - 1 && (
-                <Connector index={index} reduceMotion={reduceMotion} />
-              )}
-            </li>
-          );
-        })}
+            return (
+              <li key={node.title} className="contents">
+                <motion.article
+                  custom={{ index, reduceMotion, delay: index * 0.06 }}
+                  variants={alternatingCardReveal}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={revealViewport}
+                  className={`relative flex min-h-60 flex-col rounded-2xl border p-6 ${
+                    isCore
+                      ? "pia-core -my-3 min-h-66 border-orange bg-orange p-7 text-black"
+                      : "border-white/10 bg-black/55 text-white"
+                  }`}
+                >
+                  <div className="mb-10 flex items-start justify-between gap-4">
+                    <span
+                      className={`font-mono text-xs tracking-[0.08em] ${
+                        isCore ? "text-black/60" : "text-orange"
+                      }`}
+                    >
+                      {node.label}
+                    </span>
+                    <Icon
+                      size={22}
+                      strokeWidth={1.4}
+                      className={isCore ? "text-black" : "text-orange"}
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div className="mt-auto">
+                    <h3 className="mb-3 font-heading text-xl font-semibold leading-tight tracking-[-0.035em]">
+                      {node.title}
+                    </h3>
+                    <p
+                      className={`text-xs leading-[1.75] ${
+                        isCore ? "text-black/75" : "text-white/70"
+                      }`}
+                    >
+                      {node.description}
+                    </p>
+                  </div>
+                </motion.article>
+                {index < personalIntelligenceStages.length - 1 && (
+                  <Connector index={index} reduceMotion={reduceMotion} />
+                )}
+              </li>
+            );
+          })}
         </ol>
 
         <motion.div
@@ -181,7 +184,10 @@ export function LinearArchitectureDiagram({
           className="absolute bottom-2 left-[27%] right-[7%] h-10 origin-right rounded-b-xl border-b border-l border-r border-orange/35"
           aria-hidden="true"
         >
-          <BsArrowRight className="absolute -left-2 -top-2 -rotate-90 text-orange" size={16} />
+          <BsArrowRight
+            className="absolute -left-2 -top-2 -rotate-90 text-orange"
+            size={16}
+          />
         </motion.div>
         <span className="absolute bottom-0 left-[58%] -translate-x-1/2 bg-[#070708] px-4 font-mono tracking-[0.06em] text-xs text-white/50 font-medium">
           Feedback and commands return to the hand
@@ -297,7 +303,7 @@ export function PersonalIntelligenceStage({
     >
       <div className="flex items-start justify-between gap-6">
         <span
-          className={`font-mono text-xs tracking-[0.1em] ${
+          className={`font-mono text-xs tracking-widest ${
             "core" in stage && stage.core ? "text-black/60" : "text-orange"
           }`}
         >
@@ -363,7 +369,13 @@ export function NetworkArchitectureDiagram({
               strokeLinejoin="round"
             />
           </marker>
-          <filter id="pia-core-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <filter
+            id="pia-core-glow"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
+          >
             <feGaussianBlur stdDeviation="12" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
@@ -400,14 +412,30 @@ export function NetworkArchitectureDiagram({
           textAnchor="middle"
           aria-hidden="true"
         >
-          <text x="285" y="291">CAPTURE</text>
-          <text x="468" y="196">LOCAL PROCESSING</text>
-          <text x="615" y="291">SYNC &amp; COORDINATE</text>
-          <text x="468" y="421">ACT &amp; RESPOND</text>
-          <text x="265" y="184">SIGNAL CONTEXT</text>
-          <text x="635" y="184">MODELS &amp; RULES</text>
-          <text x="642" y="434">INSIGHTS &amp; COMMANDS</text>
-          <text x="258" y="434">HAPTIC FEEDBACK</text>
+          <text x="285" y="291">
+            CAPTURE
+          </text>
+          <text x="468" y="196">
+            LOCAL PROCESSING
+          </text>
+          <text x="615" y="291">
+            SYNC &amp; COORDINATE
+          </text>
+          <text x="468" y="421">
+            ACT &amp; RESPOND
+          </text>
+          <text x="265" y="184">
+            SIGNAL CONTEXT
+          </text>
+          <text x="635" y="184">
+            MODELS &amp; RULES
+          </text>
+          <text x="642" y="434">
+            INSIGHTS &amp; COMMANDS
+          </text>
+          <text x="258" y="434">
+            HAPTIC FEEDBACK
+          </text>
         </g>
 
         <NetworkNode
@@ -452,8 +480,22 @@ export function NetworkArchitectureDiagram({
           lines={["Insights, alerts, haptics,", "devices and people"]}
         />
 
-        <circle cx="450" cy="305" r="116" fill="none" stroke="#f97316" strokeOpacity="0.08" />
-        <circle cx="450" cy="305" r="145" fill="none" stroke="#ffffff" strokeOpacity="0.04" />
+        <circle
+          cx="450"
+          cy="305"
+          r="116"
+          fill="none"
+          stroke="#f97316"
+          strokeOpacity="0.08"
+        />
+        <circle
+          cx="450"
+          cy="305"
+          r="145"
+          fill="none"
+          stroke="#ffffff"
+          strokeOpacity="0.04"
+        />
       </svg>
     </div>
   );
@@ -520,7 +562,9 @@ function NetworkNode({
         fontSize="11"
       >
         <tspan x={x + 20}>{lines[0]}</tspan>
-        <tspan x={x + 20} dy="17">{lines[1]}</tspan>
+        <tspan x={x + 20} dy="17">
+          {lines[1]}
+        </tspan>
       </text>
     </g>
   );

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { ShaderBackdrop } from "@/shared/components/ui/shader-backdrop";
 import { WatchSVG } from "@/shared/components/ui/watch-svg";
 
 export default function SplashScreen() {
@@ -12,7 +13,8 @@ export default function SplashScreen() {
 
   useEffect(() => {
     const shouldShow =
-      startedRef.current || !sessionStorage.getItem("tekglove-splash-seen-watch");
+      startedRef.current ||
+      !sessionStorage.getItem("tekglove-splash-seen-watch");
     if (!shouldShow) return;
 
     if (!startedRef.current) {
@@ -39,10 +41,13 @@ export default function SplashScreen() {
         return;
       }
 
-      exitId = setTimeout(() => {
-        setVisible(false);
-        document.body.style.overflow = previousOverflow;
-      }, reduceMotion ? 0 : 180);
+      exitId = setTimeout(
+        () => {
+          setVisible(false);
+          document.body.style.overflow = previousOverflow;
+        },
+        reduceMotion ? 0 : 180,
+      );
     };
 
     frameId = requestAnimationFrame(tick);
@@ -66,38 +71,58 @@ export default function SplashScreen() {
               ease: [0.16, 1, 0.3, 1],
             },
           }}
-          className="fixed inset-0 z-9999 flex flex-col items-center justify-center gap-10 bg-black"
+          className="fixed inset-0 z-9999 flex items-center justify-center overflow-hidden bg-black"
           aria-hidden="true"
         >
-          <WatchSVG progress={progress} reduceMotion={Boolean(reduceMotion)} />
+          <ShaderBackdrop
+            variant="sensor"
+            className="opacity-30 mask-[radial-gradient(circle_at_center,black,transparent_68%)]"
+          />
 
-          <motion.div
-            initial={{ opacity: 0, transform: reduceMotion ? "translateY(0)" : "translateY(8px)" }}
-            animate={{ opacity: 1, transform: "translateY(0)" }}
-            transition={{ delay: reduceMotion ? 0 : 0.3, duration: reduceMotion ? 0.2 : 0.6 }}
-            className="text-center"
-          >
-            <div className="font-brand text-[1.65rem] font-extrabold uppercase tracking-[0.2em] text-white sm:text-[1.8rem]">
-              Tek<span className="text-orange">Glove</span>
-            </div>
-          </motion.div>
+          <div className="relative z-10 flex flex-col items-center gap-10">
+            <WatchSVG
+              progress={progress}
+              reduceMotion={Boolean(reduceMotion)}
+            />
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: reduceMotion ? 0 : 0.5, duration: 0.2 }}
-            className="flex w-36 flex-col items-center gap-2.5"
-          >
-            <div className="relative h-px w-full overflow-hidden bg-white/10">
-              <motion.div
-                className="absolute left-0 top-0 h-full bg-orange"
-                style={{ width: "100%", transform: `scaleX(${progress / 100})`, transformOrigin: "left" }}
-              />
-            </div>
-            <span className="font-mono text-lg tracking-[0.2em] text-white">
-              {progress}%
-            </span>
-          </motion.div>
+            <motion.div
+              initial={{
+                opacity: 0,
+                transform: reduceMotion ? "translateY(0)" : "translateY(8px)",
+              }}
+              animate={{ opacity: 1, transform: "translateY(0)" }}
+              transition={{
+                delay: reduceMotion ? 0 : 0.3,
+                duration: reduceMotion ? 0.2 : 0.6,
+              }}
+              className="text-center"
+            >
+              <div className="font-brand text-[1.65rem] font-extrabold uppercase tracking-[0.2em] text-white sm:text-[1.8rem]">
+                Tek<span className="text-orange">Glove</span>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: reduceMotion ? 0 : 0.5, duration: 0.2 }}
+              className="flex w-36 flex-col items-center gap-2.5"
+            >
+              <div className="relative h-px w-full overflow-hidden bg-white/10">
+                <motion.div
+                  className="absolute left-0 top-0 h-full bg-orange"
+                  style={{
+                    width: "100%",
+                    transform: `scaleX(${progress / 100})`,
+                    transformOrigin: "left",
+                  }}
+                />
+              </div>
+              <span className="font-mono text-lg tracking-[0.2em] text-white">
+                {progress}%
+              </span>
+            </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

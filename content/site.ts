@@ -32,8 +32,7 @@ export const ecosystemProducts = [
       "Tennis players",
       "Professional sports teams",
     ],
-    value:
-      "Turning every training session into measurable performance data.",
+    value: "Turning every training session into measurable performance data.",
   },
   {
     id: "02",
@@ -113,7 +112,8 @@ export const ecosystemProducts = [
       "Disaster response",
       "Security patrols",
     ],
-    value: "Mission-ready intelligence and control without taking hands off the task.",
+    value:
+      "Mission-ready intelligence and control without taking hands off the task.",
   },
   {
     id: "05",
@@ -140,7 +140,8 @@ export const ecosystemProducts = [
       "Occupational therapy",
       "Post-surgery rehabilitation",
     ],
-    value: "Guided recovery built around measurable hand function and progress.",
+    value:
+      "Guided recovery built around measurable hand function and progress.",
   },
   {
     id: "06",
