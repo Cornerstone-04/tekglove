@@ -103,7 +103,7 @@ export function Ecosystem() {
                 {product.image && (
                   <div
                     aria-hidden="true"
-                    className="ecosystem-render-stage pointer-events-none absolute -right-20 -top-16 h-100 w-100 opacity-30"
+                    className="ecosystem-render-stage pointer-events-none absolute -right-20 -top-16 h-100 w-100 opacity-60 group-hover:opacity-75"
                   >
                     <FloatingGlove
                       delay={index * 0.35}

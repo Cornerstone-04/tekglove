@@ -183,7 +183,7 @@ export function LinearArchitectureDiagram({
         >
           <BsArrowRight className="absolute -left-2 -top-2 -rotate-90 text-orange" size={16} />
         </motion.div>
-        <span className="absolute bottom-0 left-[58%] -translate-x-1/2 bg-[#070708] px-4 font-mono text-[0.68rem] tracking-[0.06em] text-white/50">
+        <span className="absolute bottom-0 left-[58%] -translate-x-1/2 bg-[#070708] px-4 font-mono tracking-[0.06em] text-xs text-white/50 font-medium">
           Feedback and commands return to the hand
         </span>
       </div>
