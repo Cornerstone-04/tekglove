@@ -6,9 +6,9 @@ export default function NotFound() {
     <section className="hero-texture relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden px-6 py-28 md:px-12">
       <ShaderBackdrop
         variant="sensor"
-        className="opacity-25 [mask-image:radial-gradient(circle_at_72%_48%,black,transparent_58%)]"
+        className="opacity-25 mask-[radial-gradient(circle_at_72%_48%,black,transparent_58%)]"
       />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-40 bg-linear-to-b from-transparent to-bg" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-2 h-40 bg-linear-to-b from-transparent to-bg" />
 
       <div className="relative z-10 grid w-full items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
@@ -34,9 +34,9 @@ export default function NotFound() {
           </div>
         </div>
 
-        <div className="relative flex min-h-[20rem] items-center justify-center sm:min-h-[28rem] lg:min-h-[38rem]">
+        <div className="relative flex min-h-80 items-center justify-center sm:min-h-112 lg:min-h-152">
           <div className="absolute h-[70%] w-[70%] rounded-full bg-orange/10 blur-[100px]" />
-          <div className="surface-panel relative flex aspect-square w-full max-w-[34rem] items-center justify-center overflow-hidden rounded-[2rem]">
+          <div className="surface-panel relative flex aspect-square w-full max-w-136 items-center justify-center overflow-hidden rounded-4xl">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.12),transparent_62%)]" />
             <span
               aria-hidden="true"
