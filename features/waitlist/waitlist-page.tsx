@@ -18,7 +18,7 @@ export default function WaitlistPage() {
     <div className="relative flex min-h-svh items-center justify-center overflow-hidden bg-bg">
       <ShaderBackdrop
         variant="waitlist"
-        className="opacity-35 mask-[radial-gradient(circle_at_center,black,transparent_76%)]"
+        className="mask-[radial-gradient(circle_at_center,black,transparent_76%)] opacity-35"
       />
       <motion.div
         initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
@@ -38,7 +38,7 @@ export default function WaitlistPage() {
           className="h-1.5 w-1.5 rounded-full bg-orange"
         />
 
-        <p className="font-mono text-xs normal-case tracking-[0.08em] text-white/65">
+        <p className="font-mono text-xs tracking-[0.08em] text-white/65 normal-case">
           Redirecting
         </p>
       </motion.div>

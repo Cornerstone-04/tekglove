@@ -48,7 +48,7 @@
     @apply scroll-smooth;
   }
   body {
-    @apply bg-bg text-primary font-sans;
+    @apply bg-bg font-sans text-primary;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -64,7 +64,7 @@
   }
 
   ::selection {
-    @apply text-white bg-[rgba(249,115,22,0.3)];
+    @apply bg-[rgba(249,115,22,0.3)] text-white;
   }
   ::-webkit-scrollbar {
     width: 2px;
@@ -76,7 +76,7 @@
     @apply bg-orange;
   }
   a {
-    @apply text-inherit no-underline cursor-pointer;
+    @apply cursor-pointer text-inherit no-underline;
   }
 
   :focus-visible {
@@ -169,7 +169,11 @@
   .hero-texture {
     isolation: isolate;
     background:
-      radial-gradient(circle at 72% 42%, rgba(249, 115, 22, 0.075), transparent 36%),
+      radial-gradient(
+        circle at 72% 42%,
+        rgba(249, 115, 22, 0.075),
+        transparent 36%
+      ),
       linear-gradient(180deg, #020202 0%, var(--bg) 72%);
   }
 
@@ -187,7 +191,11 @@
       linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
     background-size: 4rem 4rem;
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 88%);
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.85),
+      transparent 88%
+    );
   }
 
   .hero-texture::after {

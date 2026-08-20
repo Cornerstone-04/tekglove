@@ -76,7 +76,7 @@ export default function SplashScreen() {
         >
           <ShaderBackdrop
             variant="sensor"
-            className="opacity-30 mask-[radial-gradient(circle_at_center,black,transparent_68%)]"
+            className="mask-[radial-gradient(circle_at_center,black,transparent_68%)] opacity-30"
           />
 
           <div className="relative z-10 flex flex-col items-center gap-10">
@@ -97,7 +97,7 @@ export default function SplashScreen() {
               }}
               className="text-center"
             >
-              <div className="font-brand text-[1.65rem] font-extrabold uppercase tracking-[0.2em] text-white sm:text-[1.8rem]">
+              <div className="font-brand text-[1.65rem] font-extrabold tracking-[0.2em] text-white uppercase sm:text-[1.8rem]">
                 Tek<span className="text-orange">Glove</span>
               </div>
             </motion.div>
@@ -110,7 +110,7 @@ export default function SplashScreen() {
             >
               <div className="relative h-px w-full overflow-hidden bg-white/10">
                 <motion.div
-                  className="absolute left-0 top-0 h-full bg-orange"
+                  className="absolute top-0 left-0 h-full bg-orange"
                   style={{
                     width: "100%",
                     transform: `scaleX(${progress / 100})`,

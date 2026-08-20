@@ -15,7 +15,7 @@ export function PersonalIntelligenceArchitecture() {
     >
       <ShaderBackdrop
         variant="intelligence"
-        className="opacity-25 mask-[linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]"
+        className="mask-[linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)] opacity-25"
       />
 
       <div className="relative z-10 w-full px-6 md:px-12">

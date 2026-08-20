@@ -36,7 +36,7 @@ export default function AboutPage() {
         ref={heroRef}
         className="relative flex min-h-[calc(90svh-4rem)] items-center overflow-hidden px-6 py-16 md:px-12 md:py-20"
       >
-        <div className="pointer-events-none absolute right-[-12%] top-[8%] h-192 w-3xl rounded-full bg-orange/8 blur-[120px]" />
+        <div className="pointer-events-none absolute top-[8%] right-[-12%] h-192 w-3xl rounded-full bg-orange/8 blur-[120px]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-linear-to-b from-transparent to-bg" />
         <motion.div
           style={
@@ -137,7 +137,7 @@ export default function AboutPage() {
                   <p className="mb-2 font-mono text-xs tracking-[0.08em] text-orange">
                     The breakthrough
                   </p>
-                  <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-none tracking-[-0.055em] text-white">
+                  <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] leading-none font-semibold tracking-[-0.055em] text-white">
                     The Hand
                   </h2>
                 </div>

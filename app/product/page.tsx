@@ -1,18 +1,17 @@
 import { createPageMetadata } from "@/shared/seo/metadata";
 
 export const metadata = createPageMetadata({
-  title: "TekGlove V1 Athletic Performance Glove",
+  title: "Explore the TekGlove Product Family",
   description:
-    "Explore TekGlove V1, the KINETIX athletic glove powered by the Smart Dorsal Sensor for motion, grip, gesture, position, and performance insight.",
+    "Explore six connected gloves for healthcare, performance, interaction, defence, recovery, and industry, all powered by the TekGlove platform.",
   path: "/product",
   keywords: [
-    "TekGlove V1",
-    "KINETIX glove",
-    "athletic performance glove",
-    "sports motion tracking",
-    "grip force sensor",
-    "sports performance wearable",
+    "TekGlove products",
+    "smart glove ecosystem",
+    "health monitoring glove",
+    "gesture control glove",
+    "wearable hand technology",
   ],
 });
 
-export { default } from "@/features/product/product-page";
+export { default } from "@/features/product/product-hub-page";

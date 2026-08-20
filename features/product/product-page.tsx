@@ -40,7 +40,7 @@ export default function ProductPage() {
       >
         <ShaderBackdrop
           variant="sensor"
-          className="opacity-35 mask-[radial-gradient(circle_at_72%_50%,black,transparent_55%)]"
+          className="mask-[radial-gradient(circle_at_72%_50%,black,transparent_55%)] opacity-35"
         />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-1 h-40 bg-linear-to-b from-transparent to-bg" />
 
@@ -125,7 +125,7 @@ export default function ProductPage() {
                 priority
               />
             </FloatingGlove>
-            <div className="absolute right-0 top-[16%] z-20 max-w-56 rounded-2xl border border-white/15 bg-black/55 p-4 shadow-2xl backdrop-blur-2xl md:p-5">
+            <div className="absolute top-[16%] right-0 z-20 max-w-56 rounded-2xl border border-white/15 bg-black/55 p-4 shadow-2xl backdrop-blur-2xl md:p-5">
               <p className="mb-2 font-mono text-xs tracking-[0.08em] text-orange">
                 Smart Dorsal Sensor
               </p>
@@ -323,7 +323,7 @@ export default function ProductPage() {
       </section>
 
       <section className="relative overflow-hidden px-6 py-24 md:px-12 md:py-32">
-        <div className="pointer-events-none absolute right-[8%] top-1/2 h-136 w-136 -translate-y-1/2 rounded-full bg-orange/10 blur-[110px]" />
+        <div className="pointer-events-none absolute top-1/2 right-[8%] h-136 w-136 -translate-y-1/2 rounded-full bg-orange/10 blur-[110px]" />
         <motion.div
           initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
