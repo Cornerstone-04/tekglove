@@ -1,5 +1,5 @@
 import { createPageMetadata } from "@/shared/seo/metadata";
-import ProductDetailPage from "@/features/product/product-detail-page";
+import ProductPage from "@/features/product/product-page";
 
 export const metadata = createPageMetadata({
   title: "Kursor Gesture Control and Computer Interaction Glove",
@@ -16,5 +16,5 @@ export const metadata = createPageMetadata({
 });
 
 export default function KursorPage() {
-  return <ProductDetailPage productName="Kursor" />;
+  return <ProductPage productName="Kursor" />;
 }

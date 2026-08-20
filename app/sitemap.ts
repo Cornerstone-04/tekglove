@@ -4,8 +4,8 @@ import { site } from "@/content/site";
 const routes = [
   "",
   "/about",
-  "/product",
   "/product/kradle",
+  "/product/kinetix",
   "/product/kursor",
   "/waitlist",
 ] as const;

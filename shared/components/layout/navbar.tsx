@@ -10,7 +10,7 @@ import {
   useReducedMotion,
 } from "motion/react";
 import { useEffect, useState } from "react";
-import { navLinks } from "@/content/site";
+import { navLinks } from "@/content/navigation";
 import { ButtonLink } from "@/shared/components/ui/button";
 import {
   DesktopProductMenu,
@@ -96,10 +96,10 @@ export default function Navbar() {
             }
 
             return (
-              <li key={href}>
+              <li key={href} className="flex items-center">
                 <Link
                   href={href}
-                  className={`font-sans text-[0.82rem] font-medium tracking-[-0.01em] normal-case no-underline transition-colors duration-200 ${
+                  className={`inline-flex items-center font-sans text-[0.82rem] leading-normal font-medium tracking-[-0.01em] normal-case no-underline transition-colors duration-200 ${
                     active ? "text-orange" : "text-white/70 hover:text-white"
                   }`}
                 >

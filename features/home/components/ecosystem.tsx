@@ -1,6 +1,6 @@
 "use client";
 
-import { ecosystemProducts, sharedTechnology } from "@/content/site";
+import { ecosystemProducts, sharedTechnology } from "@/content/products";
 import {
   alternatingCardReveal,
   revealViewport,

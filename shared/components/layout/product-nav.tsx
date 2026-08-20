@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { BsChevronDown } from "react-icons/bs";
-import { productNavLinks } from "@/content/site";
+import { productNavLinks } from "@/content/navigation";
 
 type ProductMenuProps = {
   pathname: string;
@@ -43,17 +43,17 @@ export function DesktopProductMenu({
   };
 
   return (
-    <li ref={menuRef} className="relative">
+    <li ref={menuRef} className="relative flex items-center">
       <button
         type="button"
         onClick={() => setOpen((current) => !current)}
         aria-expanded={open}
         aria-haspopup="menu"
-        className={`flex items-center gap-2 font-sans text-[0.82rem] font-medium tracking-[-0.01em] transition-colors duration-200 ${
+        className={`flex items-center gap-2 border-0 bg-transparent p-0 font-sans text-[0.82rem] leading-normal font-medium tracking-[-0.01em] transition-colors duration-200 ${
           active ? "text-orange" : "text-white/70 hover:text-white"
         }`}
       >
-        Product
+        Products
         <BsChevronDown
           aria-hidden="true"
           className={`text-xs transition-transform duration-200 ${open ? "rotate-180" : ""}`}
@@ -119,7 +119,7 @@ export function MobileProductMenu({
             active ? "text-orange" : "text-white/85"
           }`}
         >
-          Product
+          Products
         </span>
         <BsChevronDown
           aria-hidden="true"

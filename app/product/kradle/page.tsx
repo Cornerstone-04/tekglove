@@ -1,5 +1,5 @@
 import { createPageMetadata } from "@/shared/seo/metadata";
-import ProductDetailPage from "@/features/product/product-detail-page";
+import ProductPage from "@/features/product/product-page";
 
 export const metadata = createPageMetadata({
   title: "Kradle Maternal and Health Monitoring Glove",
@@ -16,5 +16,5 @@ export const metadata = createPageMetadata({
 });
 
 export default function KradlePage() {
-  return <ProductDetailPage productName="Kradle" />;
+  return <ProductPage productName="Kradle" />;
 }
