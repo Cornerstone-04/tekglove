@@ -16,8 +16,7 @@ import {
   Zap,
 } from "lucide-react";
 import { ShaderBackdrop } from "@/shared/components/ui/shader-backdrop";
-import Image from "next/image";
-import { FloatingGlove } from "@/shared/components/ui/floating-glove";
+import { ButtonLink } from "@/shared/components/ui/button";
 
 const icons = {
   Kinetix: Crosshair,
@@ -26,15 +25,6 @@ const icons = {
   Kovert: Shield,
   Kapture: Zap,
   Konnect: Cog,
-} as const;
-
-const desktopOrder = {
-  Kinetix: "lg:order-2",
-  Kradle: "lg:order-1",
-  Kursor: "lg:order-3",
-  Kovert: "lg:order-4",
-  Kapture: "lg:order-5",
-  Konnect: "lg:order-6",
 } as const;
 
 export function Ecosystem() {
@@ -47,7 +37,7 @@ export function Ecosystem() {
     >
       <ShaderBackdrop
         variant="ecosystem"
-        className="opacity-18 mask-[linear-gradient(to_bottom,black,transparent_62%)]"
+        className="mask-[linear-gradient(to_bottom,black,transparent_62%)] opacity-18"
       />
       <div className="relative z-10 w-full px-6 md:px-12">
         <motion.div
@@ -86,45 +76,15 @@ export function Ecosystem() {
           {ecosystemProducts.map((product, index) => {
             const productName = product.name as keyof typeof icons;
             const Icon = icons[productName];
-            const isFlagship = product.name === "Kinetix";
             return (
               <motion.article
                 key={product.name}
                 custom={{ index, reduceMotion }}
                 variants={alternatingCardReveal}
-                className={`surface-panel group relative flex min-h-full flex-col overflow-hidden p-8 transition-colors duration-500 hover:bg-surface-raised md:p-10 ${
-                  desktopOrder[productName]
-                } ${
-                  isFlagship
-                    ? "border-orange/60 shadow-[0_0_48px_rgba(249,115,22,0.13)] ring-1 ring-inset ring-orange/25"
-                    : ""
-                }`}
+                className="surface-panel group relative flex min-h-full flex-col overflow-hidden p-8 transition-colors duration-500 hover:bg-surface-raised md:p-10"
               >
-                {product.image && (
-                  <div
-                    aria-hidden="true"
-                    className="ecosystem-render-stage pointer-events-none absolute -right-20 -top-16 h-100 w-100 opacity-60 group-hover:opacity-75"
-                  >
-                    <FloatingGlove
-                      delay={index * 0.35}
-                      className="relative h-full w-full"
-                    >
-                      <Image
-                        src={product.image}
-                        alt=""
-                        fill
-                        sizes="(min-width: 1024px) 34vw, 100vw"
-                        className="object-contain"
-                      />
-                    </FloatingGlove>
-                  </div>
-                )}
-                {product.image && (
-                  <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/5 via-black/55 to-black/95" />
-                )}
-
                 <div className="relative z-10 mb-10 flex items-start">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange/12 text-orange ring-1 ring-inset ring-orange/25">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange/12 text-orange ring-1 ring-orange/25 ring-inset">
                     <Icon size={21} strokeWidth={1.5} />
                   </div>
                 </div>
@@ -166,10 +126,20 @@ export function Ecosystem() {
                     {product.users.join(" · ")}
                   </p>
                   <div className="border-l-2 border-orange pl-4">
-                    <p className="font-sans text-sm font-medium leading-relaxed text-white/85">
+                    <p className="font-sans text-sm leading-relaxed font-medium text-white/85">
                       {product.value}
                     </p>
                   </div>
+                  {product.href && (
+                    <ButtonLink
+                      href={product.href}
+                      variant="secondary"
+                      size="sm"
+                      className="mt-7"
+                    >
+                      Explore {product.name}
+                    </ButtonLink>
+                  )}
                 </div>
               </motion.article>
             );

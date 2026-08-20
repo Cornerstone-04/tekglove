@@ -152,7 +152,7 @@ export function LinearArchitectureDiagram({
                     />
                   </div>
                   <div className="mt-auto">
-                    <h3 className="mb-3 font-heading text-xl font-semibold leading-tight tracking-[-0.035em]">
+                    <h3 className="mb-3 font-heading text-xl leading-tight font-semibold tracking-[-0.035em]">
                       {node.title}
                     </h3>
                     <p
@@ -181,15 +181,15 @@ export function LinearArchitectureDiagram({
             delay: reduceMotion ? 0 : 0.62,
             ease: [0.23, 1, 0.32, 1],
           }}
-          className="absolute bottom-2 left-[27%] right-[7%] h-10 origin-right rounded-b-xl border-b border-l border-r border-orange/35"
+          className="absolute right-[7%] bottom-2 left-[27%] h-10 origin-right rounded-b-xl border-r border-b border-l border-orange/35"
           aria-hidden="true"
         >
           <BsArrowRight
-            className="absolute -left-2 -top-2 -rotate-90 text-orange"
+            className="absolute -top-2 -left-2 -rotate-90 text-orange"
             size={16}
           />
         </motion.div>
-        <span className="absolute bottom-0 left-[58%] -translate-x-1/2 bg-[#070708] px-4 font-mono tracking-[0.06em] text-xs text-white/50 font-medium">
+        <span className="absolute bottom-0 left-[58%] -translate-x-1/2 bg-[#070708] px-4 font-mono text-xs font-medium tracking-[0.06em] text-white/50">
           Feedback and commands return to the hand
         </span>
       </div>
@@ -203,7 +203,7 @@ export function LinearArchitectureDiagram({
             duration: reduceMotion ? 0.2 : 0.65,
             ease: [0.23, 1, 0.32, 1],
           }}
-          className="absolute bottom-20 left-2.5 top-6 w-px origin-top bg-orange/35"
+          className="absolute top-6 bottom-20 left-2.5 w-px origin-top bg-orange/35"
           aria-hidden="true"
         />
 
@@ -215,7 +215,7 @@ export function LinearArchitectureDiagram({
             return (
               <li key={node.title} className="relative">
                 <span
-                  className={`absolute -left-[1.65rem] top-7 h-2.5 w-2.5 rounded-full border ${
+                  className={`absolute top-7 -left-[1.65rem] h-2.5 w-2.5 rounded-full border ${
                     isCore
                       ? "border-orange bg-orange"
                       : "border-orange/70 bg-[#070708]"
@@ -278,7 +278,7 @@ export function LinearArchitectureDiagram({
           })}
         </ol>
 
-        <div className="ml-8 mt-5 rounded-xl border border-orange/20 bg-orange/5 px-5 py-4 font-mono text-xs leading-relaxed tracking-[0.05em] text-white/55">
+        <div className="mt-5 ml-8 rounded-xl border border-orange/20 bg-orange/5 px-5 py-4 font-mono text-xs leading-relaxed tracking-[0.05em] text-white/55">
           Feedback and commands return to the hand, completing the loop.
         </div>
       </div>
@@ -320,7 +320,7 @@ export function PersonalIntelligenceStage({
       </div>
 
       <div className="mt-auto pt-20">
-        <h3 className="mb-5 font-heading text-[clamp(2.5rem,5vw,5rem)] font-semibold leading-[0.95] tracking-[-0.04em]">
+        <h3 className="mb-5 font-heading text-[clamp(2.5rem,5vw,5rem)] leading-[0.95] font-semibold tracking-[-0.04em]">
           {stage.title}
         </h3>
         <p
@@ -346,7 +346,7 @@ export function NetworkArchitectureDiagram({
     <div className="overflow-x-auto pb-2">
       <svg
         viewBox="0 0 900 610"
-        className="mx-auto w-[88%] min-w-160 max-w-5xl lg:min-w-0"
+        className="mx-auto w-[88%] max-w-5xl min-w-160 lg:min-w-0"
         role="img"
         aria-label="Hand signals connect through the Smart Dorsal Sensor to edge intelligence, the TekGlove platform, and actions and feedback. Data and commands move in both directions across the system."
       >

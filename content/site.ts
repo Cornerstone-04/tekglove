@@ -9,38 +9,13 @@ export const site = {
 
 export const ecosystemProducts = [
   {
-    id: "01",
-    name: "Kinetix",
-    mark: "KINETIX™",
-    category: "Sports & Athletic Performance",
-    purpose: "Sports performance and training",
-    accent: "Performance",
-    image: "/images/kinetix-angle.webp",
-    features: [
-      "Motion tracking",
-      "Biometric monitoring",
-      "Grip-force sensing",
-      "Muscle activity monitoring",
-      'Coaching AI: "Edwin"',
-      "Performance analytics & injury prediction",
-    ],
-    users: [
-      "Boxers",
-      "Cyclists",
-      "Runners",
-      "Golfers",
-      "Tennis players",
-      "Professional sports teams",
-    ],
-    value: "Turning every training session into measurable performance data.",
-  },
-  {
     id: "02",
     name: "Kradle",
     mark: "KRADLE™",
     category: "Maternal & Health Monitoring",
     purpose: "Maternal and healthcare monitoring",
     accent: "Health",
+    href: "/product/kradle",
     image: null,
     features: [
       "Doppler fetal heartbeat detection",
@@ -61,12 +36,40 @@ export const ecosystemProducts = [
       "Reducing maternal and infant mortality through wearable monitoring and early intervention.",
   },
   {
+    id: "01",
+    name: "Kinetix",
+    mark: "KINETIX™",
+    category: "Sports & Athletic Performance",
+    purpose: "Sports performance and training",
+    accent: "Performance",
+    href: null,
+    image: null,
+    features: [
+      "Motion tracking",
+      "Biometric monitoring",
+      "Grip-force sensing",
+      "Muscle activity monitoring",
+      'Coaching AI: "Edwin"',
+      "Performance analytics & injury prediction",
+    ],
+    users: [
+      "Boxers",
+      "Cyclists",
+      "Runners",
+      "Golfers",
+      "Tennis players",
+      "Professional sports teams",
+    ],
+    value: "Turning every training session into measurable performance data.",
+  },
+  {
     id: "03",
     name: "Kursor",
     mark: "KURSOR™",
     category: "Human–Computer Interaction",
     purpose: "Human-computer interaction",
     accent: "Interaction",
+    href: "/product/kursor",
     image: null,
     features: [
       "Air mouse functionality",
@@ -95,6 +98,7 @@ export const ecosystemProducts = [
     purpose: "Defence, security, and field operations",
     accent: "Defence",
     tagline: "Mission Ready. Hands Connected.",
+    href: null,
     image: null,
     features: [
       "Secure hands-free communications",
@@ -123,6 +127,7 @@ export const ecosystemProducts = [
     purpose: "Physiotherapy, rehabilitation, and sports recovery",
     accent: "Recovery",
     tagline: "Recovery. Reinvented.",
+    href: null,
     image: null,
     features: [
       "EMS & TENS therapy",
@@ -151,6 +156,7 @@ export const ecosystemProducts = [
     purpose: "Manufacturing, warehousing, and logistics",
     accent: "Industry",
     tagline: "Connected Hands. Smarter Work.",
+    href: null,
     image: null,
     features: [
       "Digital work instructions & training",
@@ -188,6 +194,12 @@ export const navLinks = [
   { href: "/about", label: "About" },
   { href: "/product", label: "Product" },
   { href: "/waitlist", label: "Get Early Access" },
+];
+
+export const productNavLinks = [
+  { href: "/product", label: "All Products" },
+  { href: "/product/kradle", label: "Kradle" },
+  { href: "/product/kursor", label: "Kursor" },
 ];
 
 export const features = [

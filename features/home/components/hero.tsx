@@ -27,11 +27,11 @@ export function Hero() {
       ref={heroRef}
       className="hero-texture relative flex min-h-svh items-center overflow-hidden"
     >
-      <div className="pointer-events-none absolute top-1/2 right-[-10%] -translate-y-1/2 w-[70vw] h-[70vw] rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.12)_0%,rgba(249,115,22,0.035)_38%,transparent_68%)] z-0" />
+      <div className="pointer-events-none absolute top-1/2 right-[-10%] z-0 h-[70vw] w-[70vw] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.12)_0%,rgba(249,115,22,0.035)_38%,transparent_68%)]" />
 
       <motion.div
         style={{ opacity: heroOpacity }}
-        className="relative z-10 w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-24 pb-16"
+        className="relative z-10 grid w-full grid-cols-1 items-center gap-12 px-6 pt-24 pb-16 md:grid-cols-2 md:px-12"
       >
         {/* Left */}
         <div>
@@ -134,7 +134,7 @@ export function Hero() {
                 className="relative z-10 max-w-full object-contain"
                 priority
               />
-              <div className="absolute right-0 top-[12%] z-20 hidden max-w-52 rounded-2xl border border-white/15 bg-black/55 p-4 shadow-2xl backdrop-blur-2xl sm:block lg:-right-4">
+              <div className="absolute top-[12%] right-0 z-20 hidden max-w-52 rounded-2xl border border-white/15 bg-black/55 p-4 shadow-2xl backdrop-blur-2xl sm:block lg:-right-4">
                 <p className="mb-1.5 font-mono text-xs font-semibold tracking-[0.07em] text-orange">
                   Smart Dorsal Sensor
                 </p>
@@ -150,12 +150,12 @@ export function Hero() {
       {/* Scroll hint */}
       <motion.div
         style={{ opacity: scrollHintOpacity }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
+        className="pointer-events-none absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
       >
         <span className="font-mono text-xs tracking-[0.12em] text-white/60">
           Scroll
         </span>
-        <div className="w-px h-8 bg-linear-to-b from-orange/60 to-transparent" />
+        <div className="h-8 w-px bg-linear-to-b from-orange/60 to-transparent" />
       </motion.div>
     </section>
   );

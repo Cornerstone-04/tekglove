@@ -28,6 +28,8 @@ Open [http://localhost:3000](http://localhost:3000).
 bun run dev        # Start the local development server
 bun run lint       # Run ESLint
 bun run typecheck  # Check TypeScript
+bun run format     # Format the project with Prettier
+bun run format:check # Verify project formatting
 bun run build      # Create a production build
 bun run check      # Run lint, type checking, and the production build
 bun run start      # Serve the production build
@@ -49,7 +51,9 @@ Route files remain thin and delegate page implementation to `features/`. Shared 
 
 - `/` introduces the platform and product ecosystem
 - `/about` explains the origin of TekGlove and why the hand matters
-- `/product` presents TekGlove V1 and the Smart Dorsal Sensor
+- `/product` presents the complete TekGlove product family
+- `/product/kradle` introduces the maternal and health monitoring glove
+- `/product/kursor` introduces the human-computer interaction glove
 - `/waitlist` provides the early-access entry point
 
 ## Notes

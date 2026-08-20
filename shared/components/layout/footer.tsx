@@ -15,7 +15,7 @@ export default function Footer() {
       id="site-footer"
       className="relative scroll-mt-16 overflow-hidden border-t border-white/8 bg-[#070708] text-primary"
     >
-      <div className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-orange/5 blur-3xl" />
+      <div className="pointer-events-none absolute top-0 -left-32 h-96 w-96 rounded-full bg-orange/5 blur-3xl" />
 
       <div className="relative w-full px-6 pt-16 pb-8 md:px-12 md:pt-24 md:pb-10">
         <div className="grid gap-14 md:grid-cols-2 xl:grid-cols-[1.35fr_0.7fr_0.9fr_1fr] xl:gap-20">
@@ -24,7 +24,7 @@ export default function Footer() {
           <FooterColumn
             title="Ecosystem"
             links={ecosystemProducts.map((product) => ({
-              href: "/#ecosystem",
+              href: product.href ?? "/#ecosystem",
               label: product.mark,
             }))}
           />
@@ -60,7 +60,7 @@ function FooterBrand() {
           height={58}
           className="opacity-90"
         />
-        <span className="font-brand text-2xl font-bold uppercase leading-[0.88] tracking-[0.09em] text-white">
+        <span className="font-brand text-2xl leading-[0.88] font-bold tracking-[0.09em] text-white uppercase">
           Tek
           <br />
           <span className="text-orange">Glove</span>
@@ -125,13 +125,13 @@ function FooterContact() {
 
       <div className="mt-9 border-t border-white/10 pt-5">
         <p className="font-mono text-xs tracking-[0.08em] text-white/60">
-          Flagship
+          Product family
         </p>
         <Link
           href="/product"
-          className="site-button group mt-3 inline-flex items-center gap-3 font-brand text-2xl font-bold uppercase text-white/78 transition-colors duration-200 hover:text-white"
+          className="site-button group mt-3 inline-flex items-center gap-3 font-brand text-2xl font-bold text-white/78 uppercase transition-colors duration-200 hover:text-white"
         >
-          KINETIX™
+          Explore products
           <BsArrowRight
             size={16}
             className="button-icon button-icon-right text-orange"

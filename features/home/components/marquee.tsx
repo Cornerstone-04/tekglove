@@ -40,12 +40,12 @@ export function Marquee() {
         {[0, 1].map((group) => (
           <div
             key={group}
-            className="flex shrink-0 gap-16 whitespace-nowrap pr-16"
+            className="flex shrink-0 gap-16 pr-16 whitespace-nowrap"
           >
             {TAGLINE_ITEMS.map((t, i) => (
               <span
                 key={`${group}-${i}`}
-                className="shrink-0 font-mono text-xs md:text-sm tracking-[0.08em] text-white/62"
+                className="shrink-0 font-mono text-xs tracking-[0.08em] text-white/62 md:text-sm"
               >
                 <span className="mr-4 text-orange">✦</span>
                 {t}

@@ -6,7 +6,7 @@ export default function NotFound() {
     <section className="hero-texture relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden px-6 py-28 md:px-12">
       <ShaderBackdrop
         variant="sensor"
-        className="opacity-25 mask-[radial-gradient(circle_at_72%_48%,black,transparent_58%)]"
+        className="mask-[radial-gradient(circle_at_72%_48%,black,transparent_58%)] opacity-25"
       />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-2 h-40 bg-linear-to-b from-transparent to-bg" />
 
@@ -29,7 +29,7 @@ export default function NotFound() {
               Back to Home
             </ButtonLink>
             <ButtonLink href="/product" variant="secondary">
-              Explore KINETIX
+              Explore Products
             </ButtonLink>
           </div>
         </div>
@@ -40,12 +40,12 @@ export default function NotFound() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.12),transparent_62%)]" />
             <span
               aria-hidden="true"
-              className="relative font-heading text-[clamp(8rem,22vw,18rem)] font-semibold leading-none tracking-[-0.08em] text-transparent"
+              className="relative font-heading text-[clamp(8rem,22vw,18rem)] leading-none font-semibold tracking-[-0.08em] text-transparent"
               style={{ WebkitTextStroke: "1px rgba(255,255,255,0.18)" }}
             >
               404
             </span>
-            <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between border-t border-white/10 pt-5 font-mono text-xs tracking-[0.08em] text-white/55 sm:bottom-8 sm:left-8 sm:right-8">
+            <div className="absolute right-6 bottom-6 left-6 flex items-center justify-between border-t border-white/10 pt-5 font-mono text-xs tracking-[0.08em] text-white/55 sm:right-8 sm:bottom-8 sm:left-8">
               <span>Connection Status</span>
               <span className="flex items-center gap-2 text-orange">
                 <span className="h-1.5 w-1.5 rounded-full bg-orange" />

@@ -46,7 +46,7 @@ export function Features() {
               variants={alternatingCardReveal}
               className="surface-panel group relative overflow-hidden p-8 md:p-9"
             >
-              <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-orange/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-32 bg-linear-to-t from-orange/8 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <h3 className="mb-3 font-heading text-[1.25rem] font-semibold tracking-[-0.025em] text-white">
                 {f.title}
               </h3>

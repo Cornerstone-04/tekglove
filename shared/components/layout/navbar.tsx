@@ -12,6 +12,10 @@ import {
 import { useEffect, useState } from "react";
 import { navLinks } from "@/content/site";
 import { ButtonLink } from "@/shared/components/ui/button";
+import {
+  DesktopProductMenu,
+  MobileProductMenu,
+} from "@/shared/components/layout/product-nav";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -35,6 +39,11 @@ export default function Navbar() {
       document.documentElement.style.overflow = previousDocumentOverflow;
     };
   }, [open]);
+
+  useEffect(() => {
+    setHidden(false);
+    setOpen(false);
+  }, [pathname]);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const prev = scrollY.getPrevious() ?? 0;
@@ -65,7 +74,7 @@ export default function Navbar() {
       >
         {/* Logo */}
         <Link href="/" onClick={close} className="no-underline">
-          <span className="font-brand text-[1.1rem] font-black uppercase tracking-[0.15em] text-white">
+          <span className="font-brand text-[1.1rem] font-black tracking-[0.15em] text-white uppercase">
             Tek<span className="text-orange">Glove</span>
           </span>
         </Link>
@@ -75,11 +84,22 @@ export default function Navbar() {
           {navLinks.slice(0, -1).map(({ href, label }) => {
             const active = pathname === href;
 
+            if (href === "/product") {
+              return (
+                <DesktopProductMenu
+                  key={href}
+                  pathname={pathname}
+                  onNavigate={close}
+                  reduceMotion={Boolean(reduceMotion)}
+                />
+              );
+            }
+
             return (
               <li key={href}>
                 <Link
                   href={href}
-                  className={`font-sans font-medium text-[0.82rem] tracking-[-0.01em] normal-case no-underline transition-colors duration-200 ${
+                  className={`font-sans text-[0.82rem] font-medium tracking-[-0.01em] normal-case no-underline transition-colors duration-200 ${
                     active ? "text-orange" : "text-white/70 hover:text-white"
                   }`}
                 >
@@ -152,19 +172,27 @@ export default function Navbar() {
                     }}
                     className="border-b border-white/5"
                   >
-                    <Link
-                      href={href}
-                      onClick={close}
-                      className="group flex items-center justify-between py-5 no-underline"
-                    >
-                      <span
-                        className={`font-heading text-[clamp(2rem,8vw,3rem)] font-semibold normal-case leading-none tracking-[-0.04em] transition-colors duration-200 ${
-                          active ? "text-orange" : "text-white/85"
-                        }`}
+                    {href === "/product" ? (
+                      <MobileProductMenu
+                        pathname={pathname}
+                        onNavigate={close}
+                        reduceMotion={Boolean(reduceMotion)}
+                      />
+                    ) : (
+                      <Link
+                        href={href}
+                        onClick={close}
+                        className="group flex items-center justify-between py-5 no-underline"
                       >
-                        {label}
-                      </span>
-                    </Link>
+                        <span
+                          className={`font-heading text-[clamp(2rem,8vw,3rem)] leading-none font-semibold tracking-[-0.04em] normal-case transition-colors duration-200 ${
+                            active ? "text-orange" : "text-white/85"
+                          }`}
+                        >
+                          {label}
+                        </span>
+                      </Link>
+                    )}
                   </motion.div>
                 );
               })}
@@ -183,7 +211,7 @@ export default function Navbar() {
               }}
               className="flex flex-col gap-4 px-6 pt-8 pb-12"
             >
-              <p className="text-center font-mono text-xs normal-case tracking-[0.08em] text-white/55">
+              <p className="text-center font-mono text-xs tracking-[0.08em] text-white/55 normal-case">
                 tekglove.co.uk
               </p>
             </motion.div>

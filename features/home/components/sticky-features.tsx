@@ -49,10 +49,10 @@ export function StickyFeatures() {
       </div>
       <div className="grid w-full grid-cols-1 gap-6 px-6 md:grid-cols-2 md:px-12">
         {/* Left: sticky image */}
-        <div className="hidden md:flex items-start">
+        <div className="hidden items-start md:flex">
           <div className="surface-panel sticky top-24 flex h-[calc(100svh-8rem)] w-full items-center justify-center overflow-hidden">
             <div className="relative">
-              <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(249,115,22,0.1)_0%,transparent_65%)] pointer-events-none" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(249,115,22,0.1)_0%,transparent_65%)]" />
               <FloatingGlove className="flex w-full justify-center">
                 <Image
                   src="/images/tekglove-platform-angle.webp"
@@ -79,11 +79,11 @@ export function StickyFeatures() {
               className="surface-panel flex min-h-72 flex-col justify-center gap-5 px-8 py-16 md:px-10"
             >
               <div className="flex items-center">
-                <span className="font-mono text-xxs tracking-[0.15em] uppercase text-black bg-orange px-2 py-0.5">
+                <span className="bg-orange px-2 py-0.5 font-mono text-xxs tracking-[0.15em] text-black uppercase">
                   {f.tag}
                 </span>
               </div>
-              <h3 className="font-heading text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white">
+              <h3 className="font-heading text-[clamp(2rem,4vw,3rem)] leading-[1.02] font-semibold tracking-[-0.04em] text-white">
                 {f.title}
               </h3>
               <p className="copy-secondary max-w-[48ch] font-sans text-[0.95rem] leading-[1.8]">

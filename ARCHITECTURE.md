@@ -46,9 +46,11 @@ shared because the same behavior is used across multiple features.
 ## Validation
 
 ```bash
-npm run lint
-npm run typecheck
-npm run build
+bun run format:check
+bun run lint
+bun run typecheck
+bun run build
 ```
 
-Run `npm run check` to execute all three gates together.
+Run `bun run check` to execute linting, type checking, and the production build
+together.
