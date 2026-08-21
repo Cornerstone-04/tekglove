@@ -1,6 +1,6 @@
 "use client";
 
-import { features } from "@/content/site";
+import { features } from "@/content/home";
 import {
   alternatingCardReveal,
   revealViewport,

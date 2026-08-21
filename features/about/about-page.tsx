@@ -7,7 +7,7 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import { about, principles, whyHandReasons } from "@/content/site";
+import { about, principles, whyHandReasons } from "@/content/about";
 import {
   alternatingCardReveal,
   motionEaseOut,

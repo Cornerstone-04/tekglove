@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
 import { BsArrowRight } from "react-icons/bs";
-import { ecosystemProducts, navLinks, site } from "@/content/site";
+import { navLinks } from "@/content/navigation";
+import { ecosystemProducts } from "@/content/products";
+import { site } from "@/content/site";
 import { ButtonLink } from "@/shared/components/ui/button";
 
 const companyLinks = navLinks.filter(

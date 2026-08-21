@@ -7,8 +7,6 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import Image from "next/image";
-import { athleticUseCases, features, specs } from "@/content/site";
 import {
   alternatingCardReveal,
   revealViewport,
@@ -16,10 +14,19 @@ import {
 } from "@/shared/motion/card-reveal";
 import { ShaderBackdrop } from "@/shared/components/ui/shader-backdrop";
 import { ButtonLink } from "@/shared/components/ui/button";
-import { FloatingGlove } from "@/shared/components/ui/floating-glove";
+import {
+  productDetailConfigs,
+  type PublishedProductName,
+} from "./product-detail-config";
+import { ProductVisual } from "./product-visual";
 
-export default function ProductPage() {
+export default function ProductPage({
+  productName,
+}: {
+  productName: PublishedProductName;
+}) {
   const reduceMotion = useReducedMotion();
+  const config = productDetailConfigs[productName];
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -39,7 +46,7 @@ export default function ProductPage() {
         className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden px-6 py-16 md:px-12 md:py-20"
       >
         <ShaderBackdrop
-          variant="sensor"
+          variant={config.shader}
           className="mask-[radial-gradient(circle_at_72%_50%,black,transparent_55%)] opacity-35"
         />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-1 h-40 bg-linear-to-b from-transparent to-bg" />
@@ -58,7 +65,7 @@ export default function ProductPage() {
               }}
               className="section-kicker mb-5"
             >
-              Flagship · KINETIX™
+              {config.eyebrow}
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
@@ -70,7 +77,8 @@ export default function ProductPage() {
               }}
               className="display-title mb-7 max-w-[8ch] text-[clamp(4rem,9vw,9rem)] tracking-[-0.06em] text-white"
             >
-              TekGlove <span className="text-orange">V1</span>
+              {config.title}{" "}
+              <span className="text-orange">{config.titleAccent}</span>
             </motion.h1>
             <motion.h2
               initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
@@ -82,12 +90,10 @@ export default function ProductPage() {
               }}
               className="mb-5 text-[clamp(1.5rem,3vw,2.25rem)] font-semibold tracking-[-0.035em] text-white"
             >
-              Data in the Palm of Your Hand.
+              {config.subtitle}
             </motion.h2>
             <p className="copy-secondary mb-9 max-w-[48ch] text-[0.98rem] leading-[1.8]">
-              The performance expression of the TekGlove platform, interpreting
-              movement, grip, gestures, biometrics, and hand position without
-              restricting how you move.
+              {config.introduction}
             </p>
             <div className="flex flex-wrap gap-3">
               <ButtonLink href="/waitlist" icon={false}>
@@ -115,22 +121,17 @@ export default function ProductPage() {
             className="relative flex min-h-104 items-center justify-center lg:min-h-168"
           >
             <div className="absolute inset-[8%] rounded-full bg-orange/10 blur-3xl" />
-            <FloatingGlove className="relative z-10 w-full">
-              <Image
-                src="/images/kinetix-hero.webp"
-                alt=""
-                width={760}
-                height={760}
-                className="h-auto w-full max-w-184 object-contain"
-                priority
-              />
-            </FloatingGlove>
+            <ProductVisual
+              {...config.heroVisual}
+              priority
+              imageClassName="max-w-184"
+            />
             <div className="absolute top-[16%] right-0 z-20 max-w-56 rounded-2xl border border-white/15 bg-black/55 p-4 shadow-2xl backdrop-blur-2xl md:p-5">
               <p className="mb-2 font-mono text-xs tracking-[0.08em] text-orange">
-                Smart Dorsal Sensor
+                {config.signalLabel}
               </p>
               <p className="text-sm leading-relaxed text-white/75">
-                Motion · Grip · Gesture · Position
+                {config.signalValue}
               </p>
             </div>
           </motion.div>
@@ -142,7 +143,7 @@ export default function ProductPage() {
         className="scroll-mt-20 border-b border-white/10 px-6 py-12 md:px-12"
       >
         <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
-          {specs.map((spec) => (
+          {config.specifications.map((spec) => (
             <div key={spec.label} className="bg-[#080809] px-5 py-6">
               <p className="mb-2 font-mono text-xs tracking-[0.06em] text-orange">
                 {spec.label}
@@ -164,63 +165,32 @@ export default function ProductPage() {
           viewport={revealViewport}
           className="grid gap-5 lg:grid-cols-2"
         >
-          <motion.article
-            custom={{ index: 0, reduceMotion }}
-            variants={alternatingCardReveal}
-            className="surface-panel overflow-hidden"
-          >
-            <div className="relative flex min-h-88 items-center justify-center bg-white/2 p-8 sm:min-h-120">
-              <div className="absolute inset-[18%] rounded-full bg-orange/10 blur-3xl" />
-              <FloatingGlove className="relative w-full">
-                <Image
-                  src="/images/kinetix-sensor-front.webp"
-                  alt=""
-                  width={720}
-                  height={720}
-                  className="h-auto w-full max-w-136 object-contain"
+          {config.showcases.map((showcase, index) => (
+            <motion.article
+              key={showcase.title}
+              custom={{ index, reduceMotion }}
+              variants={alternatingCardReveal}
+              className="surface-panel overflow-hidden"
+            >
+              <div className="relative flex min-h-88 items-center justify-center bg-white/2 p-8 sm:min-h-120">
+                <div className="absolute inset-[18%] rounded-full bg-orange/10 blur-3xl" />
+                <ProductVisual
+                  image={"image" in showcase ? showcase.image : undefined}
+                  icon={showcase.icon}
+                  delay={index * 0.6}
                 />
-              </FloatingGlove>
-            </div>
-            <div className="border-t border-white/10 p-7 sm:p-9">
-              <p className="section-kicker mb-4">Integrated Sensor System</p>
-              <h2 className="mb-4 font-heading text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                Built Into the Glove.
-              </h2>
-              <p className="copy-secondary max-w-[48ch] text-sm leading-[1.8]">
-                The Smart Dorsal Sensor sits on the back of the hand, keeping
-                the palm and fingers free for natural grip and movement.
-              </p>
-            </div>
-          </motion.article>
-
-          <motion.article
-            custom={{ index: 1, reduceMotion }}
-            variants={alternatingCardReveal}
-            className="surface-panel overflow-hidden"
-          >
-            <div className="relative flex min-h-88 items-center justify-center bg-white/2 p-8 sm:min-h-120">
-              <div className="absolute inset-[18%] rounded-full bg-orange/10 blur-3xl" />
-              <FloatingGlove delay={0.6} className="relative w-full">
-                <Image
-                  src="/images/kinetix-biometric-front.webp"
-                  alt=""
-                  width={720}
-                  height={720}
-                  className="h-auto w-full max-w-136 object-contain"
-                />
-              </FloatingGlove>
-            </div>
-            <div className="border-t border-white/10 p-7 sm:p-9">
-              <p className="section-kicker mb-4">Live Performance Signals</p>
-              <h2 className="mb-4 font-heading text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                Feedback at a Glance.
-              </h2>
-              <p className="copy-secondary max-w-[48ch] text-sm leading-[1.8]">
-                KINETIX brings key training signals into view, helping athletes
-                connect movement and effort with useful performance context.
-              </p>
-            </div>
-          </motion.article>
+              </div>
+              <div className="border-t border-white/10 p-7 sm:p-9">
+                <p className="section-kicker mb-4">{showcase.kicker}</p>
+                <h2 className="mb-4 font-heading text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
+                  {showcase.title}
+                </h2>
+                <p className="copy-secondary max-w-[48ch] text-sm leading-[1.8]">
+                  {showcase.description}
+                </p>
+              </div>
+            </motion.article>
+          ))}
         </motion.div>
       </section>
 
@@ -237,17 +207,17 @@ export default function ProductPage() {
           className="mb-14 grid gap-8 md:grid-cols-2 md:items-end"
         >
           <div>
-            <p className="section-kicker mb-5">Hand-First Performance</p>
+            <p className="section-kicker mb-5">{config.intelligence.kicker}</p>
             <h2 className="display-title text-[clamp(2.8rem,6vw,5rem)] text-white">
-              The Hand Holds
+              {config.intelligence.title}
               <br />
-              <span className="text-orange">Actionable Data.</span>
+              <span className="text-orange">
+                {config.intelligence.titleAccent}
+              </span>
             </h2>
           </div>
           <p className="copy-secondary max-w-[58ch] text-[0.95rem] leading-[1.85] md:pb-1">
-            Every movement, grip, gesture, and physical response contains
-            information. TekGlove captures that information at the hand and
-            transforms it into insight athletes can use.
+            {config.intelligence.description}
           </p>
         </motion.div>
 
@@ -259,9 +229,9 @@ export default function ProductPage() {
           viewport={revealViewport}
           className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {features.map((feature, index) => (
+          {config.intelligence.capabilities.map((feature, index) => (
             <motion.article
-              key={feature.id}
+              key={feature.title}
               custom={{ index, reduceMotion }}
               variants={alternatingCardReveal}
               className="surface-panel p-8"
@@ -270,7 +240,7 @@ export default function ProductPage() {
                 {feature.title}
               </h3>
               <p className="copy-secondary text-sm leading-[1.8]">
-                {feature.desc}
+                {feature.description}
               </p>
             </motion.article>
           ))}
@@ -289,11 +259,11 @@ export default function ProductPage() {
               ease: [0.23, 1, 0.32, 1],
             }}
           >
-            <p className="section-kicker mb-5">Athletic Use Cases</p>
+            <p className="section-kicker mb-5">{config.useCases.kicker}</p>
             <h2 className="display-title text-[clamp(2.5rem,5vw,4.5rem)] text-white">
-              Built to Measure
+              {config.useCases.title}
               <br />
-              <span className="text-orange">How You Perform.</span>
+              <span className="text-orange">{config.useCases.titleAccent}</span>
             </h2>
           </motion.div>
           <motion.div
@@ -304,7 +274,7 @@ export default function ProductPage() {
             viewport={revealViewport}
             className="grid grid-cols-2 gap-3 lg:grid-cols-3"
           >
-            {athleticUseCases.map((useCase, index) => (
+            {config.useCases.items.map((useCase, index) => (
               <motion.div
                 key={useCase}
                 custom={{ index, reduceMotion }}
@@ -335,15 +305,14 @@ export default function ProductPage() {
           className="relative grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16"
         >
           <div>
-            <p className="section-kicker mb-6">KINETIX Early Access</p>
+            <p className="section-kicker mb-6">{config.cta.kicker}</p>
             <h2 className="display-title mb-6 text-[clamp(2.75rem,6vw,6rem)] text-white">
-              Be First to
+              {config.cta.title}
               <br />
-              <span className="text-orange">Train Smarter.</span>
+              <span className="text-orange">{config.cta.titleAccent}</span>
             </h2>
             <p className="copy-secondary mb-10 max-w-[54ch] text-base leading-[1.8]">
-              Join the TekGlove early access list for KINETIX development
-              updates, beta opportunities, and product availability.
+              {config.cta.description}
             </p>
             <ButtonLink href="/waitlist" size="lg">
               Join the Waitlist
@@ -351,15 +320,7 @@ export default function ProductPage() {
           </div>
           <div className="relative flex min-h-80 items-center justify-center sm:min-h-112">
             <div className="absolute inset-[16%] rounded-full bg-orange/10 blur-3xl" />
-            <FloatingGlove className="relative w-full">
-              <Image
-                src="/images/kinetix-angle.webp"
-                alt=""
-                width={760}
-                height={760}
-                className="h-auto w-full max-w-152 object-contain"
-              />
-            </FloatingGlove>
+            <ProductVisual {...config.cta.visual} imageClassName="max-w-152" />
           </div>
         </motion.div>
       </section>
