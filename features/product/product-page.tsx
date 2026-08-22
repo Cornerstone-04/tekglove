@@ -19,6 +19,9 @@ import {
   type PublishedProductName,
 } from "./product-detail-config";
 import { ProductVisual } from "./product-visual";
+import { ProductCta } from "./components/product-cta";
+import { ProductSpecifications } from "./components/product-specifications";
+import { ProductFaq } from "./components/product-faq";
 
 export default function ProductPage({
   productName,
@@ -40,7 +43,10 @@ export default function ProductPage({
   );
 
   return (
-    <div className="bg-bg pt-16">
+    <div
+      className="product-accent bg-bg pt-16"
+      data-product-accent={config.accentColor}
+    >
       <section
         ref={heroRef}
         className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden px-6 py-16 md:px-12 md:py-20"
@@ -138,32 +144,41 @@ export default function ProductPage({
         </motion.div>
       </section>
 
-      <section
-        id="specifications"
-        className="scroll-mt-20 border-b border-white/10 px-6 py-12 md:px-12"
-      >
-        <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
-          {config.specifications.map((spec) => (
-            <div key={spec.label} className="bg-[#080809] px-5 py-6">
-              <p className="mb-2 font-mono text-xs tracking-[0.06em] text-orange">
-                {spec.label}
-              </p>
-              <p className="text-sm leading-relaxed text-white/78">
-                {spec.value}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <ProductSpecifications specifications={config.specifications} />
 
       <section className="border-b border-white/10 px-6 py-20 md:px-12 md:py-28">
+        <motion.div
+          initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={revealViewport}
+          transition={{
+            duration: reduceMotion ? 0.2 : 0.5,
+            ease: [0.23, 1, 0.32, 1],
+          }}
+          className="mb-14 grid gap-7 md:grid-cols-[1.1fr_0.9fr] md:items-end"
+        >
+          <div>
+            <p className="section-kicker mb-5">Dual-Hand Architecture</p>
+            <h2 className="display-title max-w-[12ch] text-[clamp(2.8rem,6vw,5rem)] text-white">
+              Two Hands.
+              <br />
+              <span className="text-orange">One Connected System.</span>
+            </h2>
+          </div>
+          <p className="copy-secondary max-w-[54ch] text-[0.95rem] leading-[1.85] md:pb-1">
+            The left hand carries the shared TekGlove intelligence layer. The
+            right hand adds the specialist module that gives {config.name} its
+            distinct purpose.
+          </p>
+        </motion.div>
+
         <motion.div
           custom={reduceMotion}
           variants={staggeredCardGroup}
           initial="hidden"
           whileInView="visible"
           viewport={revealViewport}
-          className="grid gap-5 lg:grid-cols-2"
+          className="relative grid gap-5 lg:grid-cols-2"
         >
           {config.showcases.map((showcase, index) => (
             <motion.article
@@ -191,6 +206,9 @@ export default function ProductPage({
               </div>
             </motion.article>
           ))}
+          <div className="pointer-events-none absolute top-1/2 left-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 items-center rounded-full border border-orange/30 bg-bg px-4 py-2 font-mono text-xs tracking-[0.08em] text-orange lg:flex">
+            Connected
+          </div>
         </motion.div>
       </section>
 
@@ -292,38 +310,8 @@ export default function ProductPage({
         </div>
       </section>
 
-      <section className="relative overflow-hidden px-6 py-24 md:px-12 md:py-32">
-        <div className="pointer-events-none absolute top-1/2 right-[8%] h-136 w-136 -translate-y-1/2 rounded-full bg-orange/10 blur-[110px]" />
-        <motion.div
-          initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={revealViewport}
-          transition={{
-            duration: reduceMotion ? 0.2 : 0.5,
-            ease: [0.23, 1, 0.32, 1],
-          }}
-          className="relative grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16"
-        >
-          <div>
-            <p className="section-kicker mb-6">{config.cta.kicker}</p>
-            <h2 className="display-title mb-6 text-[clamp(2.75rem,6vw,6rem)] text-white">
-              {config.cta.title}
-              <br />
-              <span className="text-orange">{config.cta.titleAccent}</span>
-            </h2>
-            <p className="copy-secondary mb-10 max-w-[54ch] text-base leading-[1.8]">
-              {config.cta.description}
-            </p>
-            <ButtonLink href="/waitlist" size="lg">
-              Join the Waitlist
-            </ButtonLink>
-          </div>
-          <div className="relative flex min-h-80 items-center justify-center sm:min-h-112">
-            <div className="absolute inset-[16%] rounded-full bg-orange/10 blur-3xl" />
-            <ProductVisual {...config.cta.visual} imageClassName="max-w-152" />
-          </div>
-        </motion.div>
-      </section>
+      <ProductFaq productName={productName} />
+      <ProductCta config={config} />
     </div>
   );
 }

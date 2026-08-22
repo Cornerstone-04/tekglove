@@ -42,9 +42,9 @@ export function StickyFeatures() {
           </h2>
         </div>
         <p className="copy-secondary max-w-[52ch] text-[0.95rem] leading-[1.85] md:pb-1">
-          TekGlove V1 captures hand-related athletic data without interrupting
-          natural movement, then turns every session into feedback athletes can
-          understand and use.
+          KINETIX captures movement, grip, gestures, biometrics, and hand
+          position without interrupting natural movement, then turns each
+          session into feedback people can understand and use.
         </p>
       </div>
       <div className="grid w-full grid-cols-1 gap-6 px-6 md:grid-cols-2 md:px-12">

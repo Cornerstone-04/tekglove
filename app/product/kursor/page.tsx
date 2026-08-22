@@ -1,10 +1,11 @@
 import { createPageMetadata } from "@/shared/seo/metadata";
 import ProductPage from "@/features/product/product-page";
+import { Metadata } from "next";
 
-export const metadata = createPageMetadata({
+export const metadata: Metadata = createPageMetadata({
   title: "Kursor Gesture Control and Computer Interaction Glove",
   description:
-    "Explore Kursor, the TekGlove human-computer interaction wearable for cursor control, presentations, AR and VR navigation, voice commands, and haptic feedback.",
+    "Explore Kursor, the Smart Dorsal Sensor powered wearable mouse for cursor control, clicking, scrolling, presentations, and accessible computing.",
   path: "/product/kursor",
   keywords: [
     "Kursor glove",

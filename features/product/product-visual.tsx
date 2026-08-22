@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FloatingGlove } from "@/shared/components/ui/floating-glove";
-import type { ProductVisual as ProductVisualConfig } from "./product-detail-config";
+import type { ProductVisual as ProductVisualConfig } from "./product-detail-types";
 
 type ProductVisualProps = ProductVisualConfig & {
   delay?: number;
