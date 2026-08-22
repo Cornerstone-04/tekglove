@@ -11,6 +11,11 @@ function requireServerEnvironmentVariable(name: string) {
 }
 
 export const serverEnv = {
+  resendApiKey: requireServerEnvironmentVariable("RESEND_API_KEY"),
+  resendFromEmail: requireServerEnvironmentVariable("RESEND_FROM_EMAIL"),
   supabaseUrl: requireServerEnvironmentVariable("SUPABASE_URL"),
   supabaseSecretKey: requireServerEnvironmentVariable("SUPABASE_SECRET_KEY"),
+  waitlistNotificationEmail: requireServerEnvironmentVariable(
+    "WAITLIST_NOTIFICATION_EMAIL",
+  ),
 };
