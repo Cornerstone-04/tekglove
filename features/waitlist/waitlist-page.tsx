@@ -10,7 +10,7 @@ export default function WaitlistPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       window.location.href = "https://www.knklabs.co.uk/";
-    }, 1000);
+    }, 100);
     return () => clearTimeout(timer);
   }, []);
 

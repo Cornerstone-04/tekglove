@@ -164,21 +164,6 @@
   --product-accent: var(--color-konnect-500);
 }
 
-.footer-grid {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
-    radial-gradient(
-      circle at 18% 100%,
-      color-mix(in oklch, var(--orange) 8%, transparent),
-      transparent 34%
-    );
-  background-size:
-    20px 20px,
-    20px 20px,
-    100% 100%;
-}
-
 @layer base {
   * {
     box-sizing: border-box;
