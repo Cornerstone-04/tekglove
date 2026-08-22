@@ -1,6 +1,6 @@
 "use client";
 
-import { ecosystemProducts, sharedTechnology } from "@/content/products";
+import { ecosystemProducts } from "@/content/products";
 import {
   alternatingCardReveal,
   revealViewport,
@@ -59,9 +59,9 @@ export function Ecosystem() {
             </h2>
           </div>
           <p className="copy-secondary max-w-[52ch] font-sans text-[0.95rem] leading-[1.85] md:pb-2">
-            Six specialized gloves interpret hand data for six distinct fields,
-            all powered by the same sensor, intelligence, connectivity, and
-            wearable platform.
+            Six specialized gloves interpret hand data for six distinct fields.
+            Each is powered by the Smart Dorsal Sensor and extended through
+            purpose-built modules and connected accessories.
           </p>
         </motion.div>
 
@@ -79,9 +79,10 @@ export function Ecosystem() {
             return (
               <motion.article
                 key={product.name}
+                data-product-accent={product.accentColor}
                 custom={{ index, reduceMotion }}
                 variants={alternatingCardReveal}
-                className="surface-panel group relative flex min-h-full flex-col overflow-hidden p-8 transition-colors duration-500 hover:bg-surface-raised md:p-10"
+                className="surface-panel product-accent group relative flex min-h-full flex-col overflow-hidden p-8 transition-colors duration-500 hover:bg-surface-raised md:p-10"
               >
                 <div className="relative z-10 mb-10 flex items-start">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange/12 text-orange ring-1 ring-orange/25 ring-inset">
@@ -104,7 +105,7 @@ export function Ecosystem() {
                 <div className="relative z-10 my-8 h-px bg-white/10" />
 
                 <p className="relative z-10 mb-4 font-mono text-xs tracking-[0.08em] text-white/60">
-                  Core capabilities
+                  Key capabilities
                 </p>
                 <ul className="relative z-10 mb-9 space-y-2.5">
                   {product.features.map((feature) => (
@@ -144,36 +145,6 @@ export function Ecosystem() {
               </motion.article>
             );
           })}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={revealViewport}
-          transition={{
-            duration: reduceMotion ? 0.2 : 0.5,
-            ease: [0.23, 1, 0.32, 1],
-          }}
-          className="surface-panel mt-5 px-8 py-10 md:px-10"
-        >
-          <div className="grid gap-8 md:grid-cols-[0.6fr_1.4fr] md:items-center">
-            <div>
-              <p className="section-kicker mb-3">Shared technology stack</p>
-              <h3 className="font-heading text-3xl font-semibold tracking-[-0.035em] text-white">
-                The TekGlove Core
-              </h3>
-            </div>
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-              {sharedTechnology.map((technology) => (
-                <div
-                  key={technology}
-                  className="flex min-h-20 items-center rounded-xl bg-black/45 px-4 py-5 font-mono text-xs leading-relaxed tracking-[0.04em] text-white/72"
-                >
-                  {technology}
-                </div>
-              ))}
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

@@ -25,12 +25,19 @@ const MeshGradient = dynamic(
     import("@paper-design/shaders-react").then((module) => module.MeshGradient),
   { ssr: false },
 );
+const HalftoneDots = dynamic(
+  () =>
+    import("@paper-design/shaders-react").then((module) => module.HalftoneDots),
+  { ssr: false },
+);
 
-type ShaderVariant = "intelligence" | "ecosystem" | "sensor" | "waitlist";
+type ShaderVariant =
+  "intelligence" | "ecosystem" | "sensor" | "waitlist" | "cta-halftone";
 
 type ShaderBackdropProps = {
   variant: ShaderVariant;
   className?: string;
+  accentColor?: string;
 };
 
 const staticBackgrounds: Record<ShaderVariant, string> = {
@@ -42,6 +49,8 @@ const staticBackgrounds: Record<ShaderVariant, string> = {
     "radial-gradient(circle at 50% 52%, rgba(249,115,22,0.24), transparent 46%)",
   waitlist:
     "radial-gradient(circle at 50% 50%, rgba(249,115,22,0.18), transparent 42%)",
+  "cta-halftone":
+    "radial-gradient(circle at 50% 50%, rgba(249,115,22,0.14), transparent 58%)",
 };
 
 const shaderStyle = { width: "100%", height: "100%" };
@@ -50,9 +59,14 @@ const shaderQuality = { minPixelRatio: 1, maxPixelCount: 900_000 };
 export function ShaderBackdrop({
   variant,
   className = "",
+  accentColor = "#f97316",
 }: ShaderBackdropProps) {
   const reduceMotion = useReducedMotion();
   const [canAnimate, setCanAnimate] = useState(false);
+  const staticBackground =
+    variant === "cta-halftone"
+      ? `radial-gradient(circle, color-mix(in srgb, ${accentColor} 38%, transparent) 1.2px, transparent 1.8px) 0 0 / 18px 18px, radial-gradient(circle at 50% 50%, color-mix(in srgb, ${accentColor} 24%, transparent), transparent 62%)`
+      : staticBackgrounds[variant];
 
   useEffect(() => {
     const desktopQuery = window.matchMedia("(min-width: 768px)");
@@ -70,7 +84,7 @@ export function ShaderBackdrop({
     <div
       aria-hidden="true"
       className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
-      style={{ background: staticBackgrounds[variant] }}
+      style={{ background: staticBackground }}
     >
       {canAnimate && variant === "intelligence" && (
         <NeuroNoise
@@ -125,6 +139,27 @@ export function ShaderBackdrop({
           grainMixer={0.1}
           grainOverlay={0.12}
           speed={0.05}
+        />
+      )}
+
+      {canAnimate && variant === "cta-halftone" && (
+        <HalftoneDots
+          {...shaderQuality}
+          style={shaderStyle}
+          colorFront={accentColor}
+          colorBack="#080809"
+          size={0.62}
+          radius={1.35}
+          contrast={0.82}
+          originalColors={false}
+          inverted={false}
+          grainMixer={0.04}
+          grainOverlay={0.18}
+          grainSize={0.42}
+          grid="hex"
+          type="soft"
+          scale={0.8}
+          speed={0}
         />
       )}
     </div>

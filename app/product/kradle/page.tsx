@@ -1,10 +1,11 @@
 import { createPageMetadata } from "@/shared/seo/metadata";
 import ProductPage from "@/features/product/product-page";
+import { Metadata } from "next";
 
-export const metadata = createPageMetadata({
+export const metadata: Metadata = createPageMetadata({
   title: "Kradle Maternal and Health Monitoring Glove",
   description:
-    "Explore Kradle, the TekGlove maternal and healthcare wearable for fetal heartbeat detection, maternal monitoring, emergency alerts, and connected care.",
+    "Explore Kradle, the Smart Dorsal Sensor powered maternal health glove with Doppler sensing, pregnancy monitoring, alerts, and connected care.",
   path: "/product/kradle",
   keywords: [
     "Kradle glove",

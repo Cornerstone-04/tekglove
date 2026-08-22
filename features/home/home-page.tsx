@@ -7,6 +7,8 @@ import { Features } from "./components/features";
 import { HeroCTA } from "./components/hero-cta";
 import { Ecosystem } from "./components/ecosystem";
 import { PersonalIntelligenceArchitecture } from "./components/personal-intelligence-architecture";
+import { SharedTechnology } from "./components/shared-technology";
+import { PlatformFaq } from "./components/platform-faq";
 
 export default function HomePage() {
   return (
@@ -17,6 +19,8 @@ export default function HomePage() {
       <Features />
       <PersonalIntelligenceArchitecture />
       <Ecosystem />
+      <SharedTechnology />
+      <PlatformFaq />
       <HeroCTA />
     </div>
   );

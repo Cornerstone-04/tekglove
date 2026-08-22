@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
-import { BsArrowRight } from "react-icons/bs";
+import { FaInstagram, FaTiktok } from "react-icons/fa6";
 import { navLinks } from "@/content/navigation";
 import { ecosystemProducts } from "@/content/products";
 import { site } from "@/content/site";
@@ -11,29 +11,44 @@ const companyLinks = navLinks.filter(
   ({ label }) => label !== "Get Early Access",
 );
 
+const socialIcons = {
+  Instagram: FaInstagram,
+  TikTok: FaTiktok,
+} as const;
+
 export default function Footer() {
   return (
     <footer
       id="site-footer"
-      className="relative scroll-mt-16 overflow-hidden border-t border-white/8 bg-[#070708] text-primary"
+      className="footer-grid relative z-0 scroll-mt-16 overflow-hidden border-t border-white/8 bg-surface text-primary lg:sticky lg:bottom-0 lg:min-h-[78svh]"
     >
-      <div className="pointer-events-none absolute top-0 -left-32 h-96 w-96 rounded-full bg-orange/5 blur-3xl" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-[-0.18em] overflow-hidden font-brand text-[clamp(13rem,31vw,38rem)] leading-[0.7] font-bold tracking-[-0.075em] whitespace-nowrap text-white/4 uppercase select-none"
+      >
+        TekGlove
+      </div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-orange/35 to-transparent"
+      />
 
-      <div className="relative w-full px-6 pt-16 pb-8 md:px-12 md:pt-24 md:pb-10">
+      <div className="relative z-10 flex w-full flex-col px-6 pt-16 pb-8 md:px-12 md:pt-24 md:pb-10 lg:min-h-[78svh]">
         <div className="grid gap-14 md:grid-cols-2 xl:grid-cols-[1.35fr_0.7fr_0.9fr_1fr] xl:gap-20">
           <FooterBrand />
           <FooterColumn title="Company" links={companyLinks} />
           <FooterColumn
             title="Ecosystem"
             links={ecosystemProducts.map((product) => ({
-              href: product.href ?? "/#ecosystem",
+              href: product.href,
               label: product.mark,
+              status: product.href ? undefined : "In development",
             }))}
           />
           <FooterContact />
         </div>
 
-        <div className="mt-20 border-t border-white/10 pt-7 md:mt-28">
+        <div className="mt-20 border-t border-white/10 pt-7 md:mt-auto md:pt-7">
           <div className="grid gap-4 font-mono text-xs leading-relaxed text-white/65 md:grid-cols-2 md:items-center">
             <p>© {new Date().getFullYear()} TekGlove. All rights reserved.</p>
             <p className="md:text-right">{site.tagline}</p>
@@ -86,20 +101,29 @@ function FooterColumn({
   links,
 }: {
   title: string;
-  links: { href: string; label: string }[];
+  links: { href: string | null; label: string; status?: string }[];
 }) {
   return (
     <div>
       <FooterHeading>{title}</FooterHeading>
       <ul className="mt-7 space-y-4">
         {links.map((link) => (
-          <li key={`${link.href}-${link.label}`}>
-            <Link
-              href={link.href}
-              className="group inline-flex items-center gap-2 font-sans text-sm text-white/68 transition-colors duration-200 hover:text-orange"
-            >
-              {link.label}
-            </Link>
+          <li key={link.label}>
+            {link.href ? (
+              <Link
+                href={link.href}
+                className="group inline-flex items-center gap-2 font-sans text-sm text-white/68 transition-colors duration-200 hover:text-orange"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <div className="flex flex-wrap items-center gap-2 font-sans text-sm text-white/48">
+                <span>{link.label}</span>
+                <span className="rounded-full border border-white/10 px-2 py-0.5 font-mono text-xxs tracking-[0.04em] text-white/45">
+                  {link.status}
+                </span>
+              </div>
+            )}
           </li>
         ))}
       </ul>
@@ -123,23 +147,24 @@ function FooterContact() {
         <ContactItem icon={<MapPin size={16} aria-hidden="true" />}>
           <span>United Kingdom</span>
         </ContactItem>
-      </div>
-
-      <div className="mt-9 border-t border-white/10 pt-5">
-        <p className="font-mono text-xs tracking-[0.08em] text-white/60">
-          Product family
-        </p>
-        <Link
-          href="/product"
-          className="site-button group mt-3 inline-flex items-center gap-3 font-brand text-2xl font-bold text-white/78 uppercase transition-colors duration-200 hover:text-white"
-        >
-          Explore products
-          <BsArrowRight
-            size={16}
-            className="button-icon button-icon-right text-orange"
-            aria-hidden="true"
-          />
-        </Link>
+        {site.socials.map((social) => {
+          const Icon = socialIcons[social.platform];
+          return (
+            <a
+              key={social.platform}
+              href={social.href}
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center gap-4 font-sans text-sm leading-[1.75] text-white/68 transition-colors duration-200 hover:text-white"
+              aria-label={`TekGlove on ${social.platform}`}
+            >
+              <span className="grid size-9 shrink-0 place-items-center rounded-full bg-surface text-orange transition-colors duration-200 group-hover:bg-orange/10">
+                <Icon size={16} aria-hidden="true" />
+              </span>
+              <span>{social.username}</span>
+            </a>
+          );
+        })}
       </div>
     </div>
   );

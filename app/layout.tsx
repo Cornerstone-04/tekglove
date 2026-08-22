@@ -69,7 +69,7 @@ export default function RootLayout({
         </a>
         <SplashScreen />
         <Navbar />
-        <main id="main-content" tabIndex={-1}>
+        <main id="main-content" tabIndex={-1} className="relative z-10 bg-bg">
           {children}
         </main>
         <Footer />

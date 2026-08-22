@@ -1,68 +1,29 @@
-import type { LucideIcon } from "lucide-react";
 import {
-  Activity,
   Baby,
   Crosshair,
   Hand,
+  Headphones,
   HeartPulse,
   MousePointer2,
-  Radio,
 } from "lucide-react";
+import type {
+  ProductDetailConfig,
+  PublishedProductName,
+} from "./product-detail-types";
 
-export type PublishedProductName = "Kradle" | "Kinetix" | "Kursor";
-
-export type ProductVisual = {
-  image?: string;
-  icon: LucideIcon;
-};
-
-export type ProductDetailConfig = {
-  name: PublishedProductName;
-  mark: string;
-  eyebrow: string;
-  title: string;
-  titleAccent: string;
-  subtitle: string;
-  introduction: string;
-  shader: "sensor" | "intelligence";
-  signalLabel: string;
-  signalValue: string;
-  heroVisual: ProductVisual;
-  specifications: Array<{ label: string; value: string }>;
-  showcases: Array<
-    ProductVisual & {
-      kicker: string;
-      title: string;
-      description: string;
-    }
-  >;
-  intelligence: {
-    kicker: string;
-    title: string;
-    titleAccent: string;
-    description: string;
-    capabilities: Array<{ title: string; description: string }>;
-  };
-  useCases: {
-    kicker: string;
-    title: string;
-    titleAccent: string;
-    items: string[];
-  };
-  cta: {
-    kicker: string;
-    title: string;
-    titleAccent: string;
-    description: string;
-    visual: ProductVisual;
-  };
-};
+export type {
+  ProductDetailConfig,
+  ProductVisual,
+  PublishedProductName,
+} from "./product-detail-types";
 
 export const productDetailConfigs = {
   Kinetix: {
     name: "Kinetix",
+    accentColor: "kinetix",
+    accentSource: "#60a922",
     mark: "KINETIX™",
-    eyebrow: "Flagship · KINETIX™",
+    eyebrow: "KINETIX™ · Flagship",
     title: "TekGlove",
     titleAccent: "V1",
     subtitle: "Data in the Palm of Your Hand.",
@@ -73,31 +34,34 @@ export const productDetailConfigs = {
     signalValue: "Motion · Grip · Gesture · Position",
     heroVisual: { image: "/images/kinetix-hero.webp", icon: Crosshair },
     specifications: [
-      { label: "Product", value: "KINETIX™ / TekGlove V1" },
       { label: "Core Technology", value: "Smart Dorsal Sensor" },
-      { label: "Data", value: "Motion · Grip · Gesture · Position" },
+      { label: "Specialist Module", value: "Performance sensing glove" },
+      { label: "Data", value: "Motion · Grip · Gesture · Biometrics" },
       { label: "Connectivity", value: "Bluetooth / Wi-Fi" },
-      { label: "Material", value: "Performance nylon · Hex-grip" },
-      { label: "Water Resistance", value: "IPX4" },
-      { label: "Sizes", value: "S / M / L / XL" },
-      { label: "Origin", value: "United Kingdom" },
+      { label: "Accessory Support", value: "Watch · Wireless earbuds" },
+      {
+        label: "Construction",
+        value: "Performance materials · Grip-focused design",
+      },
+      { label: "Protection", value: "Weather-ready design in development" },
+      { label: "Companion", value: "KINETIX app · AI coaching" },
     ],
     showcases: [
       {
         image: "/images/kinetix-sensor-front.webp",
         icon: Crosshair,
-        kicker: "Integrated Sensor System",
-        title: "Built Into the Glove.",
+        kicker: "Left Hand · Shared Interface",
+        title: "Smart Interface Glove",
         description:
-          "The Smart Dorsal Sensor sits on the back of the hand, keeping the palm and fingers free for natural grip and movement.",
+          "The Smart Dorsal Sensor captures movement, grip, gestures, biometrics, and hand position while keeping the palm and fingers free to move naturally.",
       },
       {
         image: "/images/kinetix-biometric-front.webp",
-        icon: Activity,
-        kicker: "Live Performance Signals",
-        title: "Feedback at a Glance.",
+        icon: Headphones,
+        kicker: "Right Hand · Specialist Module",
+        title: "Performance & Accessory Glove",
         description:
-          "KINETIX brings key training signals into view, helping people connect movement and effort with useful performance context.",
+          "The specialist glove extends performance sensing and can securely hold connected accessories such as wireless earbuds, keeping them available without making them the core product.",
       },
     ],
     intelligence: {
@@ -146,41 +110,43 @@ export const productDetailConfigs = {
   },
   Kradle: {
     name: "Kradle",
+    accentColor: "kradle",
+    accentSource: "#d86398",
     mark: "KRADLE™",
-    eyebrow: "Maternal Health · KRADLE™",
+    eyebrow: "KRADLE™ · Maternal Health",
     title: "Connected",
     titleAccent: "Care",
     subtitle: "Important Signals, Held Close.",
     introduction:
-      "The maternal health expression of the TekGlove platform, bringing fetal heartbeat, maternal biometrics, and emergency communication closer to the people who need them.",
+      "The maternal health expression of the TekGlove platform, combining the Smart Dorsal Sensor with a Doppler module to bring maternal and fetal signals closer to the people who need them.",
     shader: "sensor",
-    signalLabel: "Connected Health Interface",
-    signalValue: "Heartbeat · SpO₂ · Temperature · Alerts",
+    signalLabel: "Smart Dorsal Sensor",
+    signalValue: "Movement · Gesture · Biometrics · Alerts",
     heroVisual: { icon: HeartPulse },
     specifications: [
-      { label: "Product", value: "KRADLE™" },
       { label: "Purpose", value: "Maternal and health monitoring" },
-      { label: "Core Signal", value: "Doppler fetal heartbeat" },
-      { label: "Biometrics", value: "Heart rate · SpO₂ · Temperature" },
-      { label: "Alerts", value: "Gestural emergency communication" },
-      { label: "Care Network", value: "Kradle Centres" },
+      { label: "Core Technology", value: "Smart Dorsal Sensor" },
+      { label: "Specialist Module", value: "Doppler sensor glove" },
+      { label: "Maternal Signals", value: "Heart rate · SpO₂ · Temperature" },
+      { label: "Pregnancy Insight", value: "Heartbeat · Movement context" },
+      { label: "Care Network", value: "Kradle Centres · Remote clinicians" },
       { label: "Connectivity", value: "Bluetooth / Wi-Fi" },
-      { label: "Support", value: "AI assistant · Telemedicine" },
+      { label: "Support", value: "AI guidance · Care alerts in development" },
     ],
     showcases: [
       {
-        icon: Baby,
-        kicker: "Maternal Monitoring",
-        title: "Care in the Hand.",
+        icon: HeartPulse,
+        kicker: "Left Hand · Shared Interface",
+        title: "Smart Interface Glove",
         description:
-          "KRADLE brings fetal heartbeat detection and maternal signals into one wearable system designed for more accessible monitoring.",
+          "The Smart Dorsal Sensor supports maternal biometrics, gestures, feedback, alerts, and connectivity while keeping important information close at hand.",
       },
       {
-        icon: Radio,
-        kicker: "Connected Intervention",
-        title: "Support When It Matters.",
+        icon: Baby,
+        kicker: "Right Hand · Specialist Module",
+        title: "Doppler Sensor Glove",
         description:
-          "Gestural alerts, telemedicine connectivity, and Kradle Centres help turn important changes into timely communication and care.",
+          "The specialist Doppler module is designed to support fetal heartbeat detection and add movement context to KRADLE's connected maternal care system.",
       },
     ],
     intelligence: {
@@ -201,9 +167,9 @@ export const productDetailConfigs = {
             "Monitor heart rate, blood oxygen, and body temperature together.",
         },
         {
-          title: "Emergency Gestures",
+          title: "Pregnancy Context",
           description:
-            "Turn intentional hand gestures into discreet requests for assistance.",
+            "Bring fetal movement context, reminders, and care alerts into one connected view.",
         },
         {
           title: "Connected Care",
@@ -236,41 +202,43 @@ export const productDetailConfigs = {
   },
   Kursor: {
     name: "Kursor",
+    accentColor: "kursor",
+    accentSource: "#0f52c9",
     mark: "KURSOR™",
-    eyebrow: "Human Interaction · KURSOR™",
+    eyebrow: "KURSOR™ · Human Interaction",
     title: "Natural",
     titleAccent: "Control",
     subtitle: "Your Hand Becomes the Interface.",
     introduction:
-      "The human-computer interaction expression of the TekGlove platform, translating natural hand movement, gestures, and commands into intuitive control.",
+      "The human-computer interaction expression of the TekGlove platform, combining the Smart Dorsal Sensor with a wearable mouse module for intuitive digital control.",
     shader: "intelligence",
-    signalLabel: "Gesture Control Interface",
-    signalValue: "Point · Select · Navigate · Command",
+    signalLabel: "Smart Dorsal Sensor",
+    signalValue: "Movement · Gesture · Position · Intent",
     heroVisual: { icon: MousePointer2 },
     specifications: [
-      { label: "Product", value: "KURSOR™" },
       { label: "Purpose", value: "Human-computer interaction" },
-      { label: "Input", value: "Gesture and cursor control" },
-      { label: "Typing", value: "Virtual keyboard" },
+      { label: "Core Technology", value: "Smart Dorsal Sensor" },
+      { label: "Specialist Module", value: "Wearable mouse" },
+      { label: "Input", value: "Cursor · Click · Scroll · Gesture" },
+      { label: "Precision", value: "Adjustable optical sensing concept" },
       { label: "Feedback", value: "Haptic response" },
-      { label: "Commands", value: "Gesture · Voice" },
       { label: "Connectivity", value: "PC · Tablet · Smart TV" },
-      { label: "Environments", value: "Desktop · AR · VR" },
+      { label: "Pairing", value: "Multiple connected devices" },
     ],
     showcases: [
       {
-        icon: MousePointer2,
-        kicker: "Gesture Control",
-        title: "Point Without a Mouse.",
+        icon: Hand,
+        kicker: "Left Hand · Shared Interface",
+        title: "Smart Interface Glove",
         description:
-          "KURSOR turns natural hand movement into cursor control, selection, presentation navigation, and connected display input.",
+          "The Smart Dorsal Sensor interprets movement, gesture, position, and intent while providing haptic feedback and connected device control.",
       },
       {
-        icon: Hand,
-        kicker: "Responsive Feedback",
-        title: "Control You Can Feel.",
+        icon: MousePointer2,
+        kicker: "Right Hand · Specialist Module",
+        title: "Wearable Mouse Glove",
         description:
-          "Haptic feedback, voice commands, and virtual input give each interaction useful confirmation without returning to a desk.",
+          "The specialist mouse module adds optical tracking, clicking, scrolling, precision control, and multi-device pairing for work, creation, and accessibility.",
       },
     ],
     intelligence: {
@@ -291,9 +259,9 @@ export const productDetailConfigs = {
             "Use familiar hand actions for selection, navigation, and control.",
         },
         {
-          title: "Virtual Input",
+          title: "Productivity Shortcuts",
           description:
-            "Access keyboard and presentation controls without conventional hardware.",
+            "Access presentation, CAD, design, and common workflow controls through mapped gestures.",
         },
         {
           title: "Haptic Response",

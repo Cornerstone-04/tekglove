@@ -103,7 +103,7 @@ export function Hero() {
               Get Early Access
             </ButtonLink>
             <ButtonLink href="/product" variant="secondary" icon={false}>
-              View Product
+              Explore Products
             </ButtonLink>
           </motion.div>
         </div>

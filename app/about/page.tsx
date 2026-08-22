@@ -1,6 +1,7 @@
 import { createPageMetadata } from "@/shared/seo/metadata";
+import { Metadata } from "next";
 
-export const metadata = createPageMetadata({
+export const metadata: Metadata = createPageMetadata({
   title: "About TekGlove and Why the Hand Matters",
   description:
     "Learn how TekGlove evolved from a compact sports sensor into a hand-data platform, and why the hand offers valuable movement, grip, gesture, and response data.",
