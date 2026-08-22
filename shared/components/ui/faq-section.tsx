@@ -40,13 +40,13 @@ export function FaqSection({
               name="tekglove-faq"
               className="group border-b border-white/12"
             >
-              <summary className="flex min-h-20 cursor-pointer list-none items-center justify-between gap-6 py-5 text-left font-heading text-lg font-semibold tracking-[-0.025em] text-white transition-colors ease-linear duration-200 marker:content-none hover:text-orange sm:text-xl [&::-webkit-details-marker]:hidden">
+              <summary className="flex min-h-20 cursor-pointer list-none items-center justify-between gap-6 py-5 text-left font-heading text-lg font-semibold tracking-[-0.025em] text-white transition-colors duration-200 ease-linear marker:content-none hover:text-orange sm:text-xl [&::-webkit-details-marker]:hidden">
                 <span>{item.question}</span>
-                <span className="grid size-9 shrink-0 place-items-center rounded-full border border-white/15 text-white transition-[border-color,color,transform] ease-linear duration-300 group-open:rotate-180 group-open:border-orange/50 group-open:text-orange group-hover:border-orange/40 group-hover:text-orange">
+                <span className="grid size-9 shrink-0 place-items-center rounded-full border border-white/15 text-white transition-[border-color,color,transform] duration-300 ease-linear group-open:rotate-180 group-open:border-orange/50 group-open:text-orange group-hover:border-orange/40 group-hover:text-orange">
                   <ChevronDown size={17} aria-hidden="true" />
                 </span>
               </summary>
-              <div className="grid grid-rows-[0fr] transition-[grid-template-rows] ease-linear duration-300 group-open:grid-rows-[1fr] motion-reduce:transition-none">
+              <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-linear group-open:grid-rows-[1fr] motion-reduce:transition-none">
                 <div className="overflow-hidden">
                   <p className="copy-secondary max-w-[68ch] pr-12 pb-7 text-sm leading-[1.85] sm:text-base">
                     {item.answer}
