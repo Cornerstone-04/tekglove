@@ -20,7 +20,7 @@ export default function Footer() {
   return (
     <footer
       id="site-footer"
-      className="footer-grid relative z-0 scroll-mt-16 overflow-hidden border-t border-white/8 bg-surface text-primary lg:sticky lg:bottom-0 lg:min-h-[78svh]"
+      className="relative z-0 scroll-mt-16 overflow-hidden border-t border-white/8 bg-surface text-primary lg:sticky lg:bottom-0 lg:min-h-[78svh]"
     >
       <div
         aria-hidden="true"
