@@ -1,21 +1,9 @@
+import { escapeHtml } from "../utils/escape-html";
+
 type WaitlistConfirmationEmailOptions = {
   confirmationUrl: string;
   firstName: string;
 };
-
-function escapeHtml(value: string) {
-  return value.replace(
-    /[&<>'"]/g,
-    (character) =>
-      ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        "'": "&#39;",
-        '"': "&quot;",
-      })[character] ?? character,
-  );
-}
 
 export function createWaitlistConfirmationEmail({
   confirmationUrl,
@@ -45,7 +33,7 @@ export function createWaitlistConfirmationEmail({
                       <p style="margin:0 0 14px;color:#d4d4d4;font-size:16px;line-height:1.6;">Hi ${safeFirstName},</p>
                       <p style="margin:0 0 28px;color:#a3a3a3;font-size:16px;line-height:1.6;">Confirm your email to join the TekGlove waitlist and receive product updates and early access invitations.</p>
                       <a href="${safeConfirmationUrl}" style="display:inline-block;border-radius:999px;background:#f97316;color:#111111;font-size:15px;font-weight:700;text-decoration:none;padding:14px 22px;">Confirm my email</a>
-                      <p style="margin:28px 0 0;color:#737373;font-size:13px;line-height:1.6;">This link expires in 24 hours. If you did not request this, you can ignore this email.</p>
+                      <p style="margin:28px 0 0;color:#8a8a8a;font-size:13px;line-height:1.6;">This link expires in 24 hours. If you did not request this, you can ignore this email.</p>
                     </td>
                   </tr>
                 </table>

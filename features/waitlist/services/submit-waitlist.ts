@@ -70,5 +70,37 @@ export async function submitWaitlistEntry(input: unknown) {
   return {
     entryId: entry.id,
     confirmationToken: confirmation.token,
+    email: submission.email,
+    firstName: submission.firstName,
   };
+}
+
+export async function markWaitlistConfirmationSent(entryId: string) {
+  const supabase = createSupabaseServerClient();
+  const { error } = await supabase
+    .from("waitlist_entries")
+    .update({ confirmation_sent_at: new Date().toISOString() })
+    .eq("id", entryId);
+
+  if (error) {
+    throw new WaitlistSubmissionError(
+      "We could not record the confirmation email.",
+      "persistence_failed",
+    );
+  }
+}
+
+export async function deleteWaitlistEntry(entryId: string) {
+  const supabase = createSupabaseServerClient();
+  const { error } = await supabase
+    .from("waitlist_entries")
+    .delete()
+    .eq("id", entryId);
+
+  if (error) {
+    throw new WaitlistSubmissionError(
+      "We could not clean up the waitlist request.",
+      "persistence_failed",
+    );
+  }
 }

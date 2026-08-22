@@ -192,7 +192,7 @@ export function WaitlistForm({ onCompleteAction }: WaitlistFormProps) {
             key="context"
             {...motionState}
             transition={transition}
-            onSubmit={form.finishPreview}
+            onSubmit={form.submitWaitlist}
             className="space-y-7"
           >
             <div>
@@ -257,12 +257,15 @@ export function WaitlistForm({ onCompleteAction }: WaitlistFormProps) {
               />
             </label>
 
-            <div className="rounded-xl border border-orange/15 bg-orange/5 p-4">
-              <p className="text-xs leading-relaxed text-white/50">
-                Design preview: submissions are not stored yet. Supabase will be
-                connected after this experience is approved.
+            {form.submissionError ? (
+              <p
+                role="alert"
+                aria-live="polite"
+                className="rounded-xl border border-red-400/25 bg-red-400/8 p-4 text-sm leading-relaxed text-red-100"
+              >
+                {form.submissionError}
               </p>
-            </div>
+            ) : null}
 
             <div className="flex flex-col-reverse justify-between gap-3 sm:flex-row">
               <Button
@@ -270,22 +273,14 @@ export function WaitlistForm({ onCompleteAction }: WaitlistFormProps) {
                 variant="secondary"
                 arrow="left"
                 icon={<BsArrowLeft />}
+                disabled={form.isSubmitting}
                 onClick={() => form.goToStep(2)}
               >
                 Back
               </Button>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <Button
-                  type="button"
-                  variant="secondary"
-                  arrow="none"
-                  icon={false}
-                  onClick={onCompleteAction}
-                >
-                  Skip for now
-                </Button>
-                <Button type="submit">Finish preview</Button>
-              </div>
+              <Button type="submit" disabled={form.isSubmitting}>
+                {form.isSubmitting ? "Joining..." : "Join the waitlist"}
+              </Button>
             </div>
           </motion.form>
         )}

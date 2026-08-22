@@ -1,5 +1,7 @@
 import { type FormEvent, useState } from "react";
 import type { ProductAccent } from "@/content/products";
+import { submitWaitlistAction } from "../actions/submit-waitlist";
+import { waitlistRoleValues } from "../data/waitlist-form-options";
 
 type WaitlistStep = 1 | 2 | 3;
 
@@ -14,6 +16,8 @@ export function useWaitlistForm(onComplete: () => void) {
   const [showProductError, setShowProductError] = useState(false);
   const [role, setRole] = useState("");
   const [country, setCountry] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
 
   const goToStep = (nextStep: WaitlistStep) => {
     setDirection(nextStep > step ? 1 : -1);
@@ -35,9 +39,32 @@ export function useWaitlistForm(onComplete: () => void) {
     goToStep(3);
   };
 
-  const finishPreview = (event: FormEvent<HTMLFormElement>) => {
+  const submitWaitlist = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onComplete();
+    setIsSubmitting(true);
+    setSubmissionError("");
+
+    const formData = new FormData(event.currentTarget);
+    const result = await submitWaitlistAction({
+      firstName,
+      lastName,
+      email,
+      marketingConsent: consent,
+      productInterests: selectedProducts,
+      intendedUse: role ? waitlistRoleValues[role] : undefined,
+      countryCode: country || undefined,
+      organisationName: formData.get("organisation") || undefined,
+      useCase: formData.get("useCase") || undefined,
+    });
+
+    setIsSubmitting(false);
+
+    if (result.status === "success") {
+      onComplete();
+      return;
+    }
+
+    setSubmissionError(result.message);
   };
 
   const updateProductInterests = (products: ProductAccent[]) => {
@@ -52,9 +79,9 @@ export function useWaitlistForm(onComplete: () => void) {
     country,
     direction,
     email,
-    finishPreview,
     firstName,
     goToStep,
+    isSubmitting,
     lastName,
     role,
     selectedProducts,
@@ -66,6 +93,8 @@ export function useWaitlistForm(onComplete: () => void) {
     setRole,
     showProductError,
     step,
+    submissionError,
+    submitWaitlist,
     updateProductInterests,
   };
 }

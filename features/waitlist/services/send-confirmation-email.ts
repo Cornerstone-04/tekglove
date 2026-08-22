@@ -1,5 +1,4 @@
 import "server-only";
-import { site } from "@/content/site";
 import { serverEnv } from "@/shared/config/server-env";
 import { resend } from "@/shared/lib/resend/server";
 import { createWaitlistConfirmationEmail } from "../emails/waitlist-confirmation";
@@ -22,7 +21,7 @@ export async function sendWaitlistConfirmationEmail({
   email,
   firstName,
 }: SendConfirmationEmailOptions) {
-  const confirmationUrl = new URL("/waitlist/confirm", site.url);
+  const confirmationUrl = new URL("/waitlist/confirm", serverEnv.siteUrl);
   confirmationUrl.searchParams.set("token", confirmationToken);
 
   const message = createWaitlistConfirmationEmail({
